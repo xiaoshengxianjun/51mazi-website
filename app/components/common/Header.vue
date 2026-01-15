@@ -1,10 +1,15 @@
 <template>
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 transition-all duration-300 shadow-sm">
     <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <!-- Logo -->
-        <NuxtLink to="/" class="flex items-center space-x-2">
-          <span class="text-2xl font-bold text-primary-600">51mazi</span>
+        <!-- Logo - 添加动画 -->
+        <NuxtLink
+          to="/"
+          class="flex items-center space-x-2 group transition-smooth"
+        >
+          <span class="text-2xl font-bold text-primary-600 group-hover:text-primary-700 transition-colors duration-300 transform group-hover:scale-105">
+            51mazi
+          </span>
         </NuxtLink>
 
         <!-- 导航菜单（桌面端） -->
@@ -13,10 +18,13 @@
             v-for="item in navItems"
             :key="item.path"
             :to="item.path"
-            class="text-gray-700 hover:text-primary-600 transition-colors duration-200"
+            class="relative text-gray-700 hover:text-primary-600 transition-smooth group"
             active-class="text-primary-600 font-semibold"
           >
             {{ item.label }}
+            <!-- 下划线动画 -->
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 group-hover:w-full transition-all duration-300"></span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" v-if="$route.path === item.path"></span>
           </NuxtLink>
         </div>
 
@@ -24,19 +32,21 @@
         <div class="flex items-center space-x-4">
           <NuxtLink
             to="/download"
-            class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200 font-medium"
+            class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-smooth font-medium hover-lift relative overflow-hidden group"
           >
-            立即下载
+            <span class="relative z-10">立即下载</span>
+            <span class="absolute inset-0 bg-primary-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </NuxtLink>
 
           <!-- 移动端菜单按钮 -->
           <button
             @click="mobileMenuOpen = !mobileMenuOpen"
-            class="md:hidden p-2 text-gray-700 hover:text-primary-600"
+            class="md:hidden p-2 text-gray-700 hover:text-primary-600 transition-smooth rounded-lg hover:bg-gray-100"
             aria-label="切换菜单"
           >
             <svg
-              class="w-6 h-6"
+              class="w-6 h-6 transition-transform duration-300"
+              :class="{ 'rotate-90': mobileMenuOpen }"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -60,27 +70,38 @@
         </div>
       </div>
 
-      <!-- 移动端菜单 -->
-      <div
-        v-show="mobileMenuOpen"
-        class="md:hidden py-4 border-t border-gray-200"
+      <!-- 移动端菜单 - 添加动画 -->
+      <Transition
+        enter-active-class="transition-all duration-300 ease-out"
+        enter-from-class="opacity-0 max-h-0"
+        enter-to-class="opacity-100 max-h-96"
+        leave-active-class="transition-all duration-300 ease-in"
+        leave-from-class="opacity-100 max-h-96"
+        leave-to-class="opacity-0 max-h-0"
       >
-        <NuxtLink
-          v-for="item in navItems"
-          :key="item.path"
-          :to="item.path"
-          class="block px-4 py-2 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors duration-200"
-          active-class="text-primary-600 font-semibold bg-primary-50"
-          @click="mobileMenuOpen = false"
+        <div
+          v-show="mobileMenuOpen"
+          class="md:hidden py-4 border-t border-gray-200 overflow-hidden"
         >
-          {{ item.label }}
-        </NuxtLink>
-      </div>
+          <NuxtLink
+            v-for="(item, index) in navItems"
+            :key="item.path"
+            :to="item.path"
+            class="block px-4 py-2 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-smooth"
+            :class="`animate-fade-in animate-slide-left animate-delay-${(index + 1) * 100}`"
+            active-class="text-primary-600 font-semibold bg-primary-50"
+            @click="mobileMenuOpen = false"
+          >
+            {{ item.label }}
+          </NuxtLink>
+        </div>
+      </Transition>
     </nav>
   </header>
 </template>
 
 <script setup lang="ts">
+const route = useRoute()
 const mobileMenuOpen = ref(false)
 
 const navItems = [

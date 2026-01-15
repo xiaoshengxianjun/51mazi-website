@@ -45,6 +45,11 @@ export default defineNuxtConfig({
 
   // 应用配置
   app: {
+    // 页面过渡配置（Nuxt 4 推荐方式）
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in'
+    },
     head: {
       titleTemplate: "%s | 51mazi",
       htmlAttrs: {

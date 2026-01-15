@@ -2,29 +2,45 @@
   <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 animate-fade-in animate-slide-down">
           核心功能亮点
         </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in animate-slide-up animate-delay-200">
           强大的功能集合，满足小说创作的各种需求
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <CommonFeatureCard
-          v-for="feature in features"
+        <div
+          v-for="(feature, index) in features"
           :key="feature.id"
-          :title="feature.title"
-          :description="feature.description"
-          :icon="feature.icon"
-          :link="feature.link"
-        />
+          :ref="el => setCardRef(el, index)"
+          class="opacity-0"
+        >
+          <CommonFeatureCard
+            :title="feature.title"
+            :description="feature.description"
+            :icon="feature.icon"
+            :link="feature.link"
+            :style="{ animationDelay: `${index * 0.1}s` }"
+          />
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+const { observeElement } = useScrollAnimation()
+const cardRefs = ref<(Element | null)[]>([])
+
+const setCardRef = (el: Element | null, index: number) => {
+  if (el) {
+    cardRefs.value[index] = el
+    observeElement(el)
+  }
+}
+
 const features = [
   {
     id: 1,
