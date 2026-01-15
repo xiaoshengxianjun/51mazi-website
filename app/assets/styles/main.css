@@ -87,6 +87,24 @@
     animation: float 3s ease-in-out infinite;
   }
 
+  .animate-blink {
+    animation: blink 1s infinite;
+  }
+
+  .animate-gradient {
+    animation: gradient 3s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+
+  /* 3D 透视 */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
   /* 延迟动画 */
   .animate-delay-100 {
     animation-delay: 0.1s;
@@ -231,4 +249,52 @@
   50% {
     transform: translateY(-20px);
   }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* 网格背景动画 */
+@keyframes grid {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+.animated-grid {
+  background-image: 
+    linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid 20s linear infinite;
 }
