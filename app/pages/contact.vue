@@ -27,9 +27,9 @@
                     </div>
                   </div>
                   <div>
-                    <p class="text-gray-700 mb-2">群号: 123456789</p>
+                    <p class="text-gray-700 mb-2 font-semibold">群号: <span class="text-primary-600">777690109</span></p>
                     <p class="text-sm text-gray-600">
-                      加入 QQ 群，与其他创作者交流使用经验，获取最新更新信息。
+                      加入 QQ 群，与其他创作者交流使用经验，获取最新更新信息，反馈问题或建议。
                     </p>
                   </div>
                 </div>
@@ -39,13 +39,13 @@
               <div class="bg-white rounded-lg p-6 border border-gray-200">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">邮箱</h3>
                 <a
-                  href="mailto:support@51mazi.com"
-                  class="text-primary-600 hover:text-primary-700 font-medium"
+                  href="mailto:fomazi@163.com"
+                  class="text-primary-600 hover:text-primary-700 font-medium text-lg"
                 >
-                  support@51mazi.com
+                  fomazi@163.com
                 </a>
                 <p class="text-sm text-gray-600 mt-2">
-                  发送邮件反馈问题、建议或报告 Bug
+                  发送邮件反馈问题、建议、报告 Bug 或商务合作
                 </p>
               </div>
 
@@ -53,7 +53,7 @@
               <div class="bg-white rounded-lg p-6 border border-gray-200">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">GitHub Issues</h3>
                 <a
-                  href="https://github.com/your-username/51mazi/issues"
+                  href="https://github.com/xiaoshengxianjun/51mazi/issues"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium"
@@ -64,7 +64,7 @@
                   提交 Issue
                 </a>
                 <p class="text-sm text-gray-600 mt-2">
-                  在 GitHub 上提交 Bug 报告或功能建议
+                  在 GitHub 上提交 Bug 报告或功能建议，参与项目开发
                 </p>
               </div>
             </div>
@@ -78,9 +78,9 @@
                 您可以通过以下方式联系我们：
               </p>
               <ul class="space-y-2 text-gray-700 mb-6">
-                <li>• 发送邮件至 support@51mazi.com</li>
-                <li>• 在 GitHub Issues 提交问题</li>
-                <li>• 加入 QQ 群进行交流</li>
+                <li>• 发送邮件至 <a href="mailto:fomazi@163.com" class="text-primary-600 hover:text-primary-700">fomazi@163.com</a></li>
+                <li>• 在 <a href="https://github.com/xiaoshengxianjun/51mazi/issues" target="_blank" class="text-primary-600 hover:text-primary-700">GitHub Issues</a> 提交问题</li>
+                <li>• 加入 QQ 群（777690109）进行交流</li>
               </ul>
               <p class="text-sm text-gray-500">
                 我们会在收到反馈后尽快回复您。
@@ -92,7 +92,7 @@
               <h3 class="text-lg font-semibold text-gray-900 mb-4">社区链接</h3>
               <div class="space-y-3">
                 <a
-                  href="https://github.com/your-username/51mazi"
+                  href="https://github.com/xiaoshengxianjun/51mazi"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"

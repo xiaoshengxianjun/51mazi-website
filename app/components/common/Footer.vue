@@ -1,12 +1,12 @@
 <template>
-  <footer class="bg-gray-900 text-gray-300">
+  <footer class="bg-black/80 backdrop-blur-xl text-gray-300 border-t border-white/10">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <!-- 关于 -->
         <div class="animate-fade-in animate-slide-up">
           <h3 class="text-white text-lg font-semibold mb-4">关于 51mazi</h3>
           <p class="text-sm leading-relaxed">
-            专为小说创作者设计的专业写作工具，提供编辑器、地图设计、关系图谱等强大功能。
+            基于 Electron + Vue 3 开发的桌面小说写作软件，提供专业编辑器、地图设计、关系图谱、事序图、组织架构、词条字典等完整创作工具集。
           </p>
         </div>
 
@@ -108,7 +108,7 @@
       </div>
 
       <!-- 版权信息 -->
-      <div class="mt-8 pt-8 border-t border-gray-800 text-center text-sm animate-fade-in animate-delay-500">
+      <div class="mt-8 pt-8 border-t border-white/10 text-center text-sm animate-fade-in animate-delay-500">
         <p class="mb-2">
           © {{ currentYear }} 51mazi. All rights reserved.
         </p>
@@ -133,12 +133,13 @@ const quickLinks = [
 const resources = [
   { label: '关于我们', path: '/about', external: false },
   { label: '联系我们', path: '/contact', external: false },
-  { label: 'GitHub', href: 'https://github.com/your-username/51mazi', external: true },
-  { label: '更新日志', href: 'https://github.com/your-username/51mazi/releases', external: true }
+  { label: 'GitHub 仓库', href: 'https://github.com/xiaoshengxianjun/51mazi', external: true },
+  { label: '更新日志', href: 'https://github.com/xiaoshengxianjun/51mazi/releases', external: true }
 ]
 
 const contacts = [
-  { label: '邮箱: support@51mazi.com', href: 'mailto:support@51mazi.com', external: false },
-  { label: 'GitHub Issues', href: 'https://github.com/your-username/51mazi/issues', external: true }
+  { label: '邮箱: fomazi@163.com', href: 'mailto:fomazi@163.com', external: false },
+  { label: 'QQ 群: 777690109', href: 'https://qm.qq.com/q/777690109', external: true },
+  { label: 'GitHub Issues', href: 'https://github.com/xiaoshengxianjun/51mazi/issues', external: true }
 ]
 </script>

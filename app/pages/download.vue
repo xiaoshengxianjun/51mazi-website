@@ -15,8 +15,8 @@
       <div class="max-w-2xl mx-auto mb-12 text-center">
         <div class="bg-primary-50 border border-primary-200 rounded-lg p-6">
           <p class="text-sm text-primary-700 mb-2">当前版本</p>
-          <p class="text-3xl font-bold text-primary-900 mb-2">v1.0.0</p>
-          <p class="text-sm text-gray-600">更新日期: 2025-01-XX</p>
+          <p class="text-3xl font-bold text-primary-900 mb-2">v0.1.2</p>
+          <p class="text-sm text-gray-600">持续更新中，欢迎关注 GitHub 获取最新版本</p>
           <NuxtLink
             to="/blog"
             class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium"
@@ -38,7 +38,7 @@
           <h3 class="text-2xl font-bold text-gray-900 mb-2">Windows</h3>
           <p class="text-gray-600 mb-4">支持 Windows 10 及以上版本</p>
           <a
-            href="https://github.com/your-username/51mazi/releases/latest/download/51mazi-Setup.exe"
+            href="https://github.com/xiaoshengxianjun/51mazi/releases/latest/download/51mazi-Setup.exe"
             class="block w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold mb-2"
           >
             下载 .exe
@@ -56,7 +56,7 @@
           <h3 class="text-2xl font-bold text-gray-900 mb-2">macOS</h3>
           <p class="text-gray-600 mb-4">支持 macOS 10.15 及以上版本</p>
           <a
-            href="https://github.com/your-username/51mazi/releases/latest/download/51mazi.dmg"
+            href="https://github.com/xiaoshengxianjun/51mazi/releases/latest/download/51mazi.dmg"
             class="block w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold mb-2"
           >
             下载 .dmg
@@ -74,7 +74,7 @@
           <h3 class="text-2xl font-bold text-gray-900 mb-2">Linux</h3>
           <p class="text-gray-600 mb-4">支持主流 Linux 发行版</p>
           <a
-            href="https://github.com/your-username/51mazi/releases/latest/download/51mazi.AppImage"
+            href="https://github.com/xiaoshengxianjun/51mazi/releases/latest/download/51mazi.AppImage"
             class="block w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold mb-2"
           >
             下载 .AppImage
@@ -155,7 +155,7 @@
         <h2 class="text-2xl font-bold text-gray-900 mb-4">其他下载方式</h2>
         <div class="space-y-4">
           <a
-            href="https://github.com/your-username/51mazi/releases"
+            href="https://github.com/xiaoshengxianjun/51mazi/releases"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"

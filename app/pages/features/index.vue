@@ -57,55 +57,55 @@ const features = [
     slug: 'editor',
     title: '专业编辑器',
     icon: '✍️',
-    description: '强大的富文本编辑器，支持 Markdown、代码高亮、笔记等功能，让创作更流畅。'
+    description: '基于 TipTap 的专业富文本编辑器，支持人物高亮、禁词提示、段落拖拽等智能功能，实时字数统计和码字速度计算。'
   },
   {
     slug: 'map',
     title: '地图设计',
     icon: '🗺️',
-    description: '可视化地图设计工具，轻松创建小说世界的地图和场景，支持多种绘图工具。'
+    description: '专业级 Canvas 绘图引擎，支持画笔、形状、文字、油漆桶、资源工具等多种工具，内置资源图标库，完整的历史记录和撤销/重做功能。'
   },
   {
     slug: 'relation',
     title: '关系图谱',
     icon: '🕸️',
-    description: '清晰展示人物关系，管理复杂的人物网络和剧情线索，让角色关系一目了然。'
+    description: '基于 relation-graph-vue3 的可视化关系图谱，支持头像设置和动态字体，清晰展示人物关系网络和剧情线索。'
   },
   {
     slug: 'character',
     title: '人物档案',
     icon: '👤',
-    description: '完善的人物档案系统，记录角色的详细信息，包括外貌、性格、背景等。'
+    description: '完善的人物档案系统，记录角色的详细信息，包括外貌、性格、背景等，支持关联词条字典中的标签。'
   },
   {
     slug: 'timeline',
     title: '时间线管理',
     icon: '📅',
-    description: '时间线管理工具，帮助梳理故事的时间顺序，避免时间线混乱。'
+    description: '时间线管理工具，帮助梳理故事的时间顺序，避免时间线混乱，确保故事发展脉络清晰。'
   },
   {
     slug: 'events',
     title: '事序图管理',
     icon: '📊',
-    description: '事序图管理功能，清晰展示事件发生的顺序和关联关系。'
+    description: '时间轴可视化管理工具，支持拖拽调整事件时间位置，进度跟踪（0-100%），直观展示事件发生的顺序和关联关系。'
   },
   {
     slug: 'organization',
     title: '组织架构',
     icon: '🏛️',
-    description: '组织架构设计工具，管理小说中的各种组织和机构关系。'
+    description: '可视化组织架构管理，支持多层级结构，清晰展示组织结构和层级关系，帮助管理小说中的各种组织和机构。'
   },
   {
     slug: 'dictionary',
     title: '词条字典',
     icon: '📖',
-    description: '自定义词条字典，记录小说中的专有名词、术语和设定。'
+    description: '树形结构词条字典，支持多层级分类和拖拽排序，统一管理小说中的专有名词、术语和设定，确保术语使用的一致性。'
   },
   {
     slug: 'random-name',
     title: '随机名字生成器',
     icon: '🎲',
-    description: '智能随机名字生成器，快速生成符合设定的人物名字。'
+    description: '智能随机名字生成器，快速生成符合设定的人物名字，为角色起名提供灵感，节省创作时间。'
   }
 ]
 

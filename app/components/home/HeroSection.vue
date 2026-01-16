@@ -1,10 +1,5 @@
 <template>
-  <section class="relative bg-black text-white overflow-hidden min-h-screen flex items-center">
-    <!-- 银河背景 -->
-    <div class="absolute inset-0 overflow-hidden w-full h-full">
-      <CommonGalaxy />
-    </div>
-
+  <section class="relative text-white overflow-hidden min-h-screen flex items-center">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative z-10">
       <div class="max-w-4xl mx-auto text-center">
         <!-- 主标题 - 打字机效果 -->
@@ -21,7 +16,7 @@
 
         <!-- 副标题 - 模糊揭示效果 -->
         <p class="text-xl sm:text-2xl text-primary-100 mb-8 leading-relaxed transition-all duration-1000" :class="subtitleVisible ? 'opacity-100 blur-0' : 'opacity-0 blur-md'">
-          编辑器、地图设计、关系图谱、人物档案... 一切创作所需，尽在 51mazi
+          专业编辑器、地图设计、关系图谱、事序图、组织架构、词条字典... 一切创作所需，尽在 51mazi
         </p>
 
         <!-- CTA 按钮 - 添加动画 -->
