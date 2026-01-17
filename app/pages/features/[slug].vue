@@ -35,11 +35,14 @@
           </p>
         </div>
 
-        <!-- 功能截图占位 -->
-        <div class="mb-12 rounded-lg overflow-hidden shadow-xl border border-gray-200">
-          <div class="bg-gray-800 aspect-video flex items-center justify-center">
-            <p class="text-gray-400">功能截图占位</p>
-          </div>
+        <!-- 功能截图 -->
+        <div class="mb-12 rounded-lg overflow-hidden shadow-xl border border-gray-200" v-if="feature.image">
+          <img
+            :src="feature.image"
+            :alt="`${feature.title} - 51mazi`"
+            class="w-full h-auto"
+            loading="lazy"
+          />
         </div>
 
         <!-- 核心特性 -->
@@ -124,6 +127,7 @@ const featuresData: Record<string, any> = {
     slug: 'editor',
     title: '专业编辑器',
     icon: '✍️',
+    image: '/images/editor.png',
     description: '基于 TipTap 的专业富文本编辑器，提供流畅的写作体验和强大的编辑功能',
     features: [
       '基于 TipTap 3.7.0 的专业富文本编辑器',
@@ -144,6 +148,7 @@ const featuresData: Record<string, any> = {
     slug: 'map',
     title: '地图设计',
     icon: '🗺️',
+    image: '/images/maps.png',
     description: '专业级 Canvas 绘图引擎，提供完整的地图绘制能力和资源管理',
     features: [
       '画笔工具 (P)：自由手绘，支持自定义大小和透明度，流畅的绘制体验',
@@ -165,6 +170,7 @@ const featuresData: Record<string, any> = {
     slug: 'relation',
     title: '关系图谱',
     icon: '🕸️',
+    image: '/images/relation.png',
     description: '基于 relation-graph-vue3 的可视化关系图谱，清晰展示人物关系网络',
     features: [
       '可视化组件：基于 relation-graph-vue3 的可视化展示',
@@ -182,6 +188,7 @@ const featuresData: Record<string, any> = {
     slug: 'character',
     title: '人物档案',
     icon: '👤',
+    image: '/images/character-profile.png',
     description: '完善的人物档案系统，记录角色的详细信息',
     features: [
       '基本信息（姓名、年龄、性别等）',
@@ -197,6 +204,7 @@ const featuresData: Record<string, any> = {
     slug: 'timeline',
     title: '时间线管理',
     icon: '📅',
+    image: '/images/timeline.png',
     description: '时间线管理工具，帮助梳理故事的时间顺序',
     features: [
       '时间轴视图',
@@ -211,6 +219,7 @@ const featuresData: Record<string, any> = {
     slug: 'events',
     title: '事序图管理',
     icon: '📊',
+    image: '/images/events-sequence.png',
     description: '时间轴可视化管理工具，直观展示事件时间轴和进度',
     features: [
       '时间轴可视化：基于时间单元格的可视化事件展示',
@@ -229,6 +238,7 @@ const featuresData: Record<string, any> = {
     slug: 'organization',
     title: '组织架构',
     icon: '🏛️',
+    image: '/images/organization.png',
     description: '可视化组织架构管理，清晰展示组织结构和层级关系',
     features: [
       '层级结构：支持多层级组织架构，清晰展示上下级关系',
@@ -260,6 +270,7 @@ const featuresData: Record<string, any> = {
     slug: 'random-name',
     title: '随机名字生成器',
     icon: '🎲',
+    image: '/images/random-name.png',
     description: '智能随机名字生成器，快速生成符合设定的人物名字',
     features: [
       '多种名字风格',

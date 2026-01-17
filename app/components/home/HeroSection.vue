@@ -37,17 +37,20 @@
           </NuxtLink>
         </div>
 
-        <!-- 软件截图占位 - 添加动画 -->
+        <!-- 软件截图 - 添加动画 -->
         <div
           class="mt-16 rounded-lg overflow-hidden shadow-2xl border-4 border-white/20 hover-lift transition-all duration-500"
           :class="subtitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
           style="transition-delay: 0.8s"
         >
-          <div class="bg-gray-800 aspect-video flex items-center justify-center relative group">
-            <!-- 网格背景 -->
-            <div class="absolute inset-0 animated-grid opacity-20"></div>
-            <div class="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <p class="text-gray-400 relative z-10 text-lg">软件截图占位</p>
+          <div class="relative group">
+            <img
+              src="/images/home.png"
+              alt="51mazi 软件首页界面 - 简洁美观的书架管理界面"
+              class="w-full h-auto rounded-lg"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
           </div>
         </div>
       </div>

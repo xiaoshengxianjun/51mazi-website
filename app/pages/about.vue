@@ -15,6 +15,17 @@
         <!-- 项目介绍 -->
         <div class="mb-16">
           <h2 class="text-3xl font-bold text-gray-900 mb-6">项目介绍</h2>
+          
+          <!-- 软件首页截图 -->
+          <div class="mb-8 rounded-lg overflow-hidden shadow-xl border border-gray-200">
+            <img
+              src="/images/home.png"
+              alt="51mazi 软件首页界面 - 简洁美观的书架管理界面"
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+          
           <div class="prose prose-lg max-w-none">
             <p class="text-gray-700 leading-relaxed mb-4">
               <strong>51mazi</strong> 是一款基于 <strong>Electron + Vue 3</strong> 技术栈开发的桌面小说写作软件，专为小说创作者设计。它不仅提供了专业的写作环境，还集成了地图设计、关系图谱、人物档案等创作辅助工具，让小说创作变得更加高效和有趣。
