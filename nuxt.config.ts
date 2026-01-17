@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   // 设置为当前日期，启用所有已发布的新功能
   compatibilityDate: "2026-01-15",
   
-  // 开发工具
+  // 开发工具（生产环境自动禁用）
   devtools: { enabled: true },
 
   // 模块配置
@@ -31,7 +31,8 @@ export default defineNuxtConfig({
 
   // 站点配置（用于 SEO 模块）
   site: {
-    url: "https://51mazi.com", // 替换为实际域名
+    // 部署到 Vercel 后会自动设置，或手动替换为实际域名
+    url: process.env.NUXT_PUBLIC_SITE_URL || "https://51mazi.com",
     name: "51mazi",
     description: "专为小说创作者设计的专业写作工具",
     defaultLocale: "zh-CN"

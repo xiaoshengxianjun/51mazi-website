@@ -75,7 +75,39 @@ pnpm preview
 
 ## 部署
 
-### 静态站点生成 (SSG)
+### Vercel 部署（推荐）
+
+项目已配置好 Vercel 部署，有两种方式：
+
+#### 方式一：通过 Vercel Dashboard（最简单）
+
+1. 访问 [Vercel Dashboard](https://vercel.com/dashboard)
+2. 点击 "Add New Project"
+3. 选择 GitHub 仓库 `51mazi-website`
+4. Vercel 会自动检测 Nuxt 4 并配置
+5. 点击 "Deploy" 即可
+
+#### 方式二：通过 Vercel CLI
+
+```bash
+# 安装 Vercel CLI
+pnpm add -g vercel
+
+# 登录
+vercel login
+
+# 部署
+vercel
+
+# 生产环境部署
+vercel --prod
+```
+
+详细部署指南请查看 [DEPLOY.md](./DEPLOY.md)
+
+### 其他部署方式
+
+#### 静态站点生成 (SSG)
 
 ```bash
 pnpm generate
@@ -83,17 +115,10 @@ pnpm generate
 
 生成的静态文件在 `.output/public` 目录，可以部署到：
 - GitHub Pages
-- Vercel
 - Netlify
 - 自建服务器（Nginx）
 
-### Vercel 部署
-
-1. 将代码推送到 GitHub
-2. 在 Vercel 中导入项目
-3. Vercel 会自动检测 Nuxt 并配置部署
-
-### Netlify 部署
+#### Netlify 部署
 
 1. 将代码推送到 GitHub
 2. 在 Netlify 中导入项目

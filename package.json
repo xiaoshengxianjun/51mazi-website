@@ -2,6 +2,10 @@
   "name": "51mazi-website",
   "type": "module",
   "private": true,
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
