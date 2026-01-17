@@ -82,12 +82,26 @@ pnpm run preview
 
 ## 🌐 自定义域名
 
-部署成功后，可以在 Vercel Dashboard 中：
+详细的自定义域名配置指南请查看 [DOMAIN_SETUP.md](./DOMAIN_SETUP.md)
 
-1. 进入项目设置
-2. 选择 "Domains"
-3. 添加你的自定义域名（如 `51mazi.com`）
-4. 按照提示配置 DNS 记录
+### 快速步骤
+
+1. **在 Vercel Dashboard 中添加域名**
+   - 进入项目 Settings > Domains
+   - 点击 "Add Domain"
+   - 输入你的域名（如 `51mazi.com`）
+
+2. **配置 DNS 记录**
+   - 根据 Vercel 的提示，在域名提供商处配置 DNS
+   - 通常使用 CNAME 记录指向 Vercel 提供的值
+
+3. **等待 DNS 生效**
+   - DNS 传播通常需要几分钟到几小时
+   - Vercel 会自动配置 SSL 证书
+
+4. **更新环境变量**
+   - 在 Vercel 项目设置中添加：`NUXT_PUBLIC_SITE_URL` = `https://51mazi.com`
+   - 重新部署项目
 
 ## ⚙️ 环境变量配置
 
