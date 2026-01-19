@@ -1,8 +1,34 @@
 # 51mazi 宣传网站
 
-这是 51mazi 的官方宣传网站，使用 Nuxt 4 + Tailwind CSS 4 构建。
+这是 **51mazi** 的官方宣传网站，使用 Nuxt 4 + Tailwind CSS 4 构建。
 
-## 技术栈
+## 📖 关于 51mazi
+
+**51mazi** 是一款基于 **Electron + Vue 3** 技术栈开发的桌面小说写作软件，专为小说创作者设计。它不仅提供了专业的写作环境，还集成了地图设计、关系图谱、人物档案等创作辅助工具，让小说创作变得更加高效和有趣。
+
+### 核心特性
+
+- ✅ **完全本地化存储**：所有数据都存储在本地，保护用户隐私，无需担心数据泄露
+- ✅ **双重密码保护**：支持书架密码和书籍密码双重保护，确保创作内容安全
+- ✅ **跨平台支持**：基于 Electron 框架，支持 Windows、macOS、Linux 等多个平台
+- ✅ **专业写作体验**：基于 TipTap 的专业富文本编辑器，支持人物高亮、禁词提示、段落拖拽等智能功能
+- ✅ **创作辅助工具**：专业地图设计、关系图谱、事序图、组织架构、词条字典等完整工具集
+
+### 主要功能
+
+- 📝 **专业编辑器**：基于 TipTap 的富文本编辑器，支持人物高亮、禁词提示等智能功能
+- 🗺️ **地图设计**：专业级地图绘制工具，支持手绘、图层管理等
+- 🔗 **关系图谱**：可视化人物关系网络，清晰展示角色间的复杂关系
+- 📅 **事序图**：时间线管理工具，帮助整理故事的时间顺序
+- 🏢 **组织架构**：管理小说中的组织、门派等机构结构
+- 📚 **词条字典**：自定义词条和术语，构建完整的世界观体系
+
+## 🌐 网站链接
+
+- **官方网站**：[www.51mazi.com](https://www.51mazi.com)
+- **GitHub 仓库**：[github.com/xiaoshengxianjun/51mazi](https://github.com/xiaoshengxianjun/51mazi)
+
+## 💻 本项目技术栈
 
 - **Nuxt 4** - Vue 3 全栈框架
 - **Tailwind CSS 4** - 原子化 CSS 框架
@@ -61,17 +87,19 @@ pnpm build
 pnpm preview
 ```
 
-## 页面说明
+## 📄 页面说明
 
-- `/` - 首页
-- `/features` - 功能特性列表
-- `/features/[slug]` - 功能详情页
-- `/download` - 下载页面
-- `/guide` - 使用指南
-- `/blog` - 博客列表
-- `/blog/[slug]` - 博客详情
-- `/about` - 关于页面
-- `/contact` - 联系我们
+网站包含以下页面，访问 [www.51mazi.com](https://www.51mazi.com) 查看更多：
+
+- `/` - 首页（展示产品亮点和核心功能）
+- `/features` - 功能特性列表（所有功能的概览）
+- `/features/[slug]` - 功能详情页（具体功能详细介绍）
+- `/download` - 下载页面（软件下载入口）
+- `/guide` - 使用指南（产品使用教程）
+- `/blog` - 博客列表（最新动态和文章）
+- `/blog/[slug]` - 博客详情（具体文章内容）
+- `/about` - 关于页面（项目介绍、开发理念、技术栈等）
+- `/contact` - 联系我们（反馈与联系方式）
 
 ## 部署
 
@@ -125,7 +153,7 @@ pnpm generate
 3. 构建命令：`pnpm generate`
 4. 发布目录：`.output/public`
 
-## 注意事项
+## 📋 注意事项
 
 1. 所有前端代码都在 `app/` 目录下（Nuxt 4 新结构）
 2. 组件、composables、utils 会自动导入，无需手动 import
@@ -133,6 +161,12 @@ pnpm generate
 4. 使用 `useSeoMeta()` 为每个页面设置 SEO
 5. 确保在 `nuxt.config.ts` 中配置正确的 `site.url`
 
-## 许可证
+## 🔗 相关链接
+
+- **官方网站**：[www.51mazi.com](https://www.51mazi.com)
+- **GitHub 主仓库**：[51mazi](https://github.com/xiaoshengxianjun/51mazi)（软件源码）
+- **GitHub 网站仓库**：[51mazi-website](https://github.com/xiaoshengxianjun/51mazi-website)（本仓库）
+
+## 📄 许可证
 
 MIT
