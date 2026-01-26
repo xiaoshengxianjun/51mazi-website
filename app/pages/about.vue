@@ -28,7 +28,7 @@
           
           <div class="prose prose-lg max-w-none">
             <p class="text-gray-700 leading-relaxed mb-4">
-              <strong>51mazi</strong> 是一款基于 <strong>Electron + Vue 3</strong> 技术栈开发的桌面小说写作软件，专为小说创作者设计。它不仅提供了专业的写作环境，还集成了地图设计、关系图谱、人物档案等创作辅助工具，让小说创作变得更加高效和有趣。
+              <strong>51mazi</strong> 是一款基于 <strong>Electron + Vue 3</strong> 技术栈开发的桌面小说写作软件，专为小说创作者设计。它不仅提供了专业的写作环境，还集成了地图设计、关系图谱、人物档案、AI 辅助创作等创作辅助工具，让小说创作变得更加高效和有趣。
             </p>
             <p class="text-gray-700 leading-relaxed mb-4">
               无论是长篇小说的复杂世界构建，还是短篇小说的快速创作，51mazi 都能满足您的需求。软件采用书架式管理，支持多书籍管理，每本书都有独立的数据目录结构，确保数据的安全性和独立性。
@@ -40,8 +40,9 @@
               <li>✅ <strong>完全本地化存储</strong>：所有数据都存储在本地，保护用户隐私，无需担心数据泄露</li>
               <li>✅ <strong>双重密码保护</strong>：支持书架密码和书籍密码双重保护，确保创作内容安全</li>
               <li>✅ <strong>跨平台支持</strong>：基于 Electron 框架，支持 Windows、macOS、Linux 等多个平台</li>
-              <li>✅ <strong>专业写作体验</strong>：基于 TipTap 的专业富文本编辑器，支持人物高亮、禁词提示、段落拖拽等智能功能</li>
-              <li>✅ <strong>创作辅助工具</strong>：专业地图设计、关系图谱、事序图、组织架构、词条字典等完整工具集</li>
+              <li>✅ <strong>专业写作体验</strong>：基于 TipTap 的专业富文本编辑器，支持人物高亮、禁词提示、段落拖拽、文本高亮等智能功能</li>
+              <li>✅ <strong>AI 辅助创作</strong>：集成 DeepSeek AI，提供智能起名功能，支持多种类型和参数设置，智能生成符合文化背景的名字</li>
+              <li>✅ <strong>创作辅助工具</strong>：专业地图设计、关系图谱、事序图、组织架构、词条字典、时间线等完整工具集</li>
             </ul>
           </div>
         </div>
@@ -96,7 +97,10 @@
               <li>• <strong>relation-graph-vue3 2.2.11:</strong> 关系图谱可视化组件</li>
               <li>• <strong>Pinia 3.0.3:</strong> Vue 3 官方推荐的状态管理库</li>
               <li>• <strong>perfect-freehand 1.2.2:</strong> 流畅的手绘工具库</li>
+              <li>• <strong>roughjs 4.6.6:</strong> 手绘风格图形库</li>
+              <li>• <strong>sortablejs 1.15.6:</strong> 拖拽排序功能库</li>
               <li>• <strong>Canvas API:</strong> 专业级地图绘制引擎</li>
+              <li>• <strong>DeepSeek API:</strong> AI 智能起名服务</li>
             </ul>
           </div>
         </div>
@@ -168,21 +172,28 @@
           <h2 class="text-3xl font-bold text-gray-900 mb-6">项目路线图</h2>
           <div class="space-y-4">
             <div class="bg-white rounded-lg p-6 border border-gray-200">
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">近期计划</h3>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">已实现功能</h3>
               <ul class="space-y-2 text-gray-700">
-                <li>• 优化编辑器性能和用户体验</li>
-                <li>• 增强地图设计工具功能</li>
-                <li>• 改进关系图谱可视化效果</li>
-                <li>• 完善用户指南和帮助文档</li>
+                <li>✅ <strong>AI 随机起名</strong>：集成 DeepSeek AI，支持多种类型和参数设置</li>
+                <li>✅ 优化编辑器性能和用户体验</li>
+                <li>✅ 增强地图设计工具功能（画笔、形状、文字、油漆桶、资源工具等）</li>
+                <li>✅ 改进关系图谱可视化效果（支持头像和动态字体）</li>
+                <li>✅ 完善用户指南和帮助文档</li>
               </ul>
             </div>
             <div class="bg-white rounded-lg p-6 border border-gray-200">
               <h3 class="text-xl font-semibold text-gray-900 mb-2">未来规划</h3>
               <ul class="space-y-2 text-gray-700">
+                <li>🔮 <strong>AI 续写</strong>：根据已有内容智能续写</li>
+                <li>🔮 <strong>AI 润色</strong>：优化文本表达，提升文笔</li>
+                <li>🔮 <strong>AI 摘要</strong>：自动生成章节摘要</li>
+                <li>🔮 <strong>AI 对话生成</strong>：生成角色对话</li>
+                <li>🔮 <strong>AI 剧情建议</strong>：根据已有内容提供剧情建议</li>
+                <li>🔮 <strong>AI 场景描写</strong>：生成场景描写</li>
+                <li>🔮 <strong>AI 大纲生成</strong>：根据主题生成小说大纲</li>
                 <li>• <strong>插件系统</strong>：支持第三方插件扩展功能</li>
                 <li>• <strong>云端同步</strong>：可选的云端数据同步功能</li>
                 <li>• <strong>协作功能</strong>：多人协作创作支持</li>
-                <li>• <strong>AI 辅助</strong>：集成 AI 写作助手</li>
                 <li>• <strong>社区功能</strong>：作者交流平台</li>
                 <li>• <strong>移动端应用</strong>：iOS 和 Android 版本</li>
               </ul>

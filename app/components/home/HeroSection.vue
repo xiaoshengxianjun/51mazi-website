@@ -16,7 +16,7 @@
 
         <!-- 副标题 - 模糊揭示效果 -->
         <p class="text-xl sm:text-2xl text-primary-100 mb-8 leading-relaxed transition-all duration-1000" :class="subtitleVisible ? 'opacity-100 blur-0' : 'opacity-0 blur-md'">
-          专业编辑器、地图设计、关系图谱、事序图、组织架构、词条字典... 一切创作所需，尽在 51mazi
+          专业编辑器、AI 智能起名、双重密码保护、地图设计、关系图谱、事序图、组织架构、词条字典... 一切创作所需，尽在 51mazi
         </p>
 
         <!-- CTA 按钮 - 添加动画 -->
