@@ -25,12 +25,12 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
         <div
           v-for="(feature, index) in features"
           :key="feature.id"
           :ref="el => setCardRef(el, index)"
-          class="opacity-0 transform translate-y-10"
+          class="opacity-0 transform translate-y-10 flex"
         >
           <CommonFeatureCard
             :title="feature.title"
@@ -50,20 +50,23 @@ const cardRefs = ref<(Element | null)[]>([])
 const titleVisible = ref(false)
 const subtitleVisible = ref(false)
 
-const setCardRef = (el: Element | null, index: number) => {
-  if (el) {
-    cardRefs.value[index] = el
+const setCardRef = (el: Element | ComponentPublicInstance | null, index: number) => {
+  // 提取实际的 DOM 元素
+  const element = el && '$el' in el ? (el.$el as Element) : (el as Element | null)
+  
+  if (element) {
+    cardRefs.value[index] = element
     
     // 使用 Intersection Observer 触发动画
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const element = entry.target as HTMLElement
-            element.classList.remove('opacity-0', 'translate-y-10')
-            element.classList.add('animate-fade-in', 'animate-slide-up')
-            element.style.animationDelay = `${index * 0.1}s`
-            observer.unobserve(element)
+            const target = entry.target as HTMLElement
+            target.classList.remove('opacity-0', 'translate-y-10')
+            target.classList.add('animate-fade-in', 'animate-slide-up')
+            target.style.animationDelay = `${index * 0.1}s`
+            observer.unobserve(target)
           }
         })
       },
@@ -73,7 +76,7 @@ const setCardRef = (el: Element | null, index: number) => {
       }
     )
     
-    observer.observe(el)
+    observer.observe(element)
   }
 }
 
