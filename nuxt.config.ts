@@ -44,6 +44,11 @@ export default defineNuxtConfig({
     automaticDefaults: true
   },
 
+  // Robots 配置
+  // 模块会自动读取项目根目录的 robots.txt 文件
+  // 支持的位置：robots.txt (根目录)、assets/robots.txt、pages/robots.txt、public/_robots.txt
+  // 当前使用根目录的 robots.txt，无需额外配置
+
   // 应用配置
   app: {
     // 页面过渡配置（Nuxt 4 推荐方式）
