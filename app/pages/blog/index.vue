@@ -69,25 +69,46 @@
 // 博客文章数据（实际应该从内容文件或 API 获取）
 const posts = [
   {
-    slug: 'version-1-0-0',
-    title: '51mazi v1.0.0 正式发布',
-    date: '2025-01-XX',
-    category: '更新日志',
-    excerpt: '我们很高兴地宣布 51mazi v1.0.0 正式版发布！这个版本包含了编辑器、地图设计、关系图谱等核心功能。'
-  },
-  {
-    slug: 'editor-features',
-    title: '编辑器功能详解',
-    date: '2025-01-XX',
+    slug: 'book-management',
+    title: '书架与书籍管理系统：从零构建桌面写作软件的核心模块',
+    date: '2026-01',
     category: '功能介绍',
-    excerpt: '深入了解 51mazi 编辑器的强大功能，包括 Markdown 支持、代码高亮、笔记功能等。'
+    excerpt: '深入拆解 51mazi 的书架式多书籍管理：创建/编辑/删除、数据本地存储与隔离、以及面向创作者的交互体验设计。'
   },
   {
-    slug: 'map-design-tips',
-    title: '地图设计技巧分享',
-    date: '2025-01-XX',
-    category: '使用技巧',
-    excerpt: '学习如何使用 51mazi 的地图设计工具创建精美的小说世界地图，提升创作体验。'
+    slug: 'deepseek-integration',
+    title: '在 Electron 应用中优雅接入 DeepSeek AI：完整实践指南',
+    date: '2026-01',
+    category: '技术分享',
+    excerpt: '主进程安全调用、频率限制、防重复请求与错误处理：用一套可落地的架构，把 AI 能力稳定接入到桌面应用。'
+  },
+  {
+    slug: 'ai-naming-assistant',
+    title: 'AI 赋能小说创作：智能起名如何提升写作效率',
+    date: '2026-01',
+    category: '功能介绍',
+    excerpt: '支持多类型与参数自定义，一次生成 24 个名字；AI 失败自动降级到本地生成，让“起名卡壳”不再成为写作阻碍。'
+  },
+  {
+    slug: 'map-design-overview',
+    title: '打造专业级小说地图设计工具：架构与核心能力拆解',
+    date: '2026-01',
+    category: '技术分享',
+    excerpt: '基于 Vue 3 + Canvas 的模块化 Composables 架构：10+ 工具、缩放平移、撤销重做、资源管理与快捷键体系。'
+  },
+  {
+    slug: 'text-highlight',
+    title: '多彩文本高亮：基于 TipTap 的标记能力与搜索高亮联动',
+    date: '2026-01',
+    category: '技术分享',
+    excerpt: '支持 5 种颜色高亮、工具栏状态同步、内容持久化与搜索高亮联动，适合做世界观信息分类管理。'
+  },
+  {
+    slug: 'paragraph-drag',
+    title: '段落拖拽重排：基于 ProseMirror 的交互式段落移动技术',
+    date: '2026-01',
+    category: '技术分享',
+    excerpt: '拖拽锚点、子段落联动、全局事件处理与精确落点判断，让笔记结构调整像“拖一下”那么简单。'
   }
 ]
 

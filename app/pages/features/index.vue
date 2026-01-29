@@ -54,6 +54,12 @@
 // 功能列表数据
 const features = [
   {
+    slug: 'bookshelf',
+    title: '书架管理 & AI 封面',
+    icon: '📚',
+    description: '书架式多书籍管理，支持书架/书籍双重密码保护、封面管理，并集成通义万相 AI 一键生成小说封面。'
+  },
+  {
     slug: 'editor',
     title: '专业编辑器',
     icon: '✍️',

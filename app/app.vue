@@ -1,6 +1,10 @@
 <template>
   <NuxtLayout>
     <NuxtPage />
+    <!-- Vercel Web Analytics（仅客户端渲染） -->
+    <ClientOnly>
+      <Analytics />
+    </ClientOnly>
     <!-- 鼠标飞溅特效 - 应用到所有页面 -->
     <ClientOnly>
       <CommonSplashCursor
@@ -22,6 +26,9 @@
     </ClientOnly>
   </NuxtLayout>
 </template>
+<script setup lang="ts">
+import { Analytics } from '@vercel/analytics/vue'
+</script>
 <style scoped>
 /* 页面切换动画 */
 .page-enter-active,

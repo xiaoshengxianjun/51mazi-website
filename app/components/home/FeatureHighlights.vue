@@ -45,6 +45,8 @@
 </template>
 
 <script setup lang="ts">
+import type { ComponentPublicInstance } from 'vue'
+
 const { observeElement } = useScrollAnimation()
 const cardRefs = ref<(Element | null)[]>([])
 const titleVisible = ref(false)
@@ -108,10 +110,10 @@ const features = [
   },
   {
     id: 3,
-    title: '双重密码保护',
-    description: '书架密码和书籍密码双重保护，确保创作内容安全，8-16位数字或字母组合',
-    icon: '🔒',
-    link: '/features'
+    title: '书架管理 & AI 封面',
+    description: '多书籍书架式管理，支持书架/书籍密码保护、封面管理，并集成通义万相 AI 一键生成小说封面',
+    icon: '📚',
+    link: '/features/bookshelf'
   },
   {
     id: 4,
