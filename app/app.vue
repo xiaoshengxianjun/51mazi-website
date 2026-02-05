@@ -5,21 +5,21 @@
     <ClientOnly>
       <Analytics />
     </ClientOnly>
-    <!-- 鼠标飞溅特效 - 应用到所有页面 -->
+    <!-- 鼠标飞溅特效 - 延迟到页面空闲后加载，降低分辨率以改善 INP -->
     <ClientOnly>
-      <CommonSplashCursor
-        :SIM_RESOLUTION="128"
-        :DYE_RESOLUTION="1440"
-        :CAPTURE_RESOLUTION="512"
-        :DENSITY_DISSIPATION="3.5"
-        :VELOCITY_DISSIPATION="2"
+      <CommonSplashCursor v-if="showSplashCursor"
+        :SIM_RESOLUTION="64"
+        :DYE_RESOLUTION="512"
+        :CAPTURE_RESOLUTION="256"
+        :DENSITY_DISSIPATION="4"
+        :VELOCITY_DISSIPATION="2.5"
         :PRESSURE="0.1"
-        :PRESSURE_ITERATIONS="20"
-        :CURL="3"
-        :SPLAT_RADIUS="0.2"
-        :SPLAT_FORCE="6000"
-        :SHADING="true"
-        :COLOR_UPDATE_SPEED="10"
+        :PRESSURE_ITERATIONS="12"
+        :CURL="2"
+        :SPLAT_RADIUS="0.25"
+        :SPLAT_FORCE="4000"
+        :SHADING="false"
+        :COLOR_UPDATE_SPEED="8"
         :BACK_COLOR="{ r: 0.5, g: 0, b: 0 }"
         :TRANSPARENT="true"
       />
@@ -28,6 +28,19 @@
 </template>
 <script setup lang="ts">
 import { Analytics } from '@vercel/analytics/vue'
+
+// 延迟加载 SplashCursor，待页面交互完成后再初始化，显著改善 INP
+const showSplashCursor = ref(false)
+onMounted(() => {
+  const init = () => {
+    showSplashCursor.value = true
+  }
+  if ('requestIdleCallback' in window) {
+    ;(window as any).requestIdleCallback(init, { timeout: 3000 })
+  } else {
+    setTimeout(init, 2000)
+  }
+})
 </script>
 <style scoped>
 /* 页面切换动画 */

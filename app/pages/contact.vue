@@ -22,8 +22,15 @@
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">QQ 群</h3>
                 <div class="flex items-start space-x-4">
                   <div class="bg-gray-100 rounded-lg p-4 shrink-0 cursor-pointer hover:opacity-80 transition-opacity" @click="showQRCodeModal = true">
-                    <img src="/images/qq_qrcode.jpg" alt="51mazi QQ 群二维码" class="w-32 h-32 rounded object-cover"
-                      loading="lazy" />
+                    <NuxtImg
+                      src="/images/qq_qrcode.jpg"
+                      alt="51mazi QQ 群二维码"
+                      class="w-32 h-32 rounded object-cover"
+                      loading="lazy"
+                      width="128"
+                      height="128"
+                      format="webp"
+                    />
                   </div>
                   <div>
                     <p class="text-gray-700 mb-2 font-semibold">群号: <span class="text-primary-600">777690109</span></p>
@@ -133,10 +140,12 @@
         <!-- 放大的二维码 -->
         <div class="relative bg-white rounded-lg p-6 shadow-2xl max-w-md mx-4">
           <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">51mazi QQ 群二维码</h3>
-          <img
+          <NuxtImg
             src="/images/qq_qrcode.jpg"
             alt="51mazi QQ 群二维码"
             class="w-full h-auto rounded-lg"
+            format="webp"
+            sizes="(max-width: 448px) 100vw, 448px"
           />
           <p class="text-center text-gray-600 mt-4 text-sm">群号: <span class="font-semibold text-primary-600">777690109</span></p>
           <p class="text-center text-gray-500 mt-2 text-xs">使用手机 QQ 扫描二维码加入群聊</p>

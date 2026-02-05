@@ -10,7 +10,15 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   // 模块配置
-  modules: ["@nuxtjs/seo", "@vueuse/nuxt"],
+  modules: ["@nuxtjs/seo", "@vueuse/nuxt", "@nuxt/image"],
+
+  // 图片优化配置 - 自动 WebP/AVIF、响应式尺寸、改善 LCP
+  image: {
+    format: ["webp", "avif"],
+    quality: 80,
+    // Vercel 部署时可使用 vercel 提供商以获得最佳 CDN 优化
+    provider: 'vercel'
+  },
 
   // 组件自动导入配置
   // Nuxt 4 默认会扫描 app/components 目录，无需显式配置
@@ -61,7 +69,12 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "zh-CN"
       },
-      link: [{ rel: "icon", href: "/favicon.ico", type: "image/x-icon" }],
+      link: [
+        { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+        // 预连接 Vercel 分析服务，降低 TTFB 后续请求延迟
+        { rel: "preconnect", href: "https://vitals.vercel-insights.com" },
+        { rel: "dns-prefetch", href: "https://vitals.vercel-insights.com" }
+      ],
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" }

@@ -35,13 +35,16 @@
           </p>
         </div>
 
-        <!-- 功能截图 -->
+        <!-- 功能截图 - 首屏图片使用 eager 提升 LCP -->
         <div class="mb-12 rounded-lg overflow-hidden shadow-xl border border-gray-200" v-if="feature.image">
-          <img
+          <NuxtImg
             :src="feature.image"
             :alt="`${feature.title} - 51mazi`"
             class="w-full h-auto"
-            loading="lazy"
+            loading="eager"
+            fetchpriority="high"
+            format="webp"
+            sizes="(max-width: 768px) 100vw, 896px"
           />
         </div>
 

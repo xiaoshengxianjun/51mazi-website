@@ -18,11 +18,13 @@
           
           <!-- 软件首页截图 -->
           <div class="mb-8 rounded-lg overflow-hidden shadow-xl border border-gray-200">
-            <img
+            <NuxtImg
               src="/images/home.png"
               alt="51mazi 软件首页界面 - 简洁美观的书架管理界面"
               class="w-full h-auto"
               loading="lazy"
+              format="webp"
+              sizes="(max-width: 768px) 100vw, 896px"
             />
           </div>
           

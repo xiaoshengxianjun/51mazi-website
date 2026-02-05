@@ -44,11 +44,14 @@
           style="transition-delay: 0.8s"
         >
           <div class="relative group">
-            <img
+            <NuxtImg
               src="/images/home.png"
               alt="51mazi 软件首页界面 - 简洁美观的书架管理界面"
               class="w-full h-auto rounded-lg"
-              loading="lazy"
+              loading="eager"
+              fetchpriority="high"
+              format="webp"
+              sizes="(max-width: 768px) 100vw, 896px"
             />
             <div class="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
           </div>
