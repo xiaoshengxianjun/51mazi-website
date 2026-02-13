@@ -11,7 +11,7 @@
       <div class="max-w-2xl mx-auto mb-12 text-center">
         <div class="bg-primary-50 border border-primary-200 rounded-lg p-6">
           <p class="text-sm text-primary-700 mb-2">当前版本</p>
-          <p class="text-3xl font-bold text-primary-900 mb-2">v0.2.0</p>
+          <p class="text-3xl font-bold text-primary-900 mb-2">v0.3.4</p>
           <p class="text-sm text-gray-600">持续更新中，欢迎关注 GitHub 获取最新版本</p>
           <NuxtLink to="/blog" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">查看更新日志 →
           </NuxtLink>
