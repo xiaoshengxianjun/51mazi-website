@@ -45,6 +45,7 @@
               <li>✅ <strong>专业写作体验</strong>：基于 TipTap 的专业富文本编辑器，支持人物高亮、禁词提示、段落拖拽、文本高亮等智能功能</li>
               <li>✅ <strong>AI 辅助创作</strong>：集成 DeepSeek AI，提供智能起名功能，支持多种类型和参数设置，智能生成符合文化背景的名字</li>
               <li>✅ <strong>AI 一键生成封面</strong>：集成通义万相，按书名/笔名/风格提示词生成多张候选封面，一键应用到书籍</li>
+              <li>✅ <strong>AI 生成人物图</strong>：集成通义万相，在人物档案中按画风与形象描述生成竖版全身人物图，支持多张保存到人物图列表</li>
               <li>✅ <strong>创作辅助工具</strong>：专业地图设计、关系图谱、事序图、组织架构、词条字典、时间线等完整工具集</li>
               <li>✅ <strong>写作鼓励提示</strong>：安装两天后开始，随机间隔弹出鼓励语，当天只提示一次，5 秒自动关闭或可手动关闭</li>
               <li>✅ <strong>版本号展示</strong>：左侧导航栏底部显示当前软件版本号，便于反馈与排查问题</li>
@@ -106,7 +107,7 @@
               <li>• <strong>sortablejs 1.15.6:</strong> 拖拽排序功能库</li>
               <li>• <strong>Canvas API:</strong> 专业级地图绘制引擎</li>
               <li>• <strong>DeepSeek API:</strong> AI 智能起名服务</li>
-              <li>• <strong>通义万相:</strong> AI 小说封面生成服务</li>
+              <li>• <strong>通义万相:</strong> AI 小说封面与人物图生成服务</li>
             </ul>
           </div>
         </div>

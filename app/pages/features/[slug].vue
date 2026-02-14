@@ -48,6 +48,21 @@
           />
         </div>
 
+        <!-- 可选第二张截图（如人物档案的 AI 生成人物图） -->
+        <div v-if="feature.secondImage" class="mb-12">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">{{ feature.secondImageTitle || '功能截图' }}</h2>
+          <div class="rounded-lg overflow-hidden shadow-xl border border-gray-200">
+            <NuxtImg
+              :src="feature.secondImage"
+              :alt="feature.secondImageTitle ? `${feature.secondImageTitle} - 51mazi` : `${feature.title} - 51mazi`"
+              class="w-full h-auto"
+              loading="lazy"
+              format="webp"
+              sizes="(max-width: 768px) 100vw, 896px"
+            />
+          </div>
+        </div>
+
         <!-- 核心特性 -->
         <div class="mb-12">
           <h2 class="text-2xl font-bold text-gray-900 mb-6">核心特性</h2>
@@ -58,7 +73,7 @@
               class="flex items-start"
             >
               <svg
-                class="w-6 h-6 text-primary-600 mr-3 flex-shrink-0 mt-0.5"
+                class="w-6 h-6 text-primary-600 mr-3 shrink-0 mt-0.5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -210,16 +225,21 @@ const featuresData: Record<string, any> = {
     title: '人物档案',
     icon: '👤',
     image: '/images/character-profile.png',
-    description: '完善的人物档案系统，记录角色的详细信息',
+    secondImage: '/images/ai_character.png',
+    secondImageTitle: 'AI 生成人物图',
+    description: '人物档案（人物谱）系统化管理角色信息，支持双视图、人物图列表与通义万相 AI 生成竖版全身人物图',
     features: [
-      '基本信息（姓名、年龄、性别等）',
-      '外貌描述',
-      '性格特点',
-      '背景故事',
-      '关联关系',
-      '自定义字段'
+      '双视图模式：支持卡片模式与表格模式切换，按书籍记忆上次选择',
+      '抽屉式编辑：创建/编辑人物采用右侧抽屉，表单与列表同屏不遮挡',
+      '基础信息：姓名、性别、年龄、身高、形象介绍、生平介绍、标签、标记色',
+      '头像：支持图片链接或本地选择，用于列表与卡片小图展示',
+      '人物图列表：支持多张竖版全身人物图，可展示不同风格或不同姿态；表格模式有人物图列，卡片模式在卡片下方展示',
+      'AI 生成人物图：集成通义万相，在编辑抽屉中可选画风（日系动画、吉卜力、写实摄影、国风插画等）、填写形象描述与构图姿态，生成多张竖版全身图（720×1280），选择一张确认使用即可加入该人物的人物图列表',
+      '人物图管理：编辑时可选择本地图片或 AI 生成人物图追加到列表，每张可单独删除；人物图保存在书籍目录 character_images 文件夹',
+      '拖拽排序：表格模式下支持拖拽行调整人物顺序，自动保存',
+      '词条字典关联：人物可关联词条字典中的标签，实现词汇与角色的关联'
     ],
-    useCase: '人物档案系统让您能够系统地管理小说中的所有角色，确保角色设定的一致性和完整性。'
+    useCase: '人物档案让您系统化管理小说中的角色，确保设定一致。配合人物图列表与 AI 生成人物图，可为同一角色保存多张不同风格或姿态的竖版全身图，让角色形象更直观、创作更有代入感。'
   },
   timeline: {
     slug: 'timeline',

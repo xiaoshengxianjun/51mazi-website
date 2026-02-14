@@ -81,7 +81,7 @@ const features = [
     slug: 'character',
     title: '人物档案',
     icon: '👤',
-    description: '完善的人物档案系统，记录角色的详细信息，包括外貌、性格、背景等，支持关联词条字典中的标签。'
+    description: '完善的人物档案系统，记录角色详细信息，支持卡片/表格双视图、人物图列表；集成通义万相 AI 生成竖版全身人物图，多画风与构图可选。'
   },
   {
     slug: 'timeline',
