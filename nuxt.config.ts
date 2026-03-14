@@ -86,16 +86,12 @@ export default defineNuxtConfig({
   // ~ 别名指向包含 app/ 的目录，所以 ~/assets 等同于 app/assets
   css: ["~/assets/styles/main.css"],
 
-  // 静态站点生成配置（SSG）
+  // 静态站点生成配置（SSG）- 预渲染关键路由以改善 TTFB
   nitro: {
     prerender: {
-      // 启用链接爬取，自动发现所有路由
       crawlLinks: true,
-      // 手动添加需要预渲染的路由（如 sitemap.xml, robots.txt 等）
-      routes: ["/sitemap.xml", "/robots.txt"],
-      // 忽略不需要预渲染的路由
+      routes: ["/", "/download", "/features", "/about", "/contact", "/guide", "/sitemap.xml", "/robots.txt"],
       ignore: ["/api/**"],
-      // 错误处理：构建时如果预渲染失败是否中断构建
       failOnError: false
     }
   }

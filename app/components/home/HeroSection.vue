@@ -40,12 +40,8 @@
           </NuxtLink>
         </div>
 
-        <!-- 软件截图 - 添加动画 -->
-        <div
-          class="mt-16 rounded-lg overflow-hidden shadow-2xl border-4 border-white/20 hover-lift transition-all duration-500"
-          :class="subtitleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
-          style="transition-delay: 0.8s"
-        >
+        <!-- 软件截图 - 不延迟显示以优化 LCP（Speed Insights） -->
+        <div class="mt-16 rounded-lg overflow-hidden shadow-2xl border-4 border-white/20 hover-lift transition-all duration-500">
           <div class="relative group">
             <NuxtImg
               src="/images/home.png"
@@ -55,6 +51,8 @@
               fetchpriority="high"
               format="webp"
               sizes="(max-width: 768px) 100vw, 896px"
+              width="896"
+              height="504"
             />
             <div class="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
           </div>
@@ -67,46 +65,29 @@
 <script setup lang="ts">
 // Hero Section 组件 - 带有丰富的动画效果
 
-// 打字机效果
-const typewriterText1 = ref("");
+// 第一行首屏即展示（SSR + FCP 优化），第二行打字机
+const text1 = "专为小说创作者设计的";
+const text2 = "专业写作工具";
+const typewriterText1 = ref(text1);
 const typewriterText2 = ref("");
-const typewriterComplete1 = ref(false);
+const typewriterComplete1 = ref(true);
 const typewriterComplete2 = ref(false);
 const subtitleVisible = ref(false);
 
-const text1 = "专为小说创作者设计的";
-const text2 = "专业写作工具";
-
 onMounted(() => {
-  // 打字机效果 - 第一行
-  let index1 = 0;
-  const typewriter1 = setInterval(() => {
-    if (index1 < text1.length) {
-      typewriterText1.value += text1[index1];
-      index1++;
+  // 打字机效果 - 仅第二行，缩短首屏可交互前的等待
+  let index2 = 0;
+  const typewriter2 = setInterval(() => {
+    if (index2 < text2.length) {
+      typewriterText2.value += text2[index2];
+      index2++;
     } else {
-      clearInterval(typewriter1);
-      typewriterComplete1.value = true;
-
-      // 延迟后开始第二行
+      clearInterval(typewriter2);
+      typewriterComplete2.value = true;
       setTimeout(() => {
-        let index2 = 0;
-        const typewriter2 = setInterval(() => {
-          if (index2 < text2.length) {
-            typewriterText2.value += text2[index2];
-            index2++;
-          } else {
-            clearInterval(typewriter2);
-            typewriterComplete2.value = true;
-
-            // 显示副标题
-            setTimeout(() => {
-              subtitleVisible.value = true;
-            }, 500);
-          }
-        }, 80);
+        subtitleVisible.value = true;
       }, 300);
     }
-  }, 100);
+  }, 80);
 });
 </script>

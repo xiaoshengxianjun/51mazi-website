@@ -20,6 +20,13 @@
 </template>
 
 <script setup lang="ts">
+// 预加载 LCP 图片，缩短 LCP 时间（Speed Insights 优化）
+useHead({
+  link: [
+    { rel: 'preload', href: '/images/home.png', as: 'image' }
+  ]
+})
+
 // 延迟加载 Galaxy 银河背景，待首屏内容渲染完成后再初始化 WebGL
 const showGalaxy = ref(false)
 onMounted(() => {
