@@ -64,7 +64,7 @@
         </NuxtLink>
 
         <p class="mt-4 text-primary-200 text-sm animate-fade-in animate-delay-500">
-          当前版本: v0.4.0 • 支持 Windows、macOS、Linux
+          当前版本: v0.5.1 • 支持 Windows、macOS、Linux
         </p>
       </div>
     </div>

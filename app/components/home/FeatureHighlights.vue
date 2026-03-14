@@ -21,7 +21,7 @@
           :class="subtitleVisible ? 'animate-fade-in animate-slide-up' : 'opacity-0'"
           style="animation-delay: 0.2s;"
         >
-          强大的功能集合，满足小说创作的各种需求
+          强大的功能集合，满足小说创作与阅读参考的各种需求
         </p>
       </div>
 
@@ -39,6 +39,19 @@
             :link="feature.link"
           />
         </div>
+      </div>
+
+      <!-- 查看全部功能 -->
+      <div class="text-center mt-12">
+        <NuxtLink
+          to="/features"
+          class="inline-flex items-center gap-2 px-6 py-3 text-primary-600 hover:text-primary-700 font-medium rounded-lg border-2 border-primary-200 hover:border-primary-400 hover:bg-primary-50/50 transition-colors"
+        >
+          <span>查看全部功能</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </NuxtLink>
       </div>
     </div>
   </section>
@@ -149,6 +162,20 @@ const features = [
     description: '树形结构词条字典，支持多层级分类和拖拽排序，统一管理专有名词和术语',
     icon: '📖',
     link: '/features/dictionary'
+  },
+  {
+    id: 9,
+    title: '人物档案',
+    description: '卡片/表格双视图，人物图列表，集成通义万相 AI 生成竖版全身人物图，多画风可选',
+    icon: '👤',
+    link: '/features/character'
+  },
+  {
+    id: 10,
+    title: '下载小说',
+    description: '多书源搜索，下载并加入书架或导出 TXT，正文去广告，仅供个人学习研究',
+    icon: '📥',
+    link: '/features/novel-download'
   }
 ]
 </script>

@@ -58,6 +58,9 @@
             <p class="text-gray-700 mt-4">
               <strong>（可选）AI 功能：</strong>你可以在设置中配置 DeepSeek API Key（用于 AI 智能起名），在新建/编辑书籍时使用通义万相一键生成小说封面，在人物档案中使用通义万相 AI 生成竖版全身人物图（多画风与构图可选）。
             </p>
+            <p class="text-gray-700 mt-4">
+              <strong>（可选）下载小说：</strong>左侧菜单进入「下载小说」，选择书源、输入书名或作者搜索，选中书籍后可「下载并加入书架」或「导出为 TXT」，操作区悬浮在页面底部便于查看进度；仅供个人学习研究，请遵守当地法律法规。
+            </p>
           </div>
         </div>
       </div>
@@ -134,6 +137,12 @@ const tutorials = [
     title: '组织架构教程',
     icon: '🏛️',
     description: '了解如何创建和管理组织架构，展示层级关系'
+  },
+  {
+    slug: 'novel-download',
+    title: '下载小说',
+    icon: '📥',
+    description: '多书源搜索、下载并加入书架或导出 TXT，正文去广告，仅供个人学习研究'
   }
 ]
 

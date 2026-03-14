@@ -90,6 +90,34 @@
               </p>
             </div>
 
+            <!-- 赞助作者 -->
+            <div class="mt-8">
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">赞助作者</h3>
+              <p class="text-sm text-gray-600 mb-4">感谢每一位支持本项目的朋友！可通过以下方式打赏支持：</p>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white rounded-lg p-4 border border-gray-200 text-center">
+                  <p class="text-sm font-medium text-gray-700 mb-2">微信赞赏</p>
+                  <NuxtImg
+                    src="/images/WeChatPayQRCode.png"
+                    alt="微信赞赏码"
+                    class="w-full max-w-[180px] h-auto mx-auto rounded-lg"
+                    loading="lazy"
+                    format="webp"
+                  />
+                </div>
+                <div class="bg-white rounded-lg p-4 border border-gray-200 text-center">
+                  <p class="text-sm font-medium text-gray-700 mb-2">支付宝</p>
+                  <NuxtImg
+                    src="/images/AliPayQRCode.png"
+                    alt="支付宝赞赏码"
+                    class="w-full max-w-[180px] h-auto mx-auto rounded-lg"
+                    loading="lazy"
+                    format="webp"
+                  />
+                </div>
+              </div>
+            </div>
+
             <!-- 社区链接 -->
             <div class="mt-8">
               <h3 class="text-lg font-semibold text-gray-900 mb-4">社区链接</h3>
@@ -177,8 +205,8 @@ onUnmounted(() => {
 // SEO
 useSeoMeta({
   title: '联系我们',
-  description: '联系 51mazi 团队 - QQ 群、邮箱、GitHub Issues 等多种联系方式',
+  description: '联系 51mazi 团队 - QQ 群、邮箱、GitHub Issues、赞助作者（微信/支付宝）等多种联系方式',
   ogTitle: '联系我们 - 51mazi',
-  ogDescription: 'QQ 群、邮箱、GitHub Issues 等多种联系方式'
+  ogDescription: 'QQ 群、邮箱、GitHub Issues、赞助作者（微信/支付宝）等多种联系方式'
 })
 </script>

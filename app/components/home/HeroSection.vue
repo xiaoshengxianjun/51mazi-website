@@ -15,8 +15,11 @@
         </h1>
 
         <!-- 副标题 - 模糊揭示效果 -->
-        <p class="text-xl sm:text-2xl text-primary-100 mb-8 leading-relaxed transition-all duration-1000" :class="subtitleVisible ? 'opacity-100 blur-0' : 'opacity-0 blur-md'">
-          专业编辑器、AI 智能起名、AI 一键生成封面、书架/书籍双重密码保护、地图设计、关系图谱、事序图、组织架构、词条字典... 一切创作所需，尽在 51mazi
+        <p class="text-xl sm:text-2xl text-primary-100 mb-4 leading-relaxed transition-all duration-1000" :class="subtitleVisible ? 'opacity-100 blur-0' : 'opacity-0 blur-md'">
+          专业编辑器、AI 智能起名、AI 封面与人物图、书架/书籍双重密码、人物档案、下载小说、地图设计、关系图谱、事序图、组织架构、词条字典……一切创作所需，尽在 51mazi。
+        </p>
+        <p class="text-base sm:text-lg text-primary-200/90 mb-8 transition-all duration-1000" :class="subtitleVisible ? 'opacity-100' : 'opacity-0'">
+          本地存储 · 双重密码保护 · 开源免费
         </p>
 
         <!-- CTA 按钮 - 添加动画 -->

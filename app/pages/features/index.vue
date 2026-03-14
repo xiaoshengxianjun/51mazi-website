@@ -112,14 +112,20 @@ const features = [
     title: '随机名字生成器',
     icon: '🎲',
     description: '智能随机名字生成器，集成 DeepSeek AI，支持中国人名、日本人名、西方人名、势力名称等多种类型，智能生成符合文化背景的名字，支持批量生成和参数自定义。'
+  },
+  {
+    slug: 'novel-download',
+    title: '下载小说',
+    icon: '📥',
+    description: '多书源搜索、按书名或作者查找，将网络小说下载到本地并加入书架或导出为 TXT，正文去广告，底部悬浮操作区；仅供个人学习研究。'
   }
 ]
 
 // SEO
 useSeoMeta({
   title: '功能特性',
-  description: '了解 51mazi 的强大功能：专业编辑器、地图设计、关系图谱、人物档案等，满足小说创作的各种需求',
+  description: '了解 51mazi 的强大功能：专业编辑器、地图设计、关系图谱、人物档案、下载小说等，满足小说创作与阅读参考的各种需求',
   ogTitle: '51mazi 功能特性',
-  ogDescription: '了解 51mazi 的强大功能：专业编辑器、地图设计、关系图谱、人物档案等'
+  ogDescription: '了解 51mazi 的强大功能：专业编辑器、地图设计、关系图谱、人物档案、下载小说等'
 })
 </script>
