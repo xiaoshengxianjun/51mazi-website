@@ -37,6 +37,14 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()]
   },
 
+  // 运行时配置（可用于下载页等对接 51mazi-api）
+  runtimeConfig: {
+    public: {
+      /** 51mazi-api 基址，用于获取当前版本与下载直链（如 https://api.51mazi.com） */
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || "",
+    },
+  },
+
   // 站点配置（用于 SEO 模块）
   site: {
     // 部署到 Vercel 后会自动设置，或手动替换为实际域名

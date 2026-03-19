@@ -159,4 +159,7 @@ useSeoMeta({
   ogTitle: "下载 51mazi",
   ogDescription: "支持 Windows、macOS、Linux 三大平台，立即开始您的创作之旅"
 });
+
+// 若配置了 NUXT_PUBLIC_API_BASE，可在此请求 GET /releases/current/stable 获取当前版本与 downloadBaseUrl，
+// 将下载按钮的 href 设为 downloadBaseUrl + '/' + 对应平台文件名（如 51mazi-0.5.1-setup.exe）
 </script>
