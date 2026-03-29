@@ -50,7 +50,8 @@ export default defineNuxtConfig({
     // 部署到 Vercel 后会自动设置，或手动替换为实际域名
     url: process.env.NUXT_PUBLIC_SITE_URL || "https://51mazi.com",
     name: "51mazi",
-    description: "专为小说创作者设计的专业写作工具",
+    description:
+      "51mazi 桌面端小说写作软件：本地存储与双重密码，编辑器支持 AI 润色/续写/场景图，另有地图、关系图、时间线、事序图等创作工具。",
     defaultLocale: "zh-CN"
   },
 
@@ -98,7 +99,17 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ["/", "/download", "/features", "/about", "/contact", "/guide", "/sitemap.xml", "/robots.txt"],
+      routes: [
+        "/",
+        "/download",
+        "/features",
+        "/features/ai-scene",
+        "/about",
+        "/contact",
+        "/guide",
+        "/sitemap.xml",
+        "/robots.txt"
+      ],
       ignore: ["/api/**"],
       failOnError: false
     }

@@ -6,7 +6,7 @@
         <div class="animate-fade-in animate-slide-up">
           <h3 class="text-white text-lg font-semibold mb-4">关于 51mazi</h3>
           <p class="text-sm leading-relaxed">
-            基于 Electron + Vue 3 开发的桌面小说写作软件，提供专业编辑器、地图设计、关系图谱、事序图、组织架构、词条字典等完整创作工具集。
+            基于 Electron + Vue 3 的桌面小说写作软件：专业编辑器（AI 润色/续写/场景图）、书架与双重密码、人物档案、时间线与事序图、地图与关系图谱、词条字典、随机起名与下载小说；数据本地存储，开源免费。
           </p>
         </div>
 

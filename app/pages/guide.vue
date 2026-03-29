@@ -51,12 +51,17 @@
               <li>设置禁词列表，避免敏感词汇（使用快捷键 <code class="bg-gray-100 px-2 py-1 rounded">Ctrl/Cmd + F</code> 搜索）</li>
               <li>使用段落拖拽，灵活组织内容结构</li>
               <li>实时查看字数统计和码字速度</li>
+              <li>使用 <strong>AI 润色</strong>、<strong>AI 续写</strong>（需在设置中配置 DeepSeek API Key）</li>
+              <li>选中一段正文（约 100～1000 有效字）使用 <strong>AI 场景图</strong>：通义万相 Key 必填，可选 DeepSeek 提炼画面描述</li>
             </ul>
             <p class="text-gray-700">
-              探索地图设计、关系图谱、事序图、组织架构、词条字典等功能，让创作更加高效。
+              探索时间线、地图设计、关系图谱、事序图、组织架构、词条字典、人物档案等功能，让世界观与剧情线索更清晰。
             </p>
             <p class="text-gray-700 mt-4">
-              <strong>（可选）AI 功能：</strong>你可以在设置中配置 DeepSeek API Key（用于 AI 智能起名），在新建/编辑书籍时使用通义万相一键生成小说封面，在人物档案中使用通义万相 AI 生成竖版全身人物图（多画风与构图可选）。
+              <strong>（可选）AI 与配图：</strong>设置中配置 <strong>DeepSeek</strong>（起名、润色、续写、场景图画面提炼）与 <strong>通义万相</strong>（封面、人物全身图、章节选段场景图）。封面在「新建/编辑书籍」中生成；人物图在「人物档案」编辑抽屉中生成。
+            </p>
+            <p class="text-gray-700 mt-4">
+              <strong>内置用户指南：</strong>通过左侧菜单打开「用户指南」，可查阅功能说明、操作步骤与常见问题。
             </p>
             <p class="text-gray-700 mt-4">
               <strong>（可选）下载小说：</strong>左侧菜单进入「下载小说」，选择书源、输入书名或作者搜索，选中书籍后可「下载并加入书架」或「导出为 TXT」，操作区悬浮在页面底部便于查看进度；仅供个人学习研究，请遵守当地法律法规。
@@ -103,10 +108,22 @@
 <script setup lang="ts">
 const tutorials = [
   {
+    slug: 'bookshelf',
+    title: '书架与 AI 封面',
+    icon: '📚',
+    description: '多书籍管理、书架/书籍密码、本地封面与通义万相一键生成封面'
+  },
+  {
     slug: 'editor',
     title: '编辑器使用教程',
     icon: '✍️',
-    description: '学习如何使用专业编辑器进行创作，掌握人物高亮、禁词提示等智能功能'
+    description: 'TipTap 编辑、AI 润色与续写、选段 AI 场景图，以及人物高亮、禁词与段落拖拽'
+  },
+  {
+    slug: 'ai-scene',
+    title: 'AI 场景图',
+    icon: '🖼️',
+    description: '在章节中选中节选，配置画风与尺寸，生成并保存到本书 scene_images'
   },
   {
     slug: 'map',
@@ -119,6 +136,12 @@ const tutorials = [
     title: '关系图谱教程',
     icon: '🕸️',
     description: '了解如何创建和管理人物关系，设置头像和关系类型'
+  },
+  {
+    slug: 'timeline',
+    title: '时间线教程',
+    icon: '📅',
+    description: '多条时间线与时间轴节点，梳理纪年、阶段与关键事件'
   },
   {
     slug: 'events',
@@ -137,6 +160,18 @@ const tutorials = [
     title: '组织架构教程',
     icon: '🏛️',
     description: '了解如何创建和管理组织架构，展示层级关系'
+  },
+  {
+    slug: 'character',
+    title: '人物档案',
+    icon: '👤',
+    description: '卡片/表格视图、人物图列表与通义万相 AI 生成竖版全身图'
+  },
+  {
+    slug: 'random-name',
+    title: '随机名字生成器',
+    icon: '🎲',
+    description: 'DeepSeek 与本地词库双模式，批量生成与类型参数'
   },
   {
     slug: 'novel-download',
@@ -169,7 +204,11 @@ const faqs = [
   },
   {
     question: '编辑器支持哪些功能？',
-    answer: '编辑器基于 TipTap，支持格式化文本、标题、段落等。还支持人物高亮、禁词提示、段落拖拽、文本高亮等智能功能。支持多主题模式（亮色、暗色、护眼黄等）。'
+    answer: '编辑器基于 TipTap，支持格式化文本、标题、段落与实时字数/码字速度。可选 DeepSeek：AI 润色、AI 续写。可选通义万相：选中节选（约 100～1000 有效字）生成 AI 场景图并保存到本书 scene_images。另支持人物高亮、禁词、段落拖拽、文本高亮与多主题（亮/暗/护眼黄等）。'
+  },
+  {
+    question: 'DeepSeek 和通义万相分别做什么？',
+    answer: 'DeepSeek 可用于随机起名、正文润色与续写，以及在 AI 场景图中可选「提炼画面描述」。通义万相用于生成小说封面、人物档案中的竖版全身人物图，以及章节选段场景图；需在设置中填写对应 API Key，且场景图与封面、人物图共用通义万相配置。'
   },
   {
     question: '地图设计工具有哪些功能？',
@@ -192,8 +231,9 @@ const faqs = [
 // SEO
 useSeoMeta({
   title: '使用指南',
-  description: '51mazi 使用指南 - 快速上手教程、功能使用说明和常见问题解答',
+  description:
+    '51mazi 使用指南：安装与书籍目录、编辑器 AI 润色/续写/场景图、DeepSeek 与通义万相配置、时间线与事序图等模块入口，以及常见问题解答。',
   ogTitle: '51mazi 使用指南',
-  ogDescription: '快速上手教程、功能使用说明和常见问题解答'
+  ogDescription: '快速上手、各功能教程链接与常见问题（含 AI Key 说明）。'
 })
 </script>

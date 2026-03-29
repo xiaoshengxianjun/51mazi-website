@@ -21,7 +21,7 @@
           :class="subtitleVisible ? 'animate-fade-in animate-slide-up' : 'opacity-0'"
           style="animation-delay: 0.2s;"
         >
-          强大的功能集合，满足小说创作与阅读参考的各种需求
+          写作、设定与世界观工具齐全；可选 AI 辅助起名、润色、续写与插图生成
         </p>
       </div>
 
@@ -110,7 +110,8 @@ const features = [
   {
     id: 1,
     title: '专业编辑器',
-    description: '基于 TipTap 的专业编辑器，支持人物高亮、禁词提示、段落拖拽、文本高亮等智能功能',
+    description:
+      'TipTap 富文本编辑，支持 AI 润色/续写、选段 AI 场景图；人物高亮、禁词、段落拖拽、多主题与实时字数/码字速度',
     icon: '✍️',
     link: '/features/editor'
   },
@@ -144,34 +145,49 @@ const features = [
   },
   {
     id: 6,
+    title: '时间线管理',
+    description: '多条并列时间线，时间轴节点增删改与标题编辑，适合梳理纪年、剧情阶段与关键节点',
+    icon: '📅',
+    link: '/features/timeline'
+  },
+  {
+    id: 7,
     title: '事序图管理',
-    description: '时间轴可视化管理，支持拖拽调整事件位置，进度跟踪（0-100%），直观展示事件顺序',
+    description: '时间单元格上的事件可视化，拖拽调整位置，0–100% 进度与多事序图并存',
     icon: '📊',
     link: '/features/events'
   },
   {
-    id: 7,
+    id: 8,
+    title: 'AI 场景图',
+    description:
+      '在章节中选中一段正文（约 100～1000 有效字），通义万相生成场景插图，可选 DeepSeek 提炼画面描述，保存到本书 scene_images',
+    icon: '🖼️',
+    link: '/features/ai-scene'
+  },
+  {
+    id: 9,
     title: '组织架构',
     description: '可视化组织架构管理，支持多层级结构，清晰展示组织关系和层级',
     icon: '🏛️',
     link: '/features/organization'
   },
   {
-    id: 8,
+    id: 10,
     title: '词条字典',
     description: '树形结构词条字典，支持多层级分类和拖拽排序，统一管理专有名词和术语',
     icon: '📖',
     link: '/features/dictionary'
   },
   {
-    id: 9,
+    id: 11,
     title: '人物档案',
     description: '卡片/表格双视图，人物图列表，集成通义万相 AI 生成竖版全身人物图，多画风可选',
     icon: '👤',
     link: '/features/character'
   },
   {
-    id: 10,
+    id: 12,
     title: '下载小说',
     description: '多书源搜索，下载并加入书架或导出 TXT，正文去广告，仅供个人学习研究',
     icon: '📥',

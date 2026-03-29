@@ -7,7 +7,7 @@
           功能特性
         </h1>
         <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-          强大的功能集合，满足小说创作的各种需求
+          从正文写作到世界观设定，从本地隐私到可选 AI 辅助，覆盖长篇小说创作常见工作流
         </p>
       </div>
 
@@ -63,7 +63,15 @@ const features = [
     slug: 'editor',
     title: '专业编辑器',
     icon: '✍️',
-    description: '基于 TipTap 的专业富文本编辑器，支持人物高亮、禁词提示、段落拖拽、文本高亮等智能功能，实时字数统计和码字速度计算，多种主题模式。'
+    description:
+      '基于 TipTap 的富文本编辑器：AI 润色与续写（DeepSeek）、选段 AI 场景图（通义万相）；人物高亮、禁词、段落拖拽、文本高亮；实时字数与码字速度；亮/暗/护眼等主题。'
+  },
+  {
+    slug: 'ai-scene',
+    title: 'AI 场景图',
+    icon: '🖼️',
+    description:
+      '在章节编辑页选中一段正文（有效字数约 100～1000），在抽屉中配置画风、景别、尺寸等，由通义万相生成场景插图；可选 DeepSeek 将节选提炼为画面描述；图片保存到本书 scene_images 目录。'
   },
   {
     slug: 'map',
@@ -87,7 +95,8 @@ const features = [
     slug: 'timeline',
     title: '时间线管理',
     icon: '📅',
-    description: '时间线管理工具，帮助梳理故事的时间顺序，避免时间线混乱，确保故事发展脉络清晰。'
+    description:
+      '支持创建多条并列时间线，每条时间线可编辑标题；以时间轴展示节点（标题 + 描述），支持新增、编辑、删除节点与删除整条时间线，数据按书籍本地持久化。'
   },
   {
     slug: 'events',
@@ -124,8 +133,10 @@ const features = [
 // SEO
 useSeoMeta({
   title: '功能特性',
-  description: '了解 51mazi 的强大功能：专业编辑器、地图设计、关系图谱、人物档案、下载小说等，满足小说创作与阅读参考的各种需求',
+  description:
+    '51mazi 功能一览：专业编辑器（AI 润色/续写/场景图）、书架与 AI 封面、人物档案与 AI 人物图、时间线与事序图、地图与关系图谱、组织架构、词条字典、随机起名、下载小说等。',
   ogTitle: '51mazi 功能特性',
-  ogDescription: '了解 51mazi 的强大功能：专业编辑器、地图设计、关系图谱、人物档案、下载小说等'
+  ogDescription:
+    '专业编辑器、AI 场景图、地图设计、关系图谱、人物档案、时间线、事序图、下载小说等完整创作工具。'
 })
 </script>

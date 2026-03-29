@@ -11,7 +11,7 @@
       <div class="max-w-2xl mx-auto mb-12 text-center">
         <div class="bg-primary-50 border border-primary-200 rounded-lg p-6">
           <p class="text-sm text-primary-700 mb-2">当前版本</p>
-          <p class="text-3xl font-bold text-primary-900 mb-2">v0.5.1</p>
+          <p class="text-3xl font-bold text-primary-900 mb-2">v0.6.0</p>
           <p class="text-sm text-gray-600">持续更新中，欢迎关注 GitHub 获取最新版本</p>
           <NuxtLink to="/blog" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">查看更新日志 →
           </NuxtLink>
@@ -161,5 +161,5 @@ useSeoMeta({
 });
 
 // 若配置了 NUXT_PUBLIC_API_BASE，可在此请求 GET /releases/current/stable 获取当前版本与 downloadBaseUrl，
-// 将下载按钮的 href 设为 downloadBaseUrl + '/' + 对应平台文件名（如 51mazi-0.5.1-setup.exe）
+// 将下载按钮的 href 设为 downloadBaseUrl + '/' + 对应平台文件名（如 51mazi-0.6.0-setup.exe）
 </script>

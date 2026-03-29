@@ -30,7 +30,7 @@
           
           <div class="prose prose-lg max-w-none">
             <p class="text-gray-700 leading-relaxed mb-4">
-              <strong>51mazi</strong> 是一款基于 <strong>Electron + Vue 3</strong> 技术栈开发的桌面小说写作软件，专为小说创作者设计。它不仅提供了专业的写作环境，还集成了地图设计、关系图谱、人物档案、AI 辅助创作、下载小说等创作辅助工具，让小说创作变得更加高效和有趣。
+              <strong>51mazi</strong> 是一款基于 <strong>Electron + Vue 3</strong> 的桌面小说写作软件。除 TipTap 专业编辑外，还提供<strong>时间线、事序图、地图设计、关系图谱、组织架构、词条字典、人物档案</strong>等设定工具，并可选 <strong>DeepSeek</strong>（起名、润色、续写、画面提炼）与 <strong>通义万相</strong>（封面、人物图、章节选段场景图）；另支持将网络小说下载至本地书架或导出 TXT，并内置用户指南。
             </p>
             <p class="text-gray-700 leading-relaxed mb-4">
               无论是长篇小说的复杂世界构建，还是短篇小说的快速创作，51mazi 都能满足您的需求。软件采用书架式管理，支持多书籍管理，每本书都有独立的数据目录结构，确保数据的安全性和独立性。
@@ -43,10 +43,12 @@
               <li>✅ <strong>双重密码保护</strong>：支持书架密码和书籍密码双重保护，确保创作内容安全</li>
               <li>✅ <strong>跨平台支持</strong>：基于 Electron 框架，支持 Windows、macOS、Linux 等多个平台</li>
               <li>✅ <strong>专业写作体验</strong>：基于 TipTap 的专业富文本编辑器，支持人物高亮、禁词提示、段落拖拽、文本高亮等智能功能</li>
-              <li>✅ <strong>AI 辅助创作</strong>：集成 DeepSeek AI，提供智能起名功能，支持多种类型和参数设置，智能生成符合文化背景的名字</li>
-              <li>✅ <strong>AI 一键生成封面</strong>：集成通义万相，按书名/笔名/风格提示词生成多张候选封面，一键应用到书籍</li>
-              <li>✅ <strong>AI 生成人物图</strong>：集成通义万相，在人物档案中按画风与形象描述生成竖版全身人物图，支持多张保存到人物图列表</li>
-              <li>✅ <strong>创作辅助工具</strong>：专业地图设计、关系图谱、事序图、组织架构、词条字典、时间线等完整工具集</li>
+              <li>✅ <strong>AI 辅助创作（DeepSeek）</strong>：智能起名（多类型与参数）、章节<strong>润色</strong>与<strong>续写</strong>；在 AI 场景图中可选「提炼画面描述」</li>
+              <li>✅ <strong>AI 一键生成封面（通义万相）</strong>：按书名/笔名/风格提示词生成多张候选封面，确认后应用到书籍</li>
+              <li>✅ <strong>AI 生成人物图（通义万相）</strong>：人物档案中按画风、形象与姿态生成竖版全身图，多张保存至人物图列表</li>
+              <li>✅ <strong>AI 场景图（通义万相）</strong>：章节中选中节选生成场景插图，保存到本书 <code class="text-sm bg-gray-100 px-1 rounded">scene_images</code>；可选 DeepSeek 压缩画面描述</li>
+              <li>✅ <strong>创作辅助工具</strong>：地图设计、关系图谱、时间线、事序图、组织架构、词条字典等完整工具集</li>
+              <li>✅ <strong>内置用户指南</strong>：软件内功能说明、操作步骤与常见问题，无需翻外部文档</li>
               <li>✅ <strong>下载小说</strong>：多书源搜索、下载并加入书架或导出 TXT，正文去广告，底部悬浮操作区；仅供个人学习研究，请遵守当地法律法规</li>
               <li>✅ <strong>写作鼓励提示</strong>：安装两天后开始，随机间隔弹出鼓励语，当天只提示一次，5 秒自动关闭或可手动关闭</li>
               <li>✅ <strong>版本号展示</strong>：左侧导航栏底部显示当前软件版本号，便于反馈与排查问题</li>
@@ -107,8 +109,8 @@
               <li>• <strong>roughjs 4.6.6:</strong> 手绘风格图形库</li>
               <li>• <strong>sortablejs 1.15.6:</strong> 拖拽排序功能库</li>
               <li>• <strong>Canvas API:</strong> 专业级地图绘制引擎</li>
-              <li>• <strong>DeepSeek API:</strong> AI 智能起名服务</li>
-              <li>• <strong>通义万相:</strong> AI 小说封面与人物图生成服务</li>
+              <li>• <strong>DeepSeek API:</strong> AI 智能起名、润色、续写及场景图画面描述提炼（可选）</li>
+              <li>• <strong>通义万相:</strong> AI 小说封面、人物全身图与章节选段场景图生成</li>
             </ul>
           </div>
         </div>
@@ -182,22 +184,22 @@
             <div class="bg-white rounded-lg p-6 border border-gray-200">
               <h3 class="text-xl font-semibold text-gray-900 mb-2">已实现功能</h3>
               <ul class="space-y-2 text-gray-700">
-                <li>✅ <strong>AI 随机起名</strong>：集成 DeepSeek AI，支持多种类型和参数设置</li>
-                <li>✅ 优化编辑器性能和用户体验</li>
-                <li>✅ 增强地图设计工具功能（画笔、形状、文字、油漆桶、资源工具等）</li>
-                <li>✅ 改进关系图谱可视化效果（支持头像和动态字体）</li>
-                <li>✅ 完善用户指南和帮助文档</li>
+                <li>✅ <strong>编辑器 AI</strong>：DeepSeek 润色、续写；通义万相章节选段 <strong>AI 场景图</strong>（保存至 <code class="text-sm bg-gray-100 px-1 rounded">scene_images</code>）</li>
+                <li>✅ <strong>AI 随机起名</strong>：DeepSeek + 本地词库双模式，多类型与参数、批量生成</li>
+                <li>✅ <strong>通义万相</strong>：小说封面、人物档案竖版全身图</li>
+                <li>✅ <strong>书架安全</strong>：书架密码 + 单本书籍密码；书籍与设定本地存储</li>
+                <li>✅ <strong>下载小说</strong>：多书源、加入书架或导出 TXT、正文去广告（请合规使用）</li>
+                <li>✅ 地图设计（画笔、形状、文字、油漆桶、资源工具等）与关系图谱（头像、动态字体）</li>
+                <li>✅ 时间线、事序图、组织架构、词条字典、人物档案双视图与内置用户指南</li>
               </ul>
             </div>
             <div class="bg-white rounded-lg p-6 border border-gray-200">
               <h3 class="text-xl font-semibold text-gray-900 mb-2">未来规划</h3>
               <ul class="space-y-2 text-gray-700">
-                <li>🔮 <strong>AI 续写</strong>：根据已有内容智能续写</li>
-                <li>🔮 <strong>AI 润色</strong>：优化文本表达，提升文笔</li>
                 <li>🔮 <strong>AI 摘要</strong>：自动生成章节摘要</li>
                 <li>🔮 <strong>AI 对话生成</strong>：生成角色对话</li>
                 <li>🔮 <strong>AI 剧情建议</strong>：根据已有内容提供剧情建议</li>
-                <li>🔮 <strong>AI 场景描写</strong>：生成场景描写</li>
+                <li>🔮 <strong>AI 场景描写扩写</strong>：由提示直接生成长段落场景文字（与现有「选段生图」互补）</li>
                 <li>🔮 <strong>AI 大纲生成</strong>：根据主题生成小说大纲</li>
                 <li>• <strong>插件系统</strong>：支持第三方插件扩展功能</li>
                 <li>• <strong>云端同步</strong>：可选的云端数据同步功能</li>

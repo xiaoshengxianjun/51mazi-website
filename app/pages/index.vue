@@ -42,9 +42,11 @@ onMounted(() => {
 // 首页 SEO（LCP 图片由 HeroSection 的 NuxtImg 组件自动优化与预加载）
 useSeoMeta({
   title: '51mazi - 专业小说创作工具',
-  description: '51mazi - 专为小说创作者设计的专业写作工具，提供 AI 智能起名、AI 封面与 AI 人物图、下载小说、书架/书籍双重密码保护、专业编辑器、地图设计、关系图谱、人物档案、事序图、组织架构、词条字典等强大功能',
+  description:
+    '51mazi 是面向小说作者的桌面写作软件：TipTap 专业编辑器支持 AI 润色、续写与选段 AI 场景图（DeepSeek + 通义万相）；书架/书籍双重密码、人物档案与 AI 人物图、时间线/事序图、地图设计、关系图谱、组织架构、词条字典、随机起名、下载小说与内置用户指南，数据本地存储。',
   ogTitle: '51mazi - 专业小说创作工具',
-  ogDescription: '专为小说创作者设计的专业写作工具，集成 DeepSeek AI 智能起名与通义万相 AI 封面/人物图，支持下载小说加入书架或导出 TXT，提供双重密码保护、专业编辑器、地图设计、关系图谱等强大功能',
+  ogDescription:
+    '本地优先的小说创作桌面端：AI 润色与续写、通义万相封面/人物图/场景图、DeepSeek 智能起名与画面提炼、双重密码、地图/关系图/事序图等全套工具，支持下载小说加入书架或导出 TXT。',
   ogImage: '/og-image.png',
   twitterCard: 'summary_large_image'
 })
