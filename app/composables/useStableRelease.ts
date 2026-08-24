@@ -55,6 +55,13 @@ export function useStableRelease() {
       key: 'stable-release',
       lazy: true,
       default: () => null,
+      // 客户端不复用预渲染缓存，发布新稳定版后下载页能拿到最新直链
+      getCachedData(key, nuxtApp) {
+        if (import.meta.client) {
+          return undefined
+        }
+        return nuxtApp.payload.data[key] as StableRelease | undefined
+      },
       onResponseError() {
         // 接口不可用时用回退版本号与约定文件名
       },
