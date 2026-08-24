@@ -54,13 +54,12 @@ export function useStableRelease() {
     {
       key: 'stable-release',
       lazy: true,
+      // 构建预渲染不请求发布接口：Vercel 美东节点访问国内 API 可能一直挂起直到 45 分钟超时
+      server: false,
+      timeout: 8000,
       default: () => null,
-      // 客户端不复用预渲染缓存，发布新稳定版后下载页能拿到最新直链
-      getCachedData(key, nuxtApp) {
-        if (import.meta.client) {
-          return undefined
-        }
-        return nuxtApp.payload.data[key] as StableRelease | undefined
+      getCachedData() {
+        return undefined
       },
       onResponseError() {
         // 接口不可用时用回退版本号与约定文件名

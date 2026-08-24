@@ -98,7 +98,8 @@ export default defineNuxtConfig({
   // 静态站点生成配置（SSG）- 预渲染关键路由以改善 TTFB
   nitro: {
     prerender: {
-      crawlLinks: true,
+      // 只预渲染明确列出的路由，避免爬虫在构建期跟着外链或接口把进程拖死
+      crawlLinks: false,
       routes: [
         "/",
         "/download",
@@ -106,10 +107,28 @@ export default defineNuxtConfig({
         "/features/editor",
         "/features/outline",
         "/features/bookshelf",
+        "/features/setting",
+        "/features/random-name",
+        "/features/character",
+        "/features/map",
+        "/features/dictionary",
+        "/features/foreshadow",
+        "/features/relation",
+        "/features/organization",
+        "/features/timeline",
+        "/features/events",
+        "/features/ai-scene",
+        "/features/novel-download",
         "/about",
         "/contact",
         "/guide",
         "/blog",
+        "/blog/book-management",
+        "/blog/deepseek-integration",
+        "/blog/ai-naming-assistant",
+        "/blog/map-design-overview",
+        "/blog/text-highlight",
+        "/blog/paragraph-drag",
         "/sitemap.xml",
         "/robots.txt"
       ],
