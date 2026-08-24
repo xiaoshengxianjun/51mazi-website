@@ -4,7 +4,7 @@
       <div class="flex items-center justify-between h-16">
         <!-- Logo - 添加动画 -->
         <NuxtLink to="/" class="flex items-center space-x-2 group transition-smooth">
-          <NuxtImg src="/logo.png" alt="51mazi" class="h-8 w-auto transition-transform duration-300 group-hover:scale-105" width="120" height="32" />
+          <NuxtImg src="/logo.png" alt="51码字" class="h-8 w-auto transition-transform duration-300 group-hover:scale-105" width="120" height="32" />
         </NuxtLink>
 
         <!-- 导航菜单（桌面端） -->

@@ -1,6 +1,6 @@
 <template>
   <SpeedInsights />
-  <div class="min-h-screen flex flex-col">
+  <div class="min-h-screen flex flex-col bg-white">
     <CommonHeader />
     <main class="flex-grow">
       <slot />

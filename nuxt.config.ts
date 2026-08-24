@@ -40,8 +40,8 @@ export default defineNuxtConfig({
   // 运行时配置（可用于下载页等对接 51mazi-api）
   runtimeConfig: {
     public: {
-      /** 51mazi-api 基址，用于获取当前版本与下载直链（如 https://api.51mazi.com） */
-      apiBase: process.env.NUXT_PUBLIC_API_BASE || "",
+      /** 51mazi-api 基址，用于获取当前版本与下载直链 */
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || "https://api.51mazi.com",
     },
   },
 
@@ -49,9 +49,9 @@ export default defineNuxtConfig({
   site: {
     // 部署到 Vercel 后会自动设置，或手动替换为实际域名
     url: process.env.NUXT_PUBLIC_SITE_URL || "https://51mazi.com",
-    name: "51mazi",
+    name: "51码字",
     description:
-      "51mazi 桌面端小说写作软件：本地存储与双重密码，编辑器支持 AI 润色/续写/场景图，另有地图、关系图、时间线、事序图等创作工具。",
+      "51码字是本地优先的小说写作桌面客户端。书籍与设定保存在你指定的目录，断网可写；编辑器、十二项写作助手、可选 AI 辅助，按需联网。",
     defaultLocale: "zh-CN"
   },
 
@@ -74,7 +74,7 @@ export default defineNuxtConfig({
       mode: 'out-in'
     },
     head: {
-      titleTemplate: "%s | 51mazi",
+      titleTemplate: "%s | 51码字",
       htmlAttrs: {
         lang: "zh-CN"
       },
@@ -103,10 +103,13 @@ export default defineNuxtConfig({
         "/",
         "/download",
         "/features",
-        "/features/ai-scene",
+        "/features/editor",
+        "/features/outline",
+        "/features/bookshelf",
         "/about",
         "/contact",
         "/guide",
+        "/blog",
         "/sitemap.xml",
         "/robots.txt"
       ],
