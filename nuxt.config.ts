@@ -73,11 +73,12 @@ export default defineNuxtConfig({
     zeroRuntime: true
   },
 
-  // nuxi 打印 Build complete 后 close() 可能被 esbuild/Vite 挂住，Vercel 会等到 45 分钟超时
+  // nuxt build 完成后进程有句柄未释放会挂住，Vercel 会等到 45 分钟超时。
+  // 仅在 `nuxt build` 结束时强制退出；不影响 `nuxt prepare`（postinstall 生成 tsconfig）。
   hooks: {
     close() {
-      if (process.env.NODE_ENV === "production") {
-        process.exit(0)
+      if (process.argv.includes("build")) {
+        process.nextTick(() => process.exit(0))
       }
     }
   },
