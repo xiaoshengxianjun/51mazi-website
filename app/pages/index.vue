@@ -16,7 +16,7 @@ useSeoMeta({
   ogTitle: '51码字 - 本地优先的小说写作工具',
   ogDescription:
     '本地书架、智能编辑器、大纲与设定、人物图谱、地图、关系图、时间线与可选 AI。数据不上传云端。',
-  ogImage: '/og-image.png',
+  ogImage: '/images/home1.png',
   twitterCard: 'summary_large_image',
 })
 </script>

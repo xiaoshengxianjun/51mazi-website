@@ -61,6 +61,27 @@ export default defineNuxtConfig({
     automaticDefaults: true
   },
 
+  // 关闭构建期 OG 图生成：会拉 Google Fonts、打进 Vercel Function，上次因此卡满 45 分钟
+  ogImage: {
+    enabled: false
+  },
+  // 构建期不扫描外链，避免再次请求国内下载地址
+  linkChecker: {
+    runOnBuild: false
+  },
+  sitemap: {
+    zeroRuntime: true
+  },
+
+  // nuxi 打印 Build complete 后 close() 可能被 esbuild/Vite 挂住，Vercel 会等到 45 分钟超时
+  hooks: {
+    close() {
+      if (process.env.NODE_ENV === "production") {
+        process.exit(0)
+      }
+    }
+  },
+
   // Robots 配置
   // 模块会自动读取项目根目录的 robots.txt 文件
   // 支持的位置：robots.txt (根目录)、assets/robots.txt、pages/robots.txt、public/_robots.txt
@@ -97,6 +118,8 @@ export default defineNuxtConfig({
 
   // 静态站点生成配置（SSG）- 预渲染关键路由以改善 TTFB
   nitro: {
+    // 官网无需 Node 服务；避开 Vercel 把 Nitro/OG 资源打成超大 Function 后上传超时
+    preset: "vercel-static",
     prerender: {
       // 只预渲染明确列出的路由，避免爬虫在构建期跟着外链或接口把进程拖死
       crawlLinks: false,
@@ -132,7 +155,7 @@ export default defineNuxtConfig({
         "/sitemap.xml",
         "/robots.txt"
       ],
-      ignore: ["/api/**"],
+      ignore: ["/api/**", "/__og-image__/**"],
       failOnError: false
     }
   }
