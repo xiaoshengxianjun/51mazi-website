@@ -1,4 +1,5 @@
-import { DEFAULT_API_BASE, FALLBACK_APP_VERSION } from '~/utils/product'
+import fallbackRelease from '../../public/releases.json'
+import { DEFAULT_API_BASE } from '~/utils/product'
 
 /** 与发布接口对齐的平台资源 */
 export interface StablePlatformAsset {
@@ -20,6 +21,20 @@ export interface StableRelease {
   }>
 }
 
+type FallbackPlatformAsset = {
+  filename?: string
+  url?: string
+  size?: number
+}
+
+type FallbackRelease = {
+  version: string
+  downloadBaseUrl: string
+  platforms: Record<string, FallbackPlatformAsset>
+}
+
+const fallback = fallbackRelease as FallbackRelease
+
 /** 官网四个安装包：Windows x64 / ARM64，macOS Apple Silicon / Intel */
 const INSTALLER_FALLBACK: Record<string, (version: string) => string> = {
   'windows-x86_64': (version) => `51mazi_${version}_x64-setup.exe`,
@@ -37,13 +52,38 @@ function isInstallerFile(filename?: string): filename is string {
 }
 
 function normalizeVersion(raw?: string): string {
-  const value = raw?.trim() || FALLBACK_APP_VERSION
+  const value = raw?.trim() || fallback.version
   return value.startsWith('v') ? value.slice(1) : value
 }
 
+function resolveApiFilename(release: StableRelease, platform: string, versionNumber: string): string {
+  const asset = release.platforms?.[platform]
+  if (isInstallerFile(asset?.installerFilename)) {
+    return asset.installerFilename
+  }
+  if (isInstallerFile(asset?.bundleFilename)) {
+    return asset.bundleFilename
+  }
+  const fromAssets = release.assets?.find(
+    (item) => item.platform === platform && isInstallerFile(item.filename) && item.kind !== 'signature',
+  )
+  if (fromAssets) {
+    return fromAssets.filename
+  }
+  return INSTALLER_FALLBACK[platform]?.(versionNumber) || ''
+}
+
+function formatFileSize(bytes?: number): string {
+  if (!bytes) {
+    return ''
+  }
+  const mb = bytes / (1024 * 1024)
+  return `约 ${mb < 10 ? mb.toFixed(1) : Math.round(mb)} MB`
+}
+
 /**
- * 拉取当前稳定版，并给出四个官方安装包直链。
- * 优先用接口里的首次安装包；缺失时按发布文件名规则回退，保证按钮始终可点。
+ * 当前稳定版与四个官方安装包直链。
+ * 本地 public/releases.json 作为构建期与接口失败时的兜底；浏览器里接口成功后再覆盖。
  */
 export function useStableRelease() {
   const config = useRuntimeConfig()
@@ -54,7 +94,7 @@ export function useStableRelease() {
     {
       key: 'stable-release',
       lazy: true,
-      // 构建预渲染不请求发布接口：Vercel 美东节点访问国内 API 可能一直挂起直到 45 分钟超时
+      // 构建预渲染只读本地清单，避免 Vercel 节点访问国内 API 挂满 45 分钟
       server: false,
       timeout: 8000,
       default: () => null,
@@ -62,51 +102,47 @@ export function useStableRelease() {
         return undefined
       },
       onResponseError() {
-        // 接口不可用时用回退版本号与约定文件名
+        // 接口不可用时继续用 public/releases.json
       },
     },
   )
 
-  const versionNumber = computed(() => normalizeVersion(data.value?.version))
+  const versionNumber = computed(() => normalizeVersion(data.value?.version || fallback.version))
 
   const version = computed(() => `v${versionNumber.value}`)
 
-  const downloadBase = computed(() => {
-    const fromApi = data.value?.downloadBaseUrl?.replace(/\/$/, '')
-    return fromApi || `${apiBase}/api/download/stable`
-  })
-
-  function resolveFilename(platform: string): string {
-    const asset = data.value?.platforms?.[platform]
-    if (isInstallerFile(asset?.installerFilename)) {
-      return asset.installerFilename
-    }
-    if (isInstallerFile(asset?.bundleFilename)) {
-      return asset.bundleFilename
-    }
-    const fromAssets = data.value?.assets?.find(
-      (item) => item.platform === platform && isInstallerFile(item.filename) && item.kind !== 'signature',
-    )
-    if (fromAssets) {
-      return fromAssets.filename
-    }
-    return INSTALLER_FALLBACK[platform]?.(versionNumber.value) || ''
-  }
-
   function getDownloadUrl(platform: string): string {
-    const filename = resolveFilename(platform)
-    return `${downloadBase.value}/${encodeURIComponent(filename)}`
+    if (data.value) {
+      const filename = resolveApiFilename(data.value, platform, versionNumber.value)
+      if (filename) {
+        const fromApi = data.value.downloadBaseUrl?.replace(/\/$/, '')
+        const base = fromApi || `${apiBase}/api/download/stable`
+        return `${base}/${encodeURIComponent(filename)}`
+      }
+    }
+
+    const local = fallback.platforms[platform]
+    if (local?.url) {
+      return local.url
+    }
+    const filename = local?.filename || INSTALLER_FALLBACK[platform]?.(versionNumber.value)
+    if (!filename) {
+      return ''
+    }
+    return `${fallback.downloadBaseUrl.replace(/\/$/, '')}/${encodeURIComponent(filename)}`
   }
 
   function getFileSize(platform: string): string {
-    const filename = resolveFilename(platform)
-    const fromAssets = data.value?.assets?.find((item) => item.filename === filename)
-    const bytes = fromAssets?.size || data.value?.platforms?.[platform]?.bundleSize
-    if (!bytes) {
-      return ''
+    if (data.value) {
+      const filename = resolveApiFilename(data.value, platform, versionNumber.value)
+      const fromAssets = data.value.assets?.find((item) => item.filename === filename)
+      const bytes = fromAssets?.size || data.value.platforms?.[platform]?.bundleSize
+      const formatted = formatFileSize(bytes)
+      if (formatted) {
+        return formatted
+      }
     }
-    const mb = bytes / (1024 * 1024)
-    return `约 ${mb < 10 ? mb.toFixed(1) : Math.round(mb)} MB`
+    return formatFileSize(fallback.platforms[platform]?.size)
   }
 
   return { data, status, version, getDownloadUrl, getFileSize }

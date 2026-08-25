@@ -1,0 +1,18 @@
+{
+  "version": "1.0.1",
+  "downloadBaseUrl": "https://api.51mazi.com/api/download/stable",
+  "platforms": {
+    "windows-x86_64": {
+      "filename": "51mazi_1.0.1_x64-setup.exe"
+    },
+    "windows-aarch64": {
+      "filename": "51mazi_1.0.1_arm64-setup.exe"
+    },
+    "darwin-aarch64": {
+      "filename": "51mazi_1.0.1_aarch64.dmg"
+    },
+    "darwin-x86_64": {
+      "filename": "51mazi_1.0.1_x64.dmg"
+    }
+  }
+}
