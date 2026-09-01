@@ -6,7 +6,7 @@
           功能特性
         </h1>
         <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-          与桌面端一致：本地写作、十二项写作助手、可选 AI。账号与云同步尚未提供。
+          与桌面端一致：本地写作、十三项写作助手、可选 AI。账号与云同步尚未提供。
         </p>
       </div>
 
@@ -41,11 +41,11 @@
 <script setup lang="ts">
 import { FEATURES } from '~/data/features'
 
-useSeoMeta({
+usePageSeo({
   title: '功能特性',
   description:
-    '51码字功能一览：智能编辑器、大纲与设定、人物图谱、地图、关系图、时间线、事序图、伏笔、可选 AI 与下载小说。数据保存在本地。',
+    '51码字功能一览：智能编辑器、大纲与设定、人物图谱、地图、关系图、时间线、事序图、伏笔、灵感随笔、可选 AI 与下载小说。数据保存在本地。',
   ogTitle: '51码字功能特性',
-  ogDescription: '本地写作工具完整功能：编辑器、写作助手与可选 AI。',
+  ogDescription: '本地小说写作软件完整功能：编辑器、写作助手与可选 AI。',
 })
 </script>

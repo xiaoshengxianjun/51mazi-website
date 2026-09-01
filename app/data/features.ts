@@ -46,14 +46,14 @@ export const FEATURES: FeatureDetail[] = [
       '按卷组织章节，自动编号（阿拉伯 / 汉字），后缀可选章 / 集 / 回 / 节 / 部 / 卷',
       '菜单栏：撤销重做、搜索替换、字体字号、行高段距、高亮、一键排版',
       '章节标题行可开关：人物高亮、禁词提示、显示伏笔',
-      '菜单栏「伏 / 错 / 语」：添加伏笔、错字检查、语病检查',
+      '菜单栏「伏 / 错 / 语 / 灵」：添加伏笔、错字检查、语病检查、灵感随笔',
       '章节助手：选区或整章润色、按目标字数续写（流式）、选中 100～1000 字生成场景插图',
       '底部实时统计本章字数、目标进度与码字速度',
       '手机预览、全书导出、左下角回收站（可恢复或彻底删除）',
     ],
     useCase:
-      '正文就在本地目录里写。人物高亮和禁词提示盯一致性，伏笔随手记下；需要时再用润色、续写和校对，不必离开当前章节。',
-    related: ['outline', 'foreshadow', 'ai-scene'],
+      '正文就在本地目录里写。人物高亮和禁词提示盯一致性，伏笔与灵感随手记下；需要时再用润色、续写和校对，不必离开当前章节。',
+    related: ['outline', 'foreshadow', 'inspiration'],
   },
   {
     slug: 'outline',
@@ -168,7 +168,23 @@ export const FEATURES: FeatureDetail[] = [
     ],
     useCase:
       '长篇最怕埋了忘收。写到关键句随手记一笔，过稿时打开伏笔表逐条核对。',
-    related: ['editor', 'outline', 'timeline'],
+    related: ['editor', 'inspiration', 'timeline'],
+  },
+  {
+    slug: 'inspiration',
+    title: '灵感随笔',
+    icon: '💡',
+    description: '快捷键或菜单随时记下，写入本书「灵感随笔」笔记本',
+    features: [
+      '应用在前台时：Mac 用 Cmd+Shift+I，Windows 用 Ctrl+Alt+I 打开捕获小窗',
+      '编辑器菜单栏「灵」可带上当前选区，并锁定这本书',
+      '写作助手「灵感随笔」会切到笔记、展开该笔记本，并打开捕获弹窗',
+      '内容写入本书「笔记 / 灵感随笔」，可在笔记树中整理、重命名或删除（走回收站）',
+      '小窗内 Ctrl/Cmd+Enter 保存，Esc 取消；切到后台时快捷键不会弹出',
+    ],
+    useCase:
+      '写到一半冒出对白、设定或下章念头，不必离开当前章节。记完继续写，之后在笔记本里慢慢整理。',
+    related: ['editor', 'foreshadow', 'outline'],
   },
   {
     slug: 'relation',

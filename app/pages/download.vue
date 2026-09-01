@@ -12,11 +12,14 @@
         <div class="bg-primary-50 border border-primary-200 rounded-lg p-6">
           <p class="text-sm text-primary-700 mb-2">当前稳定版</p>
           <p class="text-3xl font-bold text-primary-900 mb-2">{{ version }}</p>
+          <p class="text-sm text-gray-700 mb-2">
+            本版新增灵感随笔，并修复已知问题。
+          </p>
           <p class="text-sm text-gray-600">
             应用启动后会自动检查更新；也可在首页侧栏手动「检查更新」。
           </p>
-          <NuxtLink to="/blog" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">
-            查看功能说明 →
+          <NuxtLink to="/blog/inspiration-notes" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">
+            了解灵感随笔 →
           </NuxtLink>
         </div>
       </div>
@@ -137,10 +140,13 @@ const platformCards = computed(() => [
   },
 ])
 
-useSeoMeta({
-  title: '下载',
-  description: '下载 51码字桌面客户端，支持 Windows 与 macOS。本地写作，7 天试用。',
+usePageSeo({
+  title: '下载 51码字（Windows / macOS）',
+  description:
+    '下载 51码字小说写作软件官方安装包：Windows x64 / ARM64，macOS Apple Silicon / Intel。本地写作，新安装 7 天试用。',
   ogTitle: '下载 51码字',
-  ogDescription: 'Windows 与 macOS 官方安装包，本地优先的小说写作工具。',
+  ogDescription: 'Windows 与 macOS 官方安装包，本地优先的小说写作软件。',
 })
+
+useSoftwareAppSchema()
 </script>

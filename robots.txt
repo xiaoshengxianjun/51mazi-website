@@ -1,2 +1,4 @@
 User-Agent: *
 Disallow:
+
+Sitemap: https://www.51mazi.com/sitemap.xml

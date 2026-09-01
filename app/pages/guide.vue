@@ -46,9 +46,9 @@
             <ul class="text-gray-700 mb-4 list-disc list-inside space-y-1 ml-4">
               <li>章节为纯文本，笔记为富文本</li>
               <li>自动保存：停笔约 30 秒；持续输入最多约 1 分钟强制保存</li>
-              <li>右侧「写作助手」打开大纲、设定、人物、地图等工具</li>
+              <li>右侧「写作助手」打开大纲、设定、人物、地图、灵感随笔等工具</li>
               <li>标题行可开人物高亮、禁词提示、显示伏笔</li>
-              <li>菜单栏「伏 / 错 / 语」记伏笔、错字检查、语病检查</li>
+              <li>菜单栏「伏 / 错 / 语 / 灵」记伏笔、校对与灵感随笔</li>
             </ul>
             <p class="text-gray-700">
               使用 AI 前，到首页「AI 设置」选择文本 / 图像模型并验证 Key。Key 存在本机，不经过 51码字中转正文。
@@ -131,6 +131,11 @@ const faqs = [
     answer: '在章节中选中相关句子，点菜单栏「伏」，填写说明后保存。全书列表在「伏笔记录」；本章相关项可在标题行打开「显示伏笔」。',
   },
   {
+    question: '如何记下灵感随笔？',
+    answer:
+      '应用在前台时，Mac 用 Cmd+Shift+I，Windows 用 Ctrl+Alt+I；也可点菜单栏「灵」，或打开写作助手「灵感随笔」。内容写入本书「笔记 / 灵感随笔」笔记本，可在笔记树中整理。小窗内 Ctrl/Cmd+Enter 保存，Esc 取消。',
+  },
+  {
     question: '下载的小说能当自己的书发布吗？',
     answer: '不能。下载功能仅供个人学习、对照或本地改稿练习。请尊重原作者版权。',
   },
@@ -140,7 +145,8 @@ const faqs = [
   },
   {
     question: '快捷键有哪些？',
-    answer: 'Ctrl/Cmd + S 保存，Ctrl/Cmd + F 搜索，Ctrl/Cmd + G 下一个，Esc 关闭搜索。Mac 用 Command，Windows 用 Ctrl。地图快捷键见地图页右上角「?」。',
+    answer:
+      'Ctrl/Cmd + S 保存，Ctrl/Cmd + F 搜索，Ctrl/Cmd + G 下一个，Esc 关闭搜索。Mac 用 Cmd+Shift+I、Windows 用 Ctrl+Alt+I 打开灵感随笔（应用需在前台）；小窗内 Ctrl/Cmd+Enter 保存。Mac 用 Command，Windows 用 Ctrl。地图快捷键见地图页右上角「?」。',
   },
   {
     question: '如何联系开发者？',
@@ -148,11 +154,26 @@ const faqs = [
   },
 ]
 
-useSeoMeta({
+usePageSeo({
   title: '使用指南',
   description:
-    '51码字使用指南：安装、选择书籍目录、编辑器与写作助手、AI 设置、许可证与常见问题。',
+    '51码字使用指南：安装、选择书籍目录、编辑器与写作助手、灵感随笔、AI 设置、许可证与常见问题。',
   ogTitle: '51码字使用指南',
   ogDescription: '从选目录到写作助手、AI 与备份的完整说明。',
 })
+
+useSchemaOrg([
+  {
+    '@type': 'FAQPage',
+    name: '51码字使用指南',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  },
+])
 </script>

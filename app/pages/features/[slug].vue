@@ -122,10 +122,29 @@ const slug = computed(() => String(route.params.slug || ''))
 const feature = computed(() => getFeatureBySlug(slug.value))
 const relatedFeatures = computed(() => getRelatedFeatures(slug.value))
 
-useSeoMeta({
+usePageSeo({
   title: () => feature.value?.title || '功能详情',
-  description: () => feature.value?.description || '功能详情页面',
+  description: () =>
+    feature.value
+      ? `${feature.value.description}。51码字本地小说写作软件功能。`
+      : '功能详情页面',
   ogTitle: () => (feature.value ? `${feature.value.title} - 51码字` : '功能详情'),
   ogDescription: () => feature.value?.description || '功能详情页面',
+  ogImage: () => feature.value?.image,
+  ogImageAlt: () => (feature.value ? `${feature.value.title} - 51码字` : undefined),
 })
+
+useSchemaOrg(() => [
+  defineWebPage({
+    name: feature.value?.title || '功能详情',
+    description: feature.value?.description,
+  }),
+  defineBreadcrumb({
+    itemListElement: [
+      { name: '首页', item: '/' },
+      { name: '功能特性', item: '/features' },
+      { name: feature.value?.title || '功能详情' },
+    ],
+  }),
+])
 </script>

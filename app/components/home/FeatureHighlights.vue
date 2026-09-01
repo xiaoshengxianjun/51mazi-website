@@ -51,8 +51,8 @@ const highlightSlugs = [
   'timeline',
   'events',
   'foreshadow',
+  'inspiration',
   'random-name',
-  'novel-download',
 ]
 
 const highlights = computed(() =>

@@ -46,19 +46,41 @@ export default defineNuxtConfig({
   },
 
   // 站点配置（用于 SEO 模块）
+  // 线上 Vercel 将裸域 301/307 到 www，canonical / sitemap 必须与之一致
   site: {
-    // 部署到 Vercel 后会自动设置，或手动替换为实际域名
-    url: process.env.NUXT_PUBLIC_SITE_URL || "https://51mazi.com",
+    url: process.env.NUXT_PUBLIC_SITE_URL || "https://www.51mazi.com",
     name: "51码字",
     description:
-      "51码字是本地优先的小说写作桌面客户端。书籍与设定保存在你指定的目录，断网可写；编辑器、十二项写作助手、可选 AI 辅助，按需联网。",
-    defaultLocale: "zh-CN"
+      "51码字是本地优先的小说写作桌面客户端。书籍与设定保存在你指定的目录，断网可写；编辑器、十三项写作助手、可选 AI 辅助，按需联网。",
+    defaultLocale: "zh-CN",
+    indexable: true
   },
 
   // SEO 配置
   seo: {
     fallbackTitle: true,
     automaticDefaults: true
+  },
+
+  schemaOrg: {
+    identity: {
+      type: "Organization",
+      name: "51码字",
+      url: "https://www.51mazi.com",
+      logo: "/logo.png"
+    }
+  },
+
+  routeRules: {
+    "/": { sitemap: { changefreq: "weekly", priority: 1 } },
+    "/download": { sitemap: { changefreq: "weekly", priority: 0.9 } },
+    "/features": { sitemap: { changefreq: "monthly", priority: 0.8 } },
+    "/features/**": { sitemap: { changefreq: "monthly", priority: 0.7 } },
+    "/guide": { sitemap: { changefreq: "monthly", priority: 0.8 } },
+    "/blog": { sitemap: { changefreq: "weekly", priority: 0.7 } },
+    "/blog/**": { sitemap: { changefreq: "monthly", priority: 0.6 } },
+    "/about": { sitemap: { changefreq: "monthly", priority: 0.5 } },
+    "/contact": { sitemap: { changefreq: "monthly", priority: 0.5 } }
   },
 
   // 关闭构建期 OG 图生成：会拉 Google Fonts、打进 Vercel Function，上次因此卡满 45 分钟
@@ -70,7 +92,9 @@ export default defineNuxtConfig({
     runOnBuild: false
   },
   sitemap: {
-    zeroRuntime: true
+    zeroRuntime: true,
+    // 避免把 Vercel 图片优化地址写进 sitemap
+    discoverImages: false
   },
 
   // nuxt build 完成后进程有句柄未释放会挂住，Vercel 会等到 45 分钟超时。
@@ -108,7 +132,8 @@ export default defineNuxtConfig({
       ],
       meta: [
         { charset: "utf-8" },
-        { name: "viewport", content: "width=device-width, initial-scale=1" }
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "theme-color", content: "#3d6b9e" }
       ]
     }
   },
@@ -135,6 +160,7 @@ export default defineNuxtConfig({
         "/features/map",
         "/features/dictionary",
         "/features/foreshadow",
+        "/features/inspiration",
         "/features/relation",
         "/features/organization",
         "/features/timeline",
@@ -145,6 +171,7 @@ export default defineNuxtConfig({
         "/contact",
         "/guide",
         "/blog",
+        "/blog/inspiration-notes",
         "/blog/book-management",
         "/blog/deepseek-integration",
         "/blog/ai-naming-assistant",

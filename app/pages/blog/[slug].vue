@@ -47,16 +47,35 @@
 </template>
 
 <script setup lang="ts">
-import { getPostBySlug } from '~/data/blog'
+import { DEFAULT_OG_IMAGE } from '~/composables/usePageSeo'
+import { getPostBySlug, toBlogIsoDate } from '~/data/blog'
 
 const route = useRoute()
 const slug = computed(() => String(route.params.slug || ''))
 const post = computed(() => getPostBySlug(slug.value))
 
-useSeoMeta({
+usePageSeo({
   title: () => post.value?.title || '博客文章',
   description: () => post.value?.excerpt || '博客文章',
   ogTitle: () => post.value?.title || '博客文章',
   ogDescription: () => post.value?.excerpt || '博客文章',
+  ogType: 'article',
 })
+
+useSchemaOrg(() => [
+  defineArticle({
+    headline: post.value?.title || '博客文章',
+    description: post.value?.excerpt,
+    datePublished: post.value ? toBlogIsoDate(post.value.date) : undefined,
+    author: { name: '51码字' },
+    image: DEFAULT_OG_IMAGE,
+  }),
+  defineBreadcrumb({
+    itemListElement: [
+      { name: '首页', item: '/' },
+      { name: '博客', item: '/blog' },
+      { name: post.value?.title || '博客文章' },
+    ],
+  }),
+])
 </script>

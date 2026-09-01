@@ -168,7 +168,7 @@ onUnmounted(() => {
   window.removeEventListener('keydown', handleEscape)
 })
 
-useSeoMeta({
+usePageSeo({
   title: '联系我们',
   description: '联系 51码字：QQ 群、邮箱、许可证客服与赞助作者。',
   ogTitle: '联系我们 - 51码字',

@@ -34,7 +34,7 @@
             </p>
             <ul class="text-gray-700 leading-relaxed mb-4 list-disc list-inside space-y-2">
               <li><strong>本地优先</strong>：数据在你选的目录里，换电脑拷贝目录即可继续</li>
-              <li><strong>完整工作流</strong>：编辑器 + 十二项写作助手 + 近 30 日码字统计</li>
+              <li><strong>完整工作流</strong>：编辑器 + 十三项写作助手 + 近 30 日码字统计</li>
               <li><strong>可选 AI</strong>：自备 Key，润色、续写、校对、大纲 Agent、封面与插图</li>
               <li><strong>多窗口与主题</strong>：每书独立窗口；九套主题 + 跟随系统</li>
               <li><strong>跨平台</strong>：官方安装包覆盖 Windows（x64 / ARM64）与 macOS（Apple Silicon / Intel）</li>
@@ -54,7 +54,7 @@
             <div class="bg-primary-50 rounded-lg p-6 border border-primary-200">
               <h3 class="text-xl font-semibold text-gray-900 mb-2">工具齐全</h3>
               <p class="text-gray-700">
-                大纲、设定、人物、地图、关系、时间线与伏笔都在同一本书里，减少来回切换外部软件。
+                大纲、设定、人物、地图、关系、时间线、伏笔与灵感随笔都在同一本书里，减少来回切换外部软件。
               </p>
             </div>
             <div class="bg-primary-50 rounded-lg p-6 border border-primary-200">
@@ -111,7 +111,7 @@
                 <li>• 本地书架、码字统计、九套主题、自动更新</li>
                 <li>• 章节 / 笔记编辑器、回收站、手机预览、全书导出</li>
                 <li>• 大纲（含 Agent 与章纲生章）、设定、人物图谱、随机起名</li>
-                <li>• 地图、词条、禁词、伏笔、组织、关系、时间线、事序图</li>
+                <li>• 地图、词条、禁词、伏笔、灵感随笔、组织、关系、时间线、事序图</li>
                 <li>• 可选文本 / 图像 AI，以及下载小说（需合规使用）</li>
               </ul>
             </div>
@@ -130,9 +130,9 @@
 </template>
 
 <script setup lang="ts">
-useSeoMeta({
-  title: '关于',
-  description: '了解 51码字：本地优先的小说写作桌面客户端，数据保存在你指定的目录。',
+usePageSeo({
+  title: '关于 51码字',
+  description: '了解 51码字：本地优先的小说写作桌面客户端，数据保存在你指定的目录，支持 Windows 与 macOS。',
   ogTitle: '关于 51码字',
   ogDescription: '本地优先、可选 AI、试用后激活。账号与云同步尚未提供。',
 })
