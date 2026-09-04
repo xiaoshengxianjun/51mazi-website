@@ -13,13 +13,13 @@
           <p class="text-sm text-primary-700 mb-2">当前稳定版</p>
           <p class="text-3xl font-bold text-primary-900 mb-2">{{ version }}</p>
           <p class="text-sm text-gray-700 mb-2">
-            本版新增灵感随笔，并修复已知问题。
+            本版笔记支持表格编辑，并修复已知问题。
           </p>
           <p class="text-sm text-gray-600">
             应用启动后会自动检查更新；也可在首页侧栏手动「检查更新」。
           </p>
-          <NuxtLink to="/blog/inspiration-notes" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">
-            了解灵感随笔 →
+          <NuxtLink to="/features/editor" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">
+            了解智能编辑器 →
           </NuxtLink>
         </div>
       </div>
