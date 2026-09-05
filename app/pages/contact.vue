@@ -60,7 +60,7 @@
                   累计打赏满 50 元后，联系 QQ <span class="text-primary-600 font-medium">{{ LICENSE_QQ }}</span> 凭付款截图兑换短码。
                 </p>
                 <p class="text-sm text-gray-600">
-                  也可在应用首页「许可证激活」粘贴已有的 20 位短码。
+                  也可在应用首页「许可证」粘贴已有的 20 位短码。
                 </p>
               </div>
             </div>

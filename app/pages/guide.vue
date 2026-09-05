@@ -48,6 +48,8 @@
               <li>自动保存：停笔约 30 秒；持续输入最多约 1 分钟强制保存</li>
               <li>右侧「写作助手」打开大纲、设定、人物、地图、灵感随笔等工具</li>
               <li>标题行可开人物高亮、禁词提示、显示伏笔</li>
+              <li>Ctrl/Cmd+Shift+F 全书搜索笔记、章节与写作助手</li>
+              <li>菜单栏可导入 txt / docx 文件或文件夹</li>
               <li>菜单栏「伏 / 错 / 语」记伏笔、错字检查、语病检查</li>
             </ul>
             <p class="text-gray-700">
@@ -112,7 +114,7 @@ const faqs = [
   },
   {
     question: '软件是免费的吗？',
-    answer: `新安装有 7 天完整试用。试用结束后进入受限模式：书架最多 2 本，地图 / 组织 / 关系 / 时间线 / 事序图等有数量上限；AI、下载小说和部分高级工具需激活。可在「许可证激活」粘贴 20 位短码；累计打赏满 50 元可联系 QQ ${LICENSE_QQ} 凭付款截图兑换。`,
+    answer: `新安装有 7 天完整试用。试用结束后进入受限模式：书架最多 2 本，地图 / 组织 / 关系 / 时间线 / 事序图等有数量上限；AI、下载小说和部分高级工具需激活。可在首页「许可证」粘贴 20 位短码；累计打赏满 50 元可联系 QQ ${LICENSE_QQ} 凭付款截图兑换。`,
   },
   {
     question: '章节和笔记有什么区别？',
@@ -131,6 +133,16 @@ const faqs = [
     answer: '在章节中选中相关句子，点菜单栏「伏」，填写说明后保存。全书列表在「伏笔记录」；本章相关项可在标题行打开「显示伏笔」。',
   },
   {
+    question: '如何搜索整本书？',
+    answer:
+      '在编辑器中按 Ctrl/Cmd+Shift+F，或点左侧栏的搜索按钮。可检索当前书的笔记、章节和写作助手。当前章节内查找仍用 Ctrl/Cmd+F。',
+  },
+  {
+    question: '如何导入已有文稿？',
+    answer:
+      '打开一本书后，在菜单栏选择「导入文件」或「导入文件夹」，支持 txt 与 docx。当前在章节则导入为章节，在笔记则导入为笔记。导入章节时会按正文设置自动补上「第 N 章」前缀。',
+  },
+  {
     question: '如何记下灵感随笔？',
     answer:
       '应用在前台时，Mac 用 Cmd+Shift+I，Windows 用 Ctrl+Alt+I；也可打开写作助手「灵感随笔」。内容写入本书「笔记 / 灵感随笔」笔记本，可在笔记树中整理。小窗内 Ctrl/Cmd+Enter 保存，Esc 取消。',
@@ -146,7 +158,7 @@ const faqs = [
   {
     question: '快捷键有哪些？',
     answer:
-      'Ctrl/Cmd + S 保存，Ctrl/Cmd + F 搜索，Ctrl/Cmd + G 下一个，Esc 关闭搜索。Mac 用 Cmd+Shift+I、Windows 用 Ctrl+Alt+I 打开灵感随笔（应用需在前台）；小窗内 Ctrl/Cmd+Enter 保存。Mac 用 Command，Windows 用 Ctrl。地图快捷键见地图页右上角「?」。',
+      'Ctrl/Cmd + S 保存，Ctrl/Cmd + F 当前章节或笔记内搜索，Ctrl/Cmd + Shift + F 全书搜索，Ctrl/Cmd + G 下一个，Esc 关闭搜索。Mac 用 Cmd+Shift+I、Windows 用 Ctrl+Alt+I 打开灵感随笔（应用需在前台）；小窗内 Ctrl/Cmd+Enter 保存。Mac 用 Command，Windows 用 Ctrl。地图快捷键见地图页右上角「?」。',
   },
   {
     question: '如何联系开发者？',

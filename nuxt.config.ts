@@ -171,6 +171,7 @@ export default defineNuxtConfig({
         "/contact",
         "/guide",
         "/blog",
+        "/blog/book-search-and-import",
         "/blog/inspiration-notes",
         "/blog/book-management",
         "/blog/deepseek-integration",

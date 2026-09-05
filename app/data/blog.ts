@@ -10,6 +10,16 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'book-search-and-import',
+    title: '全书搜索与导入文稿：在当前书里找、把旧稿收进来',
+    date: '2026-09',
+    category: '功能介绍',
+    excerpt:
+      'v1.2.0 新增全书搜索，以及把 txt / docx 导入当前书的章节或笔记。',
+    content:
+      'v1.2.0 给编辑器补了两件日常很常用的事。\n\n全书搜索：\n- 快捷键 Ctrl/Cmd+Shift+F，或点左侧栏搜索按钮\n- 检索范围是当前书的笔记、章节和写作助手\n- 当前这一章里查找替换，仍用 Ctrl/Cmd+F\n\n导入文稿：\n- 菜单栏可选择「导入文件」或「导入文件夹」\n- 支持 txt 与 docx\n- 当前在章节则导入为章节，在笔记则导入为笔记\n- 导入章节时，会按正文设置自动补上「第 N 章」前缀\n\n导入前如果有未保存内容，会先提示保存。适合把以前的草稿、素材收到这本书的本地目录里继续写。',
+  },
+  {
     slug: 'inspiration-notes',
     title: '灵感随笔：写到一半也能把念头先记下来',
     date: '2026-09',
