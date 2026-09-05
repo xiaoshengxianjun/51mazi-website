@@ -64,9 +64,9 @@
               </p>
             </div>
             <div class="bg-primary-50 rounded-lg p-6 border border-primary-200">
-              <h3 class="text-xl font-semibold text-gray-900 mb-2">试用后激活</h3>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">下载即可开始</h3>
               <p class="text-gray-700">
-                7 天试用功能完整；到期后可激活许可证，或在受限模式下继续少量创作。
+                安装后即可建书写作。需要许可证时，可在应用内或「联系我们」页办理。
               </p>
             </div>
           </div>
@@ -134,6 +134,6 @@ usePageSeo({
   title: '关于 51码字',
   description: '了解 51码字：本地优先的小说写作桌面客户端，数据保存在你指定的目录，支持 Windows 与 macOS。',
   ogTitle: '关于 51码字',
-  ogDescription: '本地优先、可选 AI、试用后激活。账号与云同步尚未提供。',
+  ogDescription: '本地优先、可选 AI。账号与云同步尚未提供。',
 })
 </script>

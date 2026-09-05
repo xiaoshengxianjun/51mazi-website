@@ -6,7 +6,7 @@
           开始在本地写作
         </h2>
         <p class="text-lg text-primary-100 mb-8">
-          下载 51码字，数据保存在你指定的目录。新安装享有 7 天完整试用。
+          下载 51码字，数据保存在你指定的目录。
         </p>
 
         <div class="flex flex-wrap justify-center gap-8 mb-8">

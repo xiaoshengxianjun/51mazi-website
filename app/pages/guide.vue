@@ -21,7 +21,7 @@
               ，按系统与芯片下载安装包。
             </p>
             <p class="text-gray-700">
-              安装后启动「51码字」。新安装自动开始 7 天试用。
+              安装后启动「51码字」，在系统设置中选择书籍主目录即可建书。
             </p>
           </div>
 
@@ -34,7 +34,7 @@
               入口：首页左侧「系统设置」。目录必须存在且可读写。首次启动未设置时会自动弹出。
             </p>
             <p class="text-gray-700">
-              可选：在「书架密码」设置 8～16 位字母或数字；建书时可设 4～8 位书籍密码。密码能力需处于试用或已激活状态。
+              可选：在「书架密码」设置 8～16 位字母或数字；建书时可设 4～8 位书籍密码。
             </p>
           </div>
 
@@ -94,7 +94,7 @@
 
 <script setup lang="ts">
 import { FEATURES } from '~/data/features'
-import { CONTACT_EMAIL, LICENSE_QQ, QQ_GROUP } from '~/utils/product'
+import { CONTACT_EMAIL, QQ_GROUP } from '~/utils/product'
 
 const tutorials = FEATURES.map((item) => ({
   slug: item.slug,
@@ -114,7 +114,8 @@ const faqs = [
   },
   {
     question: '软件是免费的吗？',
-    answer: `新安装有 7 天完整试用。试用结束后进入受限模式：书架最多 2 本，地图 / 组织 / 关系 / 时间线 / 事序图等有数量上限；AI、下载小说和部分高级工具需激活。可在首页「许可证」粘贴 20 位短码；累计打赏满 50 元可联系 QQ ${LICENSE_QQ} 凭付款截图兑换。`,
+    answer:
+      '可以下载使用。需要激活许可证时，在首页「许可证」粘贴短码。兑换与客服见「联系我们」页。',
   },
   {
     question: '章节和笔记有什么区别？',
@@ -122,11 +123,11 @@ const faqs = [
   },
   {
     question: 'AI 需要什么？',
-    answer: '在「AI 设置」分别配置文本模型（DeepSeek 或 Kimi）和图像模型（通义万相或 Gemini Imagen），并验证 Key。Key 存在本机。试用过期后还需激活许可证。',
+    answer: '在「AI 设置」分别配置文本模型（DeepSeek 或 Kimi）和图像模型（通义万相或 Gemini Imagen），并验证 Key。Key 存在本机。',
   },
   {
     question: '人物高亮不生效？',
-    answer: '先在人物图谱中为角色填写名称，再打开章节标题行「人物高亮」。名称按档案标记色显示。试用结束后该能力可能随许可证受限。',
+    answer: '先在人物图谱中为角色填写名称，再打开章节标题行「人物高亮」。名称按档案标记色显示。',
   },
   {
     question: '如何添加伏笔？',

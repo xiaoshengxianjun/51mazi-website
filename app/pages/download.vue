@@ -4,7 +4,7 @@
       <div class="text-center mb-16">
         <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">下载 51码字</h1>
         <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-          选择平台安装包。新安装享有 7 天完整试用，之后可激活许可证。
+          选择平台安装包，安装后即可开始写作。
         </p>
       </div>
 
@@ -101,20 +101,11 @@
           </div>
         </div>
       </div>
-
-      <div class="max-w-2xl mx-auto text-center text-gray-600 text-sm leading-relaxed">
-        <p>
-          试用结束后进入受限模式：书架最多 2 本，部分写作助手有数量上限，AI 与下载小说需激活后使用。
-          累计打赏满 50 元可联系 QQ {{ LICENSE_QQ }} 凭付款截图兑换短码。
-        </p>
-      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { LICENSE_QQ } from '~/utils/product'
-
 const { version, getDownloadUrl, getFileSize } = useStableRelease()
 
 const platformCards = computed(() => [
@@ -143,7 +134,7 @@ const platformCards = computed(() => [
 usePageSeo({
   title: '下载 51码字（Windows / macOS）',
   description:
-    '下载 51码字小说写作软件官方安装包：Windows x64 / ARM64，macOS Apple Silicon / Intel。本地写作，新安装 7 天试用。',
+    '下载 51码字小说写作软件官方安装包：Windows x64 / ARM64，macOS Apple Silicon / Intel。本地写作，数据保存在你指定的目录。',
   ogTitle: '下载 51码字',
   ogDescription: 'Windows 与 macOS 官方安装包，本地优先的小说写作软件。',
 })
