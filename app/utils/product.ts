@@ -8,5 +8,4 @@ export const FALLBACK_APP_VERSION = fallbackRelease.version.replace(/^v/, '')
 export const OFFICIAL_WEBSITE = 'https://www.51mazi.com'
 export const CONTACT_EMAIL = 'fomazi@163.com'
 export const QQ_GROUP = '777690109'
-export const LICENSE_QQ = '3072693032'
 export const DEFAULT_API_BASE = 'https://api.51mazi.com'

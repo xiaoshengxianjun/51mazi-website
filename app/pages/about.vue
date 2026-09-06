@@ -66,7 +66,7 @@
             <div class="bg-primary-50 rounded-lg p-6 border border-primary-200">
               <h3 class="text-xl font-semibold text-gray-900 mb-2">下载即可开始</h3>
               <p class="text-gray-700">
-                安装后即可建书写作。需要许可证时，可在应用内或「联系我们」页办理。
+                安装后即可建书写作。
               </p>
             </div>
           </div>

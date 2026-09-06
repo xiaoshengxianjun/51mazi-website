@@ -53,16 +53,6 @@
                   问题反馈、建议或商务合作
                 </p>
               </div>
-
-              <div class="bg-white rounded-lg p-6 border border-gray-200">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">许可证客服</h3>
-                <p class="text-gray-700 mb-2">
-                  累计打赏满 50 元后，联系 QQ <span class="text-primary-600 font-medium">{{ LICENSE_QQ }}</span> 凭付款截图兑换短码。
-                </p>
-                <p class="text-sm text-gray-600">
-                  也可在应用首页「许可证」粘贴已有的 20 位短码。
-                </p>
-              </div>
             </div>
           </div>
 
@@ -70,7 +60,7 @@
             <h2 class="text-2xl font-bold text-gray-900 mb-6">其他渠道</h2>
             <div class="bg-white rounded-lg p-6 border border-gray-200 mb-8">
               <ul class="space-y-2 text-gray-700">
-                <li>• 应用内「意见反馈」（需已激活许可证，每日最多 3 次，不超过 500 字）</li>
+                <li>• 应用内「意见反馈」（每日最多 3 次，不超过 500 字）</li>
                 <li>• 应用内「帮助中心」查看联系方式</li>
               </ul>
             </div>
@@ -78,7 +68,7 @@
             <div>
               <h3 class="text-lg font-semibold text-gray-900 mb-2">赞助作者</h3>
               <p class="text-sm text-gray-600 mb-4">
-                可通过微信或支付宝打赏。满 50 元可联系客服兑换激活短码。
+                可通过微信或支付宝打赏。
               </p>
               <div class="grid grid-cols-2 gap-4">
                 <div class="bg-white rounded-lg p-4 border border-gray-200 text-center">
@@ -150,7 +140,7 @@
 </template>
 
 <script setup lang="ts">
-import { CONTACT_EMAIL, LICENSE_QQ, QQ_GROUP } from '~/utils/product'
+import { CONTACT_EMAIL, QQ_GROUP } from '~/utils/product'
 
 const showQRCodeModal = shallowRef(false)
 
@@ -170,8 +160,8 @@ onUnmounted(() => {
 
 usePageSeo({
   title: '联系我们',
-  description: '联系 51码字：QQ 群、邮箱、许可证客服与赞助作者。',
+  description: '联系 51码字：QQ 群、邮箱与赞助作者。',
   ogTitle: '联系我们 - 51码字',
-  ogDescription: 'QQ 群、邮箱、许可证兑换与赞助。',
+  ogDescription: 'QQ 群、邮箱与赞助。',
 })
 </script>
