@@ -52,7 +52,7 @@ const highlightSlugs = [
   'events',
   'foreshadow',
   'inspiration',
-  'random-name',
+  'signing-review',
 ]
 
 const highlights = computed(() =>

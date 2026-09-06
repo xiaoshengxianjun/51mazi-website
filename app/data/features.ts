@@ -249,6 +249,24 @@ export const FEATURES: FeatureDetail[] = [
     related: ['timeline', 'outline', 'foreshadow'],
   },
   {
+    slug: 'signing-review',
+    title: '签约评审',
+    icon: '📋',
+    description: '按番茄、起点、晋江或七猫的习惯，对照开篇与前十章，生成模拟责编报告',
+    features: [
+      '写作助手「签约评审」以弹框打开，不离开当前章节',
+      '支持番茄小说、起点中文网、晋江文学城、七猫小说',
+      '结合本书分类（如玄幻、都市、言情）选择对应评审尺子',
+      '至少 4 章正文才能开始，对照黄金三章与第 4–10 章窗口',
+      '需在「AI 设置」配置文本模型并验证 Key，报告流式生成',
+      '顶部常驻声明：仅供参考，不能作为签约最终结论',
+      '报告不会自动保存，可用「复制报告」留下全文',
+    ],
+    useCase:
+      '写完开篇后，先用模拟责编意见看钩子、卖点和续航，再决定怎么改。结论请自行判断，是否申请签约以平台后台为准。',
+    related: ['editor', 'outline', 'ai-scene'],
+  },
+  {
     slug: 'ai-scene',
     title: 'AI 辅助',
     icon: '🖼️',
@@ -257,14 +275,14 @@ export const FEATURES: FeatureDetail[] = [
     features: [
       '文本模型：DeepSeek 或 Kimi；图像模型：通义万相或 Gemini Imagen',
       'Key 保存在本机，支持一键验证',
-      '文本：润色、续写、错字 / 语病检查、设定完善、起名、大纲 Agent、章纲生章',
+      '文本：润色、续写、错字 / 语病检查、设定完善、起名、大纲 Agent、章纲生章、签约评审',
       '图像：书架封面、人物 / 实体形象图、章节选区场景插图（约 100～1000 字）',
       '场景描述会先由文本 AI 提炼 prompt，确认后才落盘',
       '使用任何 AI 前需在首页「AI 设置」选好模型并验证 Key',
     ],
     useCase:
       'AI 是可选项，不是云创作平台。Key 你自己配，结果请审阅后再写入正文或覆盖封面。',
-    related: ['editor', 'character', 'bookshelf'],
+    related: ['editor', 'character', 'signing-review'],
   },
   {
     slug: 'novel-download',

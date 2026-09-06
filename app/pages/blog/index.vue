@@ -56,7 +56,7 @@ import { BLOG_POSTS } from '~/data/blog'
 
 usePageSeo({
   title: '博客',
-  description: '51码字博客：本地书架、写作助手、灵感随笔、AI 设置与地图等功能说明。',
+  description: '51码字博客：本地书架、写作助手、灵感随笔、签约评审、AI 设置与地图等功能说明。',
   ogTitle: '51码字博客',
   ogDescription: '对照当前桌面端的功能介绍。',
 })
