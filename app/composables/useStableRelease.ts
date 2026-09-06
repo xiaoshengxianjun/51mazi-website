@@ -84,7 +84,7 @@ function formatFileSize(bytes?: number): string {
 /**
  * 当前稳定版与四个官方安装包直链。
  * 本地 public/releases.json 作为构建期与接口失败时的兜底；浏览器里接口成功后再覆盖。
- * 1.3 暂有问题，下载与展示版本暂时固定为清单中的 1.2.0。
+ * 下载与展示版本以 public/releases.json 为准。
  */
 export function useStableRelease() {
   const config = useRuntimeConfig()
