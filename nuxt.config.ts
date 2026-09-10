@@ -172,6 +172,7 @@ export default defineNuxtConfig({
         "/contact",
         "/guide",
         "/blog",
+        "/blog/nested-notebooks",
         "/blog/signing-review",
         "/blog/book-search-and-import",
         "/blog/inspiration-notes",

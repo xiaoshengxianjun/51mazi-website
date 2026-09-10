@@ -13,13 +13,13 @@
           <p class="text-sm text-primary-700 mb-2">当前稳定版</p>
           <p class="text-3xl font-bold text-primary-900 mb-2">{{ version }}</p>
           <p class="text-sm text-gray-700 mb-2">
-            本版新增签约评审，并修复已知问题。
+            本版笔记可建一层子笔记本、优化笔记移动，并修复已知问题。
           </p>
           <p class="text-sm text-gray-600">
             应用启动后会自动检查更新；也可在首页侧栏手动「检查更新」。
           </p>
-          <NuxtLink to="/blog/signing-review" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">
-            了解签约评审 →
+          <NuxtLink to="/blog/nested-notebooks" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">
+            了解子级笔记本 →
           </NuxtLink>
         </div>
       </div>
