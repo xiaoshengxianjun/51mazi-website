@@ -46,7 +46,7 @@
             <ul class="text-gray-700 mb-4 list-disc list-inside space-y-1 ml-4">
               <li>章节为纯文本，笔记为富文本（含表格）</li>
               <li>自动保存：停笔约 30 秒；持续输入最多约 1 分钟强制保存</li>
-              <li>右侧「写作助手」打开大纲、设定、人物、地图、灵感随笔、签约评审等工具</li>
+              <li>右侧「写作助手」打开签约评审、大纲、设定、人物、地图、灵感随笔等工具</li>
               <li>标题行可开人物高亮、禁词提示、显示伏笔</li>
               <li>Ctrl/Cmd+Shift+F 全书搜索笔记、章节与写作助手</li>
               <li>菜单栏可导入 txt / docx 文件或文件夹</li>
@@ -93,10 +93,10 @@
 </template>
 
 <script setup lang="ts">
-import { FEATURES } from '~/data/features'
+import { getFeaturesInDisplayOrder } from '~/data/features'
 import { CONTACT_EMAIL, QQ_GROUP } from '~/utils/product'
 
-const tutorials = FEATURES.map((item) => ({
+const tutorials = getFeaturesInDisplayOrder().map((item) => ({
   slug: item.slug,
   title: item.title,
   icon: item.icon,

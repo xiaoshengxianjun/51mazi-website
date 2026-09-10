@@ -37,27 +37,8 @@
 </template>
 
 <script setup lang="ts">
-import { FEATURES } from '~/data/features'
+import { getFeaturesInDisplayOrder } from '~/data/features'
 
-/** 首页展示最常用的十二项，完整列表见 /features */
-const highlightSlugs = [
-  'editor',
-  'outline',
-  'bookshelf',
-  'setting',
-  'character',
-  'map',
-  'relation',
-  'timeline',
-  'events',
-  'foreshadow',
-  'inspiration',
-  'signing-review',
-]
-
-const highlights = computed(() =>
-  highlightSlugs
-    .map((slug) => FEATURES.find((item) => item.slug === slug))
-    .filter((item): item is NonNullable<typeof item> => Boolean(item)),
-)
+/** 首页展示前十二项，顺序与功能页一致；完整列表见 /features */
+const highlights = computed(() => getFeaturesInDisplayOrder().slice(0, 12))
 </script>

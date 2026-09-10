@@ -303,6 +303,36 @@ export const FEATURES: FeatureDetail[] = [
   },
 ]
 
+/** 官网功能列表顺序：先排更有辨识度、用户更关心的能力 */
+export const FEATURE_DISPLAY_SLUGS = [
+  'signing-review',
+  'outline',
+  'character',
+  'map',
+  'foreshadow',
+  'inspiration',
+  'editor',
+  'setting',
+  'timeline',
+  'events',
+  'relation',
+  'bookshelf',
+  'organization',
+  'random-name',
+  'dictionary',
+  'ai-scene',
+  'novel-download',
+] as const
+
+export function getFeaturesInDisplayOrder(): FeatureDetail[] {
+  const listed = new Set<string>(FEATURE_DISPLAY_SLUGS)
+  const ordered = FEATURE_DISPLAY_SLUGS.map((slug) => getFeatureBySlug(slug)).filter(
+    (item): item is FeatureDetail => Boolean(item),
+  )
+  const rest = FEATURES.filter((item) => !listed.has(item.slug))
+  return [...ordered, ...rest]
+}
+
 export function getFeatureBySlug(slug: string): FeatureDetail | undefined {
   return FEATURES.find((item) => item.slug === slug)
 }

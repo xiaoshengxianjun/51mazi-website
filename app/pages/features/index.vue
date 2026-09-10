@@ -12,7 +12,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div
-          v-for="feature in FEATURES"
+          v-for="feature in features"
           :key="feature.slug"
           class="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
         >
@@ -39,12 +39,14 @@
 </template>
 
 <script setup lang="ts">
-import { FEATURES } from '~/data/features'
+import { getFeaturesInDisplayOrder } from '~/data/features'
+
+const features = getFeaturesInDisplayOrder()
 
 usePageSeo({
   title: '功能特性',
   description:
-    '51码字功能一览：智能编辑器、全书搜索、导入文稿、大纲与设定、人物图谱、地图、伏笔、灵感随笔、签约评审、可选 AI 与下载小说。数据保存在本地。',
+    '51码字功能一览：签约评审、大纲、人物图谱、地图、伏笔、灵感随笔、智能编辑器、设定与可选 AI。数据保存在本地。',
   ogTitle: '51码字功能特性',
   ogDescription: '本地小说写作软件完整功能：编辑器、写作助手与可选 AI。',
 })
