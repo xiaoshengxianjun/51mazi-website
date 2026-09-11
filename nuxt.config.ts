@@ -80,7 +80,9 @@ export default defineNuxtConfig({
     "/blog": { sitemap: { changefreq: "weekly", priority: 0.7 } },
     "/blog/**": { sitemap: { changefreq: "monthly", priority: 0.6 } },
     "/about": { sitemap: { changefreq: "monthly", priority: 0.5 } },
-    "/contact": { sitemap: { changefreq: "monthly", priority: 0.5 } }
+    "/contact": { sitemap: { changefreq: "monthly", priority: 0.5 } },
+    "/terms": { sitemap: { changefreq: "monthly", priority: 0.4 } },
+    "/privacy": { sitemap: { changefreq: "monthly", priority: 0.4 } }
   },
 
   // 关闭构建期 OG 图生成：会拉 Google Fonts、打进 Vercel Function，上次因此卡满 45 分钟
@@ -170,6 +172,8 @@ export default defineNuxtConfig({
         "/features/novel-download",
         "/about",
         "/contact",
+        "/terms",
+        "/privacy",
         "/guide",
         "/blog",
         "/blog/nested-notebooks",

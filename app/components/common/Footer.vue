@@ -92,6 +92,8 @@ const quickLinks = [
 
 const resources = [
   { label: '关于我们', href: '/about', external: false },
+  { label: '用户协议', href: '/terms', external: false },
+  { label: '隐私政策', href: '/privacy', external: false },
   { label: '联系我们', href: '/contact', external: false },
 ]
 </script>
