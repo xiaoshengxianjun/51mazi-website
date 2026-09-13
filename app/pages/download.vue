@@ -16,7 +16,10 @@
             本版笔记可建一层子笔记本、优化笔记移动，并修复已知问题。
           </p>
           <p class="text-sm text-gray-600">
-            应用启动后会自动检查更新；也可在首页侧栏手动「检查更新」。
+            桌面端启动后会自动检查更新；手机端在设置里「检查更新」。
+          </p>
+          <p v-if="appVersion" class="text-sm text-gray-500 mt-2">
+            手机端当前稳定版 {{ appVersion }}
           </p>
           <NuxtLink to="/blog/nested-notebooks" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">
             了解子级笔记本 →
@@ -24,6 +27,7 @@
         </div>
       </div>
 
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">桌面端</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
         <div
           v-for="card in platformCards"
@@ -51,6 +55,37 @@
         </div>
       </div>
 
+      <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">手机端</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
+        <div
+          v-for="card in mobileCards"
+          :key="card.id"
+          class="bg-white rounded-xl p-8 shadow-sm border border-gray-200"
+        >
+          <div class="flex justify-center mb-4">
+            <CommonPlatformIcon :platform="card.id" size="md" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2 text-center">{{ card.label }}</h3>
+          <p class="text-gray-600 mb-6 text-center">{{ card.requirement }}</p>
+          <a
+            v-if="card.href"
+            :href="card.href"
+            class="block w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold text-center"
+          >
+            {{ card.cta }}
+          </a>
+          <p
+            v-else
+            class="block w-full px-6 py-3 bg-gray-100 text-gray-500 rounded-lg font-semibold text-center"
+          >
+            {{ card.cta }}
+          </p>
+          <p v-if="card.sizeHint" class="text-sm text-gray-500 mt-4 text-center">
+            {{ card.sizeHint }}
+          </p>
+        </div>
+      </div>
+
       <div class="max-w-4xl mx-auto mb-16">
         <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">系统要求</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -72,9 +107,25 @@
               <li>• 建议 4 GB 以上内存</li>
             </ul>
           </div>
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="font-semibold text-gray-900 mb-3">Android</h3>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>• Android 7.0 或更高版本</li>
+              <li>• 官网 APK，首次安装需允许「未知应用」</li>
+              <li>• 与电脑同一 Wi-Fi 时可扫码同步</li>
+            </ul>
+          </div>
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="font-semibold text-gray-900 mb-3">iOS</h3>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li>• 通过 App Store 安装（上架后开放）</li>
+              <li>• 不连电脑也可本地写作</li>
+              <li>• 扫码同步需与桌面端同一局域网</li>
+            </ul>
+          </div>
         </div>
         <p class="text-sm text-gray-500 mt-6 text-center">
-          目前提供 Windows 与 macOS 官方安装包。
+          桌面提供 Windows 与 macOS 官方安装包；手机端 Android 走官网 APK，iOS 走 App Store。
         </p>
       </div>
 
@@ -99,6 +150,14 @@
               <li>启动后选择书籍主目录即可开始建书</li>
             </ol>
           </div>
+          <div class="bg-white rounded-lg p-6 border border-gray-200">
+            <h3 class="font-semibold text-gray-900 mb-3">Android</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700">
+              <li>下载 APK，在系统设置中允许此浏览器安装未知应用</li>
+              <li>打开安装包完成安装</li>
+              <li>不连电脑也可写章节与笔记；与电脑同步需同一 Wi-Fi 扫码</li>
+            </ol>
+          </div>
         </div>
       </div>
     </div>
@@ -107,6 +166,14 @@
 
 <script setup lang="ts">
 const { version, getDownloadUrl, getFileSize } = useStableRelease()
+const {
+  version: appVersion,
+  androidUrl,
+  androidSize,
+  iosUrl,
+  hasAndroid,
+  hasIos,
+} = useAppStableRelease()
 
 const platformCards = computed(() => [
   {
@@ -131,12 +198,31 @@ const platformCards = computed(() => [
   },
 ])
 
+const mobileCards = computed(() => [
+  {
+    id: 'android' as const,
+    label: 'Android',
+    requirement: 'Android 7.0 及以上，官网 APK',
+    href: hasAndroid.value ? androidUrl.value : '',
+    cta: hasAndroid.value ? '下载 APK' : '即将提供安装包',
+    sizeHint: androidSize.value,
+  },
+  {
+    id: 'ios' as const,
+    label: 'iOS',
+    requirement: '免费写作伴侣，通过 App Store 安装',
+    href: hasIos.value ? iosUrl.value : '',
+    cta: hasIos.value ? '前往 App Store' : '即将上架 App Store',
+    sizeHint: '',
+  },
+])
+
 usePageSeo({
-  title: '下载 51码字（Windows / macOS）',
+  title: '下载 51码字（Windows / macOS / Android）',
   description:
-    '下载 51码字小说写作软件官方安装包：Windows x64 / ARM64，macOS Apple Silicon / Intel。本地写作，数据保存在你指定的目录。',
+    '下载 51码字官方安装包：Windows、macOS 桌面端，以及 Android 手机写作伴侣。iOS 即将上架 App Store。本地写作，数据保存在你指定的目录。',
   ogTitle: '下载 51码字',
-  ogDescription: 'Windows 与 macOS 官方安装包，本地优先的小说写作软件。',
+  ogDescription: 'Windows、macOS 与 Android 官方安装包，本地优先的小说写作软件。',
 })
 
 useSoftwareAppSchema()

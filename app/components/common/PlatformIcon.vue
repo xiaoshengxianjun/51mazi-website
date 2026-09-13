@@ -20,7 +20,17 @@
         p-id="10978"></path>
     </svg>
 
-    <!-- Linux 图标 -->
+    <!-- Android 图标 -->
+    <svg v-else-if="platform === 'android'" :class="iconSizeClasses" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.6 9.48l1.84-3.18a.5.5 0 10-.86-.5L16.7 9.05A6.96 6.96 0 0012 7.5c-1.7 0-3.27.6-4.5 1.6L5.42 5.8a.5.5 0 10-.86.5l1.84 3.18A6.97 6.97 0 005 14.5V16a2 2 0 002 2h.5v2.25a1.25 1.25 0 002.5 0V18h4v2.25a1.25 1.25 0 002.5 0V18H17a2 2 0 002-2v-1.5c0-1.9-.76-3.62-2-4.92zM9 13.25a.75.75 0 110-1.5.75.75 0 010 1.5zm6 0a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+    </svg>
+
+    <!-- iOS 图标 -->
+    <svg v-else-if="platform === 'ios'" :class="iconSizeClasses" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+      <rect x="7" y="2.5" width="10" height="19" rx="2.2" />
+      <path d="M10 4.5h4" stroke-linecap="round" />
+      <circle cx="12" cy="18.2" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
     <svg v-else-if="platform === 'linux'" :class="iconSizeClasses" class="icon" viewBox="0 0 1024 1024" version="1.1"
       xmlns="http://www.w3.org/2000/svg" p-id="11138" width="48" height="48">
       <path
@@ -34,7 +44,7 @@
 import { computed } from 'vue'
 
 // 定义平台类型
-type Platform = 'windows' | 'macos' | 'linux'
+type Platform = 'windows' | 'macos' | 'linux' | 'android' | 'ios'
 
 // Props
 interface Props {
@@ -68,7 +78,9 @@ const bgColorClasses = computed(() => {
   const colors = {
     windows: 'bg-blue-100',
     macos: 'bg-gray-100',
-    linux: 'bg-orange-100'
+    linux: 'bg-orange-100',
+    android: 'bg-green-100',
+    ios: 'bg-slate-100',
   }
   return colors[props.platform]
 })
@@ -83,7 +95,9 @@ const iconColorClasses = computed(() => {
   const colors = {
     windows: 'text-blue-600',
     macos: 'text-gray-700',
-    linux: 'text-orange-600'
+    linux: 'text-orange-600',
+    android: 'text-green-700',
+    ios: 'text-slate-700',
   }
   return colors[props.platform]
 })

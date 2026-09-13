@@ -36,7 +36,7 @@
         </NuxtLink>
 
         <p class="mt-4 text-primary-200 text-sm">
-          当前版本 {{ version }} · 官方安装包支持 Windows、macOS
+          当前桌面版 {{ version }} · Windows、macOS，以及 Android 手机伴侣
         </p>
       </div>
     </div>
@@ -49,5 +49,6 @@ const { version } = useStableRelease()
 const platforms = [
   { id: 'windows' as const, label: 'Windows' },
   { id: 'macos' as const, label: 'macOS' },
+  { id: 'android' as const, label: 'Android' },
 ]
 </script>
