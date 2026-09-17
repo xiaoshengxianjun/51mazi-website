@@ -113,13 +113,14 @@
                 <li>• 大纲（含 Agent 与章纲生章）、设定、人物图谱、随机起名</li>
                 <li>• 签约评审、地图、伏笔、灵感随笔、词条、禁词、组织、关系、时间线、事序图</li>
                 <li>• 可选文本 / 图像 AI，以及下载小说（需合规使用）</li>
+                <li>• Android 官网 APK、局域网扫码同步；iOS 目前内测</li>
               </ul>
             </div>
             <div class="bg-white rounded-lg p-6 border border-gray-200">
               <h3 class="text-xl font-semibold text-gray-900 mb-2">尚未实现</h3>
               <ul class="space-y-2 text-gray-700">
                 <li>• 账号体系与云同步（本地数据不会自动上传）</li>
-                <li>• 多人协作、社区与移动端</li>
+                <li>• 多人协作与社区</li>
               </ul>
             </div>
           </div>
@@ -132,7 +133,7 @@
 <script setup lang="ts">
 usePageSeo({
   title: '关于 51码字',
-  description: '了解 51码字：本地优先的小说写作桌面客户端，数据保存在你指定的目录，支持 Windows 与 macOS。',
+  description: '了解 51码字：本地优先的小说写作客户端，数据保存在你指定的目录，支持 Windows、macOS 与 Android。',
   ogTitle: '关于 51码字',
   ogDescription: '本地优先、可选 AI。账号与云同步尚未提供。',
 })

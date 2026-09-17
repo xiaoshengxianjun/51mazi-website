@@ -13,16 +13,16 @@
           <p class="text-sm text-primary-700 mb-2">当前稳定版</p>
           <p class="text-3xl font-bold text-primary-900 mb-2">{{ version }}</p>
           <p class="text-sm text-gray-700 mb-2">
-            本版笔记可建一层子笔记本、优化笔记移动，并修复已知问题。
+            本版桌面端新增 App 扫码同步，并修复已知问题。
           </p>
           <p class="text-sm text-gray-600">
-            桌面端启动后会自动检查更新；手机端在设置里「检查更新」。
+            桌面端启动后会自动检查更新；Android 可在本页直接下载 APK。
           </p>
           <p v-if="appVersion" class="text-sm text-gray-500 mt-2">
-            手机端当前稳定版 {{ appVersion }}
+            Android 当前稳定版 {{ appVersion }}
           </p>
-          <NuxtLink to="/blog/nested-notebooks" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">
-            了解子级笔记本 →
+          <NuxtLink to="/blog/phone-sync" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">
+            了解扫码同步 →
           </NuxtLink>
         </div>
       </div>
@@ -74,6 +74,13 @@
           >
             {{ card.cta }}
           </a>
+          <NuxtLink
+            v-else-if="card.to"
+            :to="card.to"
+            class="block w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold text-center"
+          >
+            {{ card.cta }}
+          </NuxtLink>
           <p
             v-else
             class="block w-full px-6 py-3 bg-gray-100 text-gray-500 rounded-lg font-semibold text-center"
@@ -118,14 +125,14 @@
           <div class="bg-gray-50 rounded-lg p-6">
             <h3 class="font-semibold text-gray-900 mb-3">iOS</h3>
             <ul class="space-y-2 text-sm text-gray-600">
-              <li>• 通过 App Store 安装（上架后开放）</li>
-              <li>• 不连电脑也可本地写作</li>
+              <li>• 目前仅开放内测</li>
+              <li>• 请通过 QQ 群或邮箱联系客服申请</li>
               <li>• 扫码同步需与桌面端同一局域网</li>
             </ul>
           </div>
         </div>
         <p class="text-sm text-gray-500 mt-6 text-center">
-          桌面提供 Windows 与 macOS 官方安装包；手机端 Android 走官网 APK，iOS 走 App Store。
+          桌面提供 Windows 与 macOS 官方安装包；Android 走官网 APK；iOS 请联系客服申请内测。
         </p>
       </div>
 
@@ -158,6 +165,14 @@
               <li>不连电脑也可写章节与笔记；与电脑同步需同一 Wi-Fi 扫码</li>
             </ol>
           </div>
+          <div class="bg-white rounded-lg p-6 border border-gray-200">
+            <h3 class="font-semibold text-gray-900 mb-3">iOS</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700">
+              <li>打开「联系我们」，加入 QQ 群或发送邮件</li>
+              <li>说明需要申请 iOS 内测</li>
+              <li>通过客服指引安装后，即可在手机上写作；与电脑同步需同一 Wi-Fi 扫码</li>
+            </ol>
+          </div>
         </div>
       </div>
     </div>
@@ -166,14 +181,7 @@
 
 <script setup lang="ts">
 const { version, getDownloadUrl, getFileSize } = useStableRelease()
-const {
-  version: appVersion,
-  androidUrl,
-  androidSize,
-  iosUrl,
-  hasAndroid,
-  hasIos,
-} = useAppStableRelease()
+const { version: appVersion, androidUrl, androidSize, hasAndroid } = useAppStableRelease()
 
 const platformCards = computed(() => [
   {
@@ -198,31 +206,34 @@ const platformCards = computed(() => [
   },
 ])
 
-const mobileCards = computed(() => [
-  {
-    id: 'android' as const,
-    label: 'Android',
-    requirement: 'Android 7.0 及以上，官网 APK',
-    href: hasAndroid.value ? androidUrl.value : '',
-    cta: hasAndroid.value ? '下载 APK' : '即将提供安装包',
-    sizeHint: androidSize.value,
-  },
-  {
-    id: 'ios' as const,
-    label: 'iOS',
-    requirement: '免费写作伴侣，通过 App Store 安装',
-    href: hasIos.value ? iosUrl.value : '',
-    cta: hasIos.value ? '前往 App Store' : '即将上架 App Store',
-    sizeHint: '',
-  },
-])
+const mobileCards = computed(() => {
+  const androidHref = hasAndroid.value ? androidUrl.value : ''
+  return [
+    {
+      id: 'android' as const,
+      label: 'Android',
+      requirement: 'Android 7.0 及以上，官网 APK',
+      href: androidHref || undefined,
+      cta: androidHref ? '下载 APK' : '即将提供安装包',
+      sizeHint: androidSize.value,
+    },
+    {
+      id: 'ios' as const,
+      label: 'iOS',
+      requirement: '目前仅开放内测，请联系客服申请',
+      to: '/contact',
+      cta: '联系客服申请内测',
+      sizeHint: '',
+    },
+  ]
+})
 
 usePageSeo({
   title: '下载 51码字（Windows / macOS / Android）',
   description:
-    '下载 51码字官方安装包：Windows、macOS 桌面端，以及 Android 手机写作伴侣。iOS 即将上架 App Store。本地写作，数据保存在你指定的目录。',
+    '下载 51码字官方安装包：Windows、macOS 桌面端，以及 Android 手机写作伴侣。iOS 请联系客服申请内测。本地写作，数据保存在你指定的目录。',
   ogTitle: '下载 51码字',
-  ogDescription: 'Windows、macOS 与 Android 官方安装包，本地优先的小说写作软件。',
+  ogDescription: 'Windows、macOS 与 Android 官方安装包；iOS 内测请联系客服。',
 })
 
 useSoftwareAppSchema()

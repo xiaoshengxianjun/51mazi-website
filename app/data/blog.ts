@@ -10,6 +10,16 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: 'phone-sync',
+    title: '扫码同步：手机和电脑连同一 Wi-Fi，就能把书带在身边',
+    date: '2026-09',
+    category: '功能介绍',
+    excerpt:
+      'v1.4.0 起，桌面端可生成同步二维码。Android 可在官网直接下载；iOS 目前开放内测，请联系客服申请。',
+    content:
+      'v1.4.0 给桌面端补了手机伴侣：同一局域网里扫码，即可把当前书同步到手机继续写。\n\n可以做什么：\n- 不连电脑时，也能在手机上看章节、记笔记\n- 电脑与手机连同一 Wi-Fi 后，在桌面端打开扫码同步，用 51码字 App 扫描\n- Android 可在官网下载页直接下载 APK\n\n注意：\n- 同步走局域网，不会把文稿自动上传到云端\n- iOS 尚未公开上架，需要内测请到「联系我们」加 QQ 群或发邮件申请\n- 首次安装 Android 包时，系统可能要求允许「未知应用」\n\n适合出门补一段、地铁上改一章，回家再扫码和电脑对齐。',
+  },
+  {
     slug: 'nested-notebooks',
     title: '子级笔记本：把素材再分一层，笔记也能拖着整理',
     date: '2026-09',

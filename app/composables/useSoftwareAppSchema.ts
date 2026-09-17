@@ -9,7 +9,7 @@ export function useSoftwareAppSchema() {
     defineSoftwareApp({
       name: '51码字',
       applicationCategory: 'UtilitiesApplication',
-      operatingSystem: 'Windows, macOS',
+      operatingSystem: 'Windows, macOS, Android',
       softwareVersion: FALLBACK_APP_VERSION,
       downloadUrl: `${site.url.replace(/\/$/, '')}/download`,
       screenshot: DEFAULT_OG_IMAGE,

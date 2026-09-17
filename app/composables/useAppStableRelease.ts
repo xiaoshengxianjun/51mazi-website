@@ -1,20 +1,15 @@
-import { DEFAULT_API_BASE } from '~/utils/product'
+import fallbackAppRelease from '../../public/app-releases.json'
 
-export interface AppStableAndroidAsset {
-  filename: string
-  size?: number
-  sha256?: string
-  url: string
+type FallbackAppRelease = {
+  version: string
+  downloadBaseUrl: string
+  android: {
+    filename: string
+    size?: number
+  }
 }
 
-export interface AppStableRelease {
-  version?: string
-  releaseNotes?: string
-  downloadBaseUrl?: string
-  android?: AppStableAndroidAsset | null
-  iosStoreUrl?: string | null
-  ios?: { version: string, storeUrl: string } | null
-}
+const fallback = fallbackAppRelease as FallbackAppRelease
 
 function formatFileSize(bytes?: number): string {
   if (!bytes) {
@@ -25,41 +20,25 @@ function formatFileSize(bytes?: number): string {
 }
 
 /**
- * Flutter App 当前 stable。与桌面 releases.json 独立；接口 404 表示尚未发布 APK。
+ * Android 官网 APK：版本与直链以 public/app-releases.json 为准。
+ * iOS 不提供商店直链，下载页引导联系客服申请内测。
  */
 export function useAppStableRelease() {
-  const config = useRuntimeConfig()
-  const apiBase = (config.public.apiBase as string) || DEFAULT_API_BASE
-
-  const { data, status } = useFetch<AppStableRelease>(
-    `${apiBase}/api/app-releases/current/stable`,
-    {
-      key: 'app-stable-release',
-      lazy: true,
-      server: false,
-      timeout: 8000,
-      default: () => null,
-      getCachedData() {
-        return undefined
-      },
-    },
-  )
-
   const version = computed(() => {
-    const raw = data.value?.version?.trim()
-    if (!raw) {
-      return ''
-    }
+    const raw = fallback.version.trim()
     return raw.startsWith('v') ? raw : `v${raw}`
   })
 
-  const androidUrl = computed(() => data.value?.android?.url?.trim() || '')
-  const androidSize = computed(() => formatFileSize(data.value?.android?.size))
-  const iosUrl = computed(
-    () => data.value?.ios?.storeUrl?.trim() || data.value?.iosStoreUrl?.trim() || '',
-  )
-  const hasAndroid = computed(() => Boolean(androidUrl.value))
-  const hasIos = computed(() => Boolean(iosUrl.value))
+  const androidUrl = computed(() => {
+    const filename = fallback.android.filename
+    if (!filename) {
+      return ''
+    }
+    return `${fallback.downloadBaseUrl.replace(/\/$/, '')}/${encodeURIComponent(filename)}`
+  })
 
-  return { data, status, version, androidUrl, androidSize, iosUrl, hasAndroid, hasIos }
+  const androidSize = computed(() => formatFileSize(fallback.android.size))
+  const hasAndroid = computed(() => Boolean(androidUrl.value))
+
+  return { version, androidUrl, androidSize, hasAndroid }
 }

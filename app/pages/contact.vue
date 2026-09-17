@@ -7,7 +7,7 @@
             联系我们
           </h1>
           <p class="text-xl text-gray-600">
-            使用问题、功能建议或商务合作，欢迎来信或加群
+            使用问题、功能建议、商务合作，或申请 iOS 内测，欢迎来信或加群
           </p>
         </div>
 
@@ -37,7 +37,7 @@
                       群号: <span class="text-primary-600">{{ QQ_GROUP }}</span>
                     </p>
                     <p class="text-sm text-gray-600">
-                      交流使用经验、获取更新信息、反馈问题。
+                      交流使用经验、获取更新信息、反馈问题；申请 iOS 内测也可在群内联系。
                     </p>
                     <p class="text-xs text-gray-500 mt-2">点击二维码可放大</p>
                   </div>
@@ -160,7 +160,7 @@ onUnmounted(() => {
 
 usePageSeo({
   title: '联系我们',
-  description: '联系 51码字：QQ 群、邮箱与赞助作者。',
+  description: '联系 51码字：QQ 群、邮箱与赞助作者。申请 iOS 内测也可加群或来信。',
   ogTitle: '联系我们 - 51码字',
   ogDescription: 'QQ 群、邮箱与赞助。',
 })

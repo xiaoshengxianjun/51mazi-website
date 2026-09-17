@@ -36,7 +36,7 @@
         </NuxtLink>
 
         <p class="mt-4 text-primary-200 text-sm">
-          当前桌面版 {{ version }} · Windows、macOS，以及 Android 手机伴侣
+          当前桌面版 {{ version }} · Windows、macOS、Android 可下载；iOS 内测请联系客服
         </p>
       </div>
     </div>
@@ -50,5 +50,6 @@ const platforms = [
   { id: 'windows' as const, label: 'Windows' },
   { id: 'macos' as const, label: 'macOS' },
   { id: 'android' as const, label: 'Android' },
+  { id: 'ios' as const, label: 'iOS' },
 ]
 </script>
