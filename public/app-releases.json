@@ -1,8 +1,8 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.2",
   "downloadBaseUrl": "https://api.51mazi.com/api/download/app-stable",
   "android": {
-    "filename": "51mazi_1.0.1.apk",
-    "size": 114973637
+    "filename": "51mazi_1.0.2.apk",
+    "size": 115055589
   }
 }

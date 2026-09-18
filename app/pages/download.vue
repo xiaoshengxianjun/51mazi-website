@@ -13,7 +13,7 @@
           <p class="text-sm text-primary-700 mb-2">当前稳定版</p>
           <p class="text-3xl font-bold text-primary-900 mb-2">{{ version }}</p>
           <p class="text-sm text-gray-700 mb-2">
-            本版桌面端新增 App 扫码同步，并修复已知问题。
+            本版支持在账号资料中修改笔名，并修复 Windows 打开书籍时的透明空框。
           </p>
           <p class="text-sm text-gray-600">
             桌面端启动后会自动检查更新；Android 可在本页直接下载 APK。

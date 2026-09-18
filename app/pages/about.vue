@@ -30,7 +30,7 @@
               <strong>51码字</strong>（51mazi）是面向网文与小说作者的桌面写作工具。书籍、章节、笔记和世界观设定都保存在你指定的本地目录，断网可继续写；文本 AI、图像 AI 与自动更新等联网能力按需使用。
             </p>
             <p class="text-gray-700 leading-relaxed mb-4">
-              没有账号体系，也不会把正文自动上传到云端。请定期备份整个书籍目录。
+              登录账号可选。正文不会自动上传到云端，请定期备份整个书籍目录。
             </p>
             <ul class="text-gray-700 leading-relaxed mb-4 list-disc list-inside space-y-2">
               <li><strong>本地优先</strong>：数据在你选的目录里，换电脑拷贝目录即可继续</li>
@@ -119,7 +119,7 @@
             <div class="bg-white rounded-lg p-6 border border-gray-200">
               <h3 class="text-xl font-semibold text-gray-900 mb-2">尚未实现</h3>
               <ul class="space-y-2 text-gray-700">
-                <li>• 账号体系与云同步（本地数据不会自动上传）</li>
+                <li>• 云端文稿同步（本地数据不会自动上传）</li>
                 <li>• 多人协作与社区</li>
               </ul>
             </div>
@@ -135,6 +135,6 @@ usePageSeo({
   title: '关于 51码字',
   description: '了解 51码字：本地优先的小说写作客户端，数据保存在你指定的目录，支持 Windows、macOS 与 Android。',
   ogTitle: '关于 51码字',
-  ogDescription: '本地优先、可选 AI。账号与云同步尚未提供。',
+  ogDescription: '本地优先、可选 AI。正文保存在你指定的目录。',
 })
 </script>

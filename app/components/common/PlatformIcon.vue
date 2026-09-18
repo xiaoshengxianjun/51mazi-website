@@ -20,16 +20,34 @@
         p-id="10978"></path>
     </svg>
 
-    <!-- Android 图标 -->
-    <svg v-else-if="platform === 'android'" :class="iconSizeClasses" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M17.6 9.48l1.84-3.18a.5.5 0 10-.86-.5L16.7 9.05A6.96 6.96 0 0012 7.5c-1.7 0-3.27.6-4.5 1.6L5.42 5.8a.5.5 0 10-.86.5l1.84 3.18A6.97 6.97 0 005 14.5V16a2 2 0 002 2h.5v2.25a1.25 1.25 0 002.5 0V18h4v2.25a1.25 1.25 0 002.5 0V18H17a2 2 0 002-2v-1.5c0-1.9-.76-3.62-2-4.92zM9 13.25a.75.75 0 110-1.5.75.75 0 010 1.5zm6 0a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+    <!-- Android：经典机器人头标，裁掉留白后与 Windows / macOS 视觉重量接近 -->
+    <svg
+      v-else-if="platform === 'android'"
+      :class="iconSizeClasses"
+      class="icon"
+      viewBox="0 5.2 24 13.8"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M17.523 15.341c-.551 0-.999-.448-.999-.999s.448-.999.999-.999.999.448.999.999-.448.999-.999.999m-11.046 0c-.551 0-.999-.448-.999-.999s.448-.999.999-.999.999.448.999.999-.448.999-.999.999m11.405-6.02 1.997-3.459a.416.416 0 1 0-.72-.416l-2.022 3.503A7.96 7.96 0 0 0 12 7.681c-1.853 0-3.59.563-5.137 1.479L4.841 5.657a.416.416 0 1 0-.72.416l1.997 3.459C2.689 11.187.343 14.659 0 18.761h24c-.344-4.102-2.689-7.574-6.118-9.44"
+      />
     </svg>
 
-    <!-- iOS 图标 -->
-    <svg v-else-if="platform === 'ios'" :class="iconSizeClasses" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-      <rect x="7" y="2.5" width="10" height="19" rx="2.2" />
-      <path d="M10 4.5h4" stroke-linecap="round" />
-      <circle cx="12" cy="18.2" r="0.8" fill="currentColor" stroke="none" />
+    <!-- iOS：实心 iPhone 剪影，避免线框在深色底上看起来偏细 -->
+    <svg
+      v-else-if="platform === 'ios'"
+      :class="iconSizeClasses"
+      class="icon"
+      viewBox="5.4 1.4 13.2 21.2"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M8.35 1.5h7.3A2.85 2.85 0 0 1 18.5 4.35v15.3a2.85 2.85 0 0 1-2.85 2.85h-7.3A2.85 2.85 0 0 1 5.5 19.65V4.35A2.85 2.85 0 0 1 8.35 1.5ZM12 17.7a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4ZM9.25 3.55h5.5a.6.6 0 1 0 0-1.2h-5.5a.6.6 0 0 0 0 1.2Z"
+      />
     </svg>
     <svg v-else-if="platform === 'linux'" :class="iconSizeClasses" class="icon" viewBox="0 0 1024 1024" version="1.1"
       xmlns="http://www.w3.org/2000/svg" p-id="11138" width="48" height="48">
