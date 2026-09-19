@@ -70,6 +70,7 @@
           <a
             v-if="card.href"
             :href="card.href"
+            :type="card.id === 'android' ? 'application/octet-stream' : undefined"
             class="block w-full px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold text-center"
           >
             {{ card.cta }}
@@ -89,6 +90,9 @@
           </p>
           <p v-if="card.sizeHint" class="text-sm text-gray-500 mt-4 text-center">
             {{ card.sizeHint }}
+          </p>
+          <p v-if="card.footnote" class="text-xs text-gray-500 mt-2 text-center">
+            {{ card.footnote }}
           </p>
         </div>
       </div>
@@ -161,6 +165,7 @@
             <h3 class="font-semibold text-gray-900 mb-3">Android</h3>
             <ol class="list-decimal list-inside space-y-2 text-gray-700">
               <li>下载 APK，在系统设置中允许此浏览器安装未知应用</li>
+              <li>微信、QQ 内请点右上角用系统浏览器打开后再下载</li>
               <li>打开安装包完成安装</li>
               <li>不连电脑也可写章节与笔记；与电脑同步需同一 Wi-Fi 扫码</li>
             </ol>
@@ -216,6 +221,9 @@ const mobileCards = computed(() => {
       href: androidHref || undefined,
       cta: androidHref ? '下载 APK' : '即将提供安装包',
       sizeHint: androidSize.value,
+      footnote: androidHref
+        ? '微信、QQ 内请用系统浏览器打开。若自带浏览器无法下载，可用 Chrome。'
+        : '',
     },
     {
       id: 'ios' as const,
@@ -224,6 +232,7 @@ const mobileCards = computed(() => {
       to: '/contact',
       cta: '联系客服申请内测',
       sizeHint: '',
+      footnote: '',
     },
   ]
 })
