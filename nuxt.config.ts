@@ -190,7 +190,7 @@ export default defineNuxtConfig({
         "/sitemap.xml",
         "/robots.txt"
       ],
-      ignore: ["/api/**", "/__og-image__/**"],
+      ignore: ["/api/**", "/apk/**", "/__og-image__/**"],
       failOnError: false
     }
   }

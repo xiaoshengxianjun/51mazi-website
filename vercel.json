@@ -7,6 +7,13 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "regions": ["hkg1"],
+  "redirects": [
+    {
+      "source": "/apk/:file",
+      "destination": "https://api.51mazi.com/api/download/app-stable/:file",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

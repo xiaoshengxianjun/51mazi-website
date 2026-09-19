@@ -166,6 +166,7 @@
             <ol class="list-decimal list-inside space-y-2 text-gray-700">
               <li>下载 APK，在系统设置中允许此浏览器安装未知应用</li>
               <li>微信、QQ 内请点右上角用系统浏览器打开后再下载</li>
+              <li>小米浏览器如弹出安全扫描请允许；夸克请关闭「加速下载」</li>
               <li>打开安装包完成安装</li>
               <li>不连电脑也可写章节与笔记；与电脑同步需同一 Wi-Fi 扫码</li>
             </ol>
@@ -222,7 +223,7 @@ const mobileCards = computed(() => {
       cta: androidHref ? '下载 APK' : '即将提供安装包',
       sizeHint: androidSize.value,
       footnote: androidHref
-        ? '微信、QQ 内请用系统浏览器打开。若自带浏览器无法下载，可用 Chrome。'
+        ? '微信、QQ 内请用系统浏览器打开。小米请允许「安全下载」；夸克请关掉加速下载。仍失败请用 Chrome。'
         : '',
     },
     {

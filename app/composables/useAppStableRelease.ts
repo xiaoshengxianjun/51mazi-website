@@ -34,7 +34,8 @@ export function useAppStableRelease() {
     if (!filename) {
       return ''
     }
-    return `${fallback.downloadBaseUrl.replace(/\/$/, '')}/${encodeURIComponent(filename)}`
+    // 同源路径，避免小米/夸克直接跨域打开 api.51mazi.com
+    return `/apk/${encodeURIComponent(filename)}`
   })
 
   const androidSize = computed(() => formatFileSize(fallback.android.size))
