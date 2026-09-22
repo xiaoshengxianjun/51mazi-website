@@ -7,6 +7,8 @@ export interface FeatureDetail {
   image?: string
   secondImage?: string
   secondImageTitle?: string
+  /** 功能页额外截图，narrow 用于竖版海报等窄图 */
+  extraImages?: Array<{ src: string; title: string; narrow?: boolean }>
   features: string[]
   useCase: string
   related?: string[]
@@ -113,19 +115,24 @@ export const FEATURES: FeatureDetail[] = [
     title: '人物图谱',
     icon: '👤',
     image: '/images/character-profile.png',
-    secondImage: '/images/ai_character.png',
-    secondImageTitle: 'AI 形象图',
-    description: '角色与实体档案，卡片 / 迷你 / 表格视图，可选 AI 形象图',
+    secondImage: '/images/character-ai-generate.jpg',
+    secondImageTitle: 'AI 生成人物图',
+    extraImages: [
+      { src: '/images/character-share-dialog.jpg', title: '生成分享海报' },
+      { src: '/images/character-share-poster.jpg', title: '分享海报示例', narrow: true },
+    ],
+    description: '角色与实体档案，可选 AI 形象图，并可导出人物分享海报',
     features: [
       '五类档案：人物 / 坐骑 / 怪兽 / 妖兽 / 宝器',
       '卡片、迷你、表格三种视图，可设标记色',
       '基础信息：名称、外貌、生平、标签等',
-      '图像 AI 生成形象图，确认后才写入档案',
+      '图像 AI 生成形象图：可选画风、姿势与背景，生成后直接保存到档案',
+      '支持导出人物分享海报（含简介与二维码），可保存为 PNG',
       '小屏嵌入：可贴在编辑器旁对照设定',
       '人物高亮依赖档案中的名称与标记色',
     ],
     useCase:
-      '把出场角色和关键实体建档后，正文里打开人物高亮，就能按标记色追踪谁在场。',
+      '把出场角色建档后，可用 AI 出形象图，再导出分享海报；正文里打开人物高亮，就能按标记色追踪谁在场。',
     related: ['relation', 'editor', 'ai-scene'],
   },
   {
@@ -277,7 +284,7 @@ export const FEATURES: FeatureDetail[] = [
       '文本模型：DeepSeek 或 Kimi；图像模型：通义万相或 Gemini Imagen',
       'Key 保存在本机，支持一键验证',
       '文本：润色、续写、错字 / 语病检查、设定完善、起名、大纲 Agent、章纲生章、签约评审',
-      '图像：书架封面、人物 / 实体形象图、章节选区场景插图（约 100～1000 字）',
+      '图像：书架封面、人物 / 实体形象图、人物分享海报、章节选区场景插图（约 100～1000 字）',
       '场景描述会先由文本 AI 提炼 prompt，确认后才落盘',
       '使用任何 AI 前需在首页「AI 设置」选好模型并验证 Key',
     ],

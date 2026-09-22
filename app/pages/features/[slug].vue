@@ -50,6 +50,29 @@
           </div>
         </div>
 
+        <div
+          v-for="shot in feature.extraImages || []"
+          :key="shot.src"
+          class="mb-12"
+        >
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">
+            {{ shot.title }}
+          </h2>
+          <div
+            class="rounded-lg overflow-hidden shadow-xl border border-gray-200"
+            :class="shot.narrow ? 'max-w-sm mx-auto' : ''"
+          >
+            <NuxtImg
+              :src="shot.src"
+              :alt="`${shot.title} - 51码字`"
+              class="w-full h-auto"
+              loading="lazy"
+              format="webp"
+              :sizes="shot.narrow ? '(max-width: 768px) 100vw, 384px' : '(max-width: 768px) 100vw, 896px'"
+            />
+          </div>
+        </div>
+
         <div class="mb-12">
           <h2 class="text-2xl font-bold text-gray-900 mb-6">核心特性</h2>
           <ul class="space-y-4">
