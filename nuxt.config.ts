@@ -176,6 +176,7 @@ export default defineNuxtConfig({
         "/privacy",
         "/guide",
         "/blog",
+        "/blog/scene-share-poster",
         "/blog/character-share-poster",
         "/blog/phone-sync",
         "/blog/nested-notebooks",

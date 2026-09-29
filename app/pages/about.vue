@@ -35,7 +35,7 @@
             <ul class="text-gray-700 leading-relaxed mb-4 list-disc list-inside space-y-2">
               <li><strong>本地优先</strong>：数据在你选的目录里，换电脑拷贝目录即可继续</li>
               <li><strong>完整工作流</strong>：编辑器 + 十四项写作助手 + 近 30 日码字统计</li>
-              <li><strong>可选 AI</strong>：自备 Key，润色、续写、校对、大纲 Agent、封面与插图</li>
+              <li><strong>可选 AI</strong>：自备 Key 或选用 51码字提供的 AI；润色、续写、校对、大纲 Agent、封面、插图与分享海报</li>
               <li><strong>多窗口与主题</strong>：每书独立窗口；九套主题 + 跟随系统</li>
               <li><strong>跨平台</strong>：官方安装包覆盖 Windows（x64 / ARM64）与 macOS（Apple Silicon / Intel）</li>
             </ul>
@@ -96,7 +96,7 @@
             <div class="bg-primary-50 rounded-lg p-6 border border-primary-200">
               <h3 class="text-xl font-semibold text-gray-900 mb-2">偶尔使用 AI 的作者</h3>
               <p class="text-gray-700">
-                自备第三方 Key，润色、续写和出图都在本机确认后落盘。
+                自备第三方 Key，或选用 51码字提供的 AI。润色、续写和出图都在本机确认后落盘。
               </p>
             </div>
           </div>
@@ -112,7 +112,7 @@
                 <li>• 章节 / 笔记编辑器、回收站、手机预览、全书导出</li>
                 <li>• 大纲（含 Agent 与章纲生章）、设定、人物图谱（含形象图与分享海报）、随机起名</li>
                 <li>• 签约评审、地图、伏笔、灵感随笔、词条、禁词、组织、关系、时间线、事序图</li>
-                <li>• 可选文本 / 图像 AI，以及下载小说（需合规使用）</li>
+                <li>• 可选文本 / 图像 AI（含人物与场景分享海报），以及下载小说（需合规使用）</li>
                 <li>• Android 官网 APK、局域网扫码同步；iOS 目前内测</li>
               </ul>
             </div>
