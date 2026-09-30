@@ -275,6 +275,22 @@ export const FEATURES: FeatureDetail[] = [
     related: ['editor', 'outline', 'ai-scene'],
   },
   {
+    slug: 'block-help',
+    title: '卡文帮助',
+    icon: '🧭',
+    description: '本章或剧情卡住时，一次给出多条角度不同的短思路，用来勾起自己的灵感',
+    features: [
+      '写作助手「卡文帮助」以右侧抽屉打开，不离开当前书；打开期间不能改正文',
+      '可选「本章卡住」或「剧情卡住」，并点选或写下一句卡在哪里',
+      '思路可以复制，或记入本书「灵感随笔」',
+      '本章模式下，点某一条才交给续写；标了「如果」或「偏离大纲」的会先确认',
+      '需要文本 AI。关掉再打开，这一批还在；不会自动写进章节或大纲',
+    ],
+    useCase:
+      '写到一半不知道这场怎么收，或下一章没有方向时，先看几种不同走法，再决定自己怎么写。',
+    related: ['editor', 'outline', 'foreshadow'],
+  },
+  {
     slug: 'ai-scene',
     title: 'AI 辅助',
     icon: '🖼️',
@@ -283,7 +299,7 @@ export const FEATURES: FeatureDetail[] = [
     features: [
       '文本模型：DeepSeek 或 Kimi；图像模型：通义万相或 Gemini Imagen',
       '可自备 Key（保存在本机，支持一键验证），也可在「AI 设置」选用 51码字提供的 AI',
-      '文本：润色、续写、错字 / 语病检查、设定完善、起名、大纲 Agent、章纲生章、签约评审',
+      '文本：润色、续写、错字 / 语病检查、设定完善、起名、大纲 Agent、章纲生章、签约评审、卡文帮助',
       '图像：书架封面、人物 / 实体形象图、人物分享海报、章节选区场景插图（约 100～1000 字）',
       '场景图画风面向环境（电影写实、动画场景、国风水墨、厚涂插画、概念原画），尺寸为横版或竖版',
       '换选区会清空上次的画面描述和预览；生成后可做成带书名、介绍与二维码的分享海报',
@@ -315,6 +331,7 @@ export const FEATURES: FeatureDetail[] = [
 /** 官网功能列表顺序：先排更有辨识度、用户更关心的能力 */
 export const FEATURE_DISPLAY_SLUGS = [
   'signing-review',
+  'block-help',
   'outline',
   'character',
   'map',
