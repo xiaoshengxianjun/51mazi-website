@@ -41,7 +41,7 @@
           <div class="bg-white rounded-lg p-6 border border-gray-200">
             <h3 class="text-xl font-semibold text-gray-900 mb-3">3. 建书并打开编辑器</h3>
             <p class="text-gray-700 mb-4">
-              在书架新建书籍，填写书名、类型、简介和目标字数。单击或双击封面打开独立编辑器窗口。
+              在书架新建书籍，填写书名、类型、简介和目标字数。暂时没有选题时，可点「开书灵感」，按平台和品类生成方案后再预填新书。单击或双击封面打开独立编辑器窗口。
             </p>
             <ul class="text-gray-700 mb-4 list-disc list-inside space-y-1 ml-4">
               <li>章节为纯文本，笔记为富文本（含表格）</li>
@@ -162,6 +162,11 @@ const faqs = [
     question: '如何记下灵感随笔？',
     answer:
       '应用在前台时，Mac 用 Cmd+Shift+I，Windows 用 Ctrl+Alt+I；也可打开写作助手「灵感随笔」。内容写入本书「笔记 / 灵感随笔」笔记本，可在笔记树中整理。小窗内 Ctrl/Cmd+Enter 保存，Esc 取消。',
+  },
+  {
+    question: '如何使用开书灵感？',
+    answer:
+      '在书架点「开书灵感」。选择目标平台和品类，可选受众、篇幅和个人偏好，再生成趋势关键词与推荐方案。方案可复制，或用来预填新书。结果仅供创作参考，不代表实时榜单。使用前请到「AI 设置」选好文本来源。',
   },
   {
     question: '如何使用签约评审？',

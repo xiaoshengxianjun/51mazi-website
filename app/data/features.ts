@@ -20,9 +20,10 @@ export const FEATURES: FeatureDetail[] = [
     title: '书架与码字统计',
     icon: '📚',
     image: '/images/ai_cover.png',
-    description: '本地书架管理多本作品，可选 AI 封面；首页汇总近 30 日码字图',
+    description: '本地书架管理多本作品，可选开书灵感与 AI 封面；首页汇总近 30 日码字图',
     features: [
       '新建 / 编辑 / 删除书籍，卡片展示书名、类型、简介、目标字数与封面',
+      '选题卡住时，可从书架进入「开书灵感」，按平台和品类生成方案并预填新书',
       '单击或双击打开独立编辑器窗口；同一本书再次点击会聚焦已有窗口',
       '数据保存在你指定的书籍主目录，每本书独立文件夹，互不干扰',
       '书架密码：打开应用后先验证，8～16 位字母或数字',
@@ -33,7 +34,7 @@ export const FEATURES: FeatureDetail[] = [
     ],
     useCase:
       '适合同时推进多部作品。先选好稳定可备份的本地目录，再建书开写；封面与码字图帮你保持节奏，密码保护可选叠加。',
-    related: ['editor', 'outline', 'character'],
+    related: ['book-inspiration', 'editor', 'outline'],
   },
   {
     slug: 'editor',
@@ -291,6 +292,24 @@ export const FEATURES: FeatureDetail[] = [
     related: ['editor', 'outline', 'foreshadow'],
   },
   {
+    slug: 'book-inspiration',
+    title: '开书灵感',
+    icon: '✨',
+    description: '选题卡住时，按平台和品类生成趋势关键词与开书方案，选中后可预填新书',
+    features: [
+      '从书架进入独立三栏工作台：初始化、趋势关键词、推荐方案',
+      '可选番茄小说、起点中文网、晋江文学城或七猫小说，并指定作品大类与细类',
+      '可设男频 / 女频 / 不限，以及短篇 / 中长篇 / 长篇，也可填写个人偏好',
+      '生成后可点击品类切换方向，点击关键词或组合加入偏好后重新生成，也可换一批',
+      '方案含书名、卖点、设定、开篇钩子、主线、差异化、风险与简介；可复制，或用来预填新书',
+      '结果为 AI 推测，仅供创作参考，不代表实时榜单',
+      '使用前请到首页「AI 设置」选好文本来源',
+    ],
+    useCase:
+      '暂时没有选题时，先看一批切口，再决定开哪本。生成结果请自行判断后再建书。',
+    related: ['bookshelf', 'signing-review', 'ai-scene'],
+  },
+  {
     slug: 'ai-scene',
     title: 'AI 辅助',
     icon: '🖼️',
@@ -299,7 +318,7 @@ export const FEATURES: FeatureDetail[] = [
     features: [
       '文本模型：DeepSeek 或 Kimi；图像模型：通义万相或 Gemini Imagen',
       '可自备 Key（保存在本机，支持一键验证），也可在「AI 设置」选用 51码字提供的 AI',
-      '文本：润色、续写、错字 / 语病检查、设定完善、起名、大纲 Agent、章纲生章、签约评审、卡文帮助',
+      '文本：润色、续写、错字 / 语病检查、设定完善、起名、大纲 Agent、章纲生章、签约评审、卡文帮助、开书灵感',
       '图像：书架封面、人物 / 实体形象图、人物分享海报、章节选区场景插图（约 100～1000 字）',
       '场景图画风面向环境（电影写实、动画场景、国风水墨、厚涂插画、概念原画），尺寸为横版或竖版',
       '换选区会清空上次的画面描述和预览；生成后可做成带书名、介绍与二维码的分享海报',
@@ -308,7 +327,7 @@ export const FEATURES: FeatureDetail[] = [
     ],
     useCase:
       'AI 是可选项，不是云创作平台。结果请审阅后再写入正文、覆盖封面或外发分享海报。',
-    related: ['editor', 'character', 'signing-review'],
+    related: ['editor', 'book-inspiration', 'signing-review'],
   },
   {
     slug: 'novel-download',
@@ -330,6 +349,7 @@ export const FEATURES: FeatureDetail[] = [
 
 /** 官网功能列表顺序：先排更有辨识度、用户更关心的能力 */
 export const FEATURE_DISPLAY_SLUGS = [
+  'book-inspiration',
   'signing-review',
   'block-help',
   'outline',
