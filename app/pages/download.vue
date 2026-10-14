@@ -13,7 +13,7 @@
           <p class="text-sm text-primary-700 mb-2">当前稳定版</p>
           <p class="text-3xl font-bold text-primary-900 mb-2">{{ version }}</p>
           <p class="text-sm text-gray-700 mb-2">
-            本版新增开书灵感：按平台和品类生成选题方案，可直接预填新书。
+            本版修复分享海报导出。开书灵感可按平台和品类生成选题方案，并预填新书。
           </p>
           <p class="text-sm text-gray-600">
             桌面端启动后会自动检查更新；Android 可在本页直接下载 APK。
