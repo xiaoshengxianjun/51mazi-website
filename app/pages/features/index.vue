@@ -46,7 +46,7 @@ const features = getFeaturesInDisplayOrder()
 usePageSeo({
   title: '功能特性',
   description:
-    '51码字功能一览：签约评审、大纲、人物图谱、地图、伏笔、灵感随笔、智能编辑器、设定与可选 AI。数据保存在本地。',
+    '51码字功能一览：写手接单、开书灵感、签约评审、大纲、人物图谱、地图、伏笔、灵感随笔、智能编辑器、设定与可选 AI。数据保存在本地。',
   ogTitle: '51码字功能特性',
   ogDescription: '本地小说写作软件完整功能：编辑器、写作助手与可选 AI。',
 })

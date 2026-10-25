@@ -13,7 +13,7 @@
           <p class="text-sm text-primary-700 mb-2">当前稳定版</p>
           <p class="text-3xl font-bold text-primary-900 mb-2">{{ version }}</p>
           <p class="text-sm text-gray-700 mb-2">
-            本版修复分享海报导出。开书灵感可按平台和品类生成选题方案，并预填新书。
+            本版新增写手接单：发布或报名原创文学约稿，也可保存分享海报。
           </p>
           <p class="text-sm text-gray-600">
             桌面端启动后会自动检查更新；Android 可在本页直接下载 APK。
@@ -21,8 +21,8 @@
           <p v-if="appVersion" class="text-sm text-gray-500 mt-2">
             Android 当前稳定版 {{ appVersion }}
           </p>
-          <NuxtLink to="/blog/book-inspiration" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">
-            了解开书灵感 →
+          <NuxtLink to="/blog/writer-orders" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">
+            了解写手接单 →
           </NuxtLink>
         </div>
       </div>

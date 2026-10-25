@@ -60,7 +60,7 @@
             <div class="bg-primary-50 rounded-lg p-6 border border-primary-200">
               <h3 class="text-xl font-semibold text-gray-900 mb-2">按需联网</h3>
               <p class="text-gray-700">
-                写作本身不依赖网络。AI、下载小说和检查更新只在你主动使用时连接。
+                写作本身不依赖网络。AI、写手接单、下载小说和检查更新只在你主动使用时连接。
               </p>
             </div>
             <div class="bg-primary-50 rounded-lg p-6 border border-primary-200">
@@ -108,7 +108,7 @@
             <div class="bg-white rounded-lg p-6 border border-gray-200">
               <h3 class="text-xl font-semibold text-gray-900 mb-2">当前已提供</h3>
               <ul class="space-y-2 text-gray-700">
-                <li>• 本地书架（含开书灵感）、码字统计、九套主题、自动更新</li>
+                <li>• 本地书架（含开书灵感、写手接单）、码字统计、九套主题、自动更新</li>
                 <li>• 章节 / 笔记编辑器、回收站、手机预览、全书导出</li>
                 <li>• 大纲（含 Agent 与章纲生章）、设定、人物图谱（含形象图与分享海报）、随机起名</li>
                 <li>• 签约评审、卡文帮助、地图、伏笔、灵感随笔、词条、禁词、组织、关系、时间线、事序图</li>
