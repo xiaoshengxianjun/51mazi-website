@@ -14,7 +14,7 @@
           <p class="text-sm text-primary-700 mb-2">当前稳定版</p>
           <p class="text-3xl font-bold text-primary-900 mb-2">{{ version }}</p>
           <p class="text-sm text-gray-700 mb-2">
-            本版优化章节排版：按网文习惯段首缩进两个汉字、段间空一行。
+            本版新增码字反馈：可在编辑器打开打字音效和光标特效。
           </p>
           <p class="text-sm text-gray-600">
             桌面端启动后会自动检查更新；Android 可在本页直接下载 APK。
