@@ -2,12 +2,13 @@
   <div class="py-20">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto">
+        <CommonBreadcrumb :items="breadcrumbItems" />
         <div class="text-center mb-16">
           <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
             关于 51码字
           </h1>
           <p class="text-xl text-gray-600">
-            本地优先的小说写作桌面客户端
+            本地优先的小说写作软件
           </p>
         </div>
 
@@ -27,7 +28,7 @@
 
           <div>
             <p class="text-gray-700 leading-relaxed mb-4">
-              <strong>51码字</strong>（51mazi）是面向网文与小说作者的桌面写作工具。书籍、章节、笔记和世界观设定都保存在你指定的本地目录，断网可继续写；文本 AI、图像 AI 与自动更新等联网能力按需使用。
+              <strong>51码字</strong>（51mazi）是面向网文与小说作者的写作软件。书籍、章节、笔记和世界观设定都保存在你指定的本地目录，断网可继续写；文本 AI、图像 AI 与自动更新等联网能力按需使用。
             </p>
             <p class="text-gray-700 leading-relaxed mb-4">
               登录账号可选。正文不会自动上传到云端，请定期备份整个书籍目录。
@@ -37,7 +38,7 @@
               <li><strong>完整工作流</strong>：编辑器 + 十五项写作助手 + 近 30 日码字统计</li>
               <li><strong>可选 AI</strong>：自备 Key 或选用 51码字提供的 AI；开书灵感、润色、续写、校对、大纲 Agent、封面、插图与分享海报</li>
               <li><strong>多窗口与主题</strong>：每书独立窗口；九套主题 + 跟随系统</li>
-              <li><strong>跨平台</strong>：官方安装包覆盖 Windows（x64 / ARM64）与 macOS（Apple Silicon / Intel）</li>
+              <li><strong>跨平台</strong>：官方安装包覆盖 Windows（x64 / ARM64）、macOS（Apple Silicon / Intel）与 Android；iOS 目前内测</li>
             </ul>
           </div>
         </div>
@@ -131,10 +132,24 @@
 </template>
 
 <script setup lang="ts">
+const breadcrumbItems = [
+  { name: '首页', to: '/' },
+  { name: '关于' },
+]
+
 usePageSeo({
   title: '关于 51码字',
   description: '了解 51码字：本地优先的小说写作客户端，数据保存在你指定的目录，支持 Windows、macOS 与 Android。',
   ogTitle: '关于 51码字',
   ogDescription: '本地优先、可选 AI。正文保存在你指定的目录。',
 })
+
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: [
+      { name: '首页', item: '/' },
+      { name: '关于' },
+    ],
+  }),
+])
 </script>

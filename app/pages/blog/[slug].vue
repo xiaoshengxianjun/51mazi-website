@@ -2,15 +2,7 @@
   <div class="py-20">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto">
-        <NuxtLink
-          to="/blog"
-          class="inline-flex items-center text-primary-600 hover:text-primary-700 mb-8"
-        >
-          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-          返回博客列表
-        </NuxtLink>
+        <CommonBreadcrumb :items="breadcrumbItems" />
 
         <article v-if="post" class="bg-white rounded-lg p-8 border border-gray-200">
           <header class="mb-8">
@@ -24,11 +16,25 @@
             </h1>
           </header>
 
-          <div class="prose prose-lg max-w-none">
-            <p class="text-gray-700 leading-relaxed whitespace-pre-line">
-              {{ post.content }}
-            </p>
-          </div>
+          <BlogContent :blocks="contentBlocks" />
+
+          <nav
+            v-if="relatedLinks.length > 0"
+            class="mt-10 pt-8 border-t border-gray-200"
+            aria-label="相关页面"
+          >
+            <h2 class="text-xl font-bold text-gray-900 mb-4">相关页面</h2>
+            <ul class="flex flex-wrap gap-3">
+              <li v-for="link in relatedLinks" :key="link.to">
+                <NuxtLink
+                  :to="link.to"
+                  class="inline-flex items-center px-4 py-2 rounded-lg border border-primary-200 text-primary-700 hover:bg-primary-50 font-medium"
+                >
+                  {{ link.label }}
+                </NuxtLink>
+              </li>
+            </ul>
+          </nav>
         </article>
 
         <div v-else class="text-center py-20">
@@ -48,11 +54,29 @@
 
 <script setup lang="ts">
 import { DEFAULT_OG_IMAGE } from '~/composables/usePageSeo'
-import { getPostBySlug, toBlogIsoDate } from '~/data/blog'
+import {
+  getPostBySlug,
+  getPostRelatedLinks,
+  parseBlogContent,
+  toBlogIsoDate,
+} from '~/data/blog'
 
 const route = useRoute()
+const site = useSiteConfig()
 const slug = computed(() => String(route.params.slug || ''))
 const post = computed(() => getPostBySlug(slug.value))
+const contentBlocks = computed(() =>
+  post.value ? parseBlogContent(post.value.content) : [],
+)
+const relatedLinks = computed(() => getPostRelatedLinks(slug.value))
+const articleImage = computed(
+  () => `${site.url.replace(/\/$/, '')}${DEFAULT_OG_IMAGE}`,
+)
+const breadcrumbItems = computed(() => [
+  { name: '首页', to: '/' },
+  { name: '博客', to: '/blog' },
+  { name: post.value?.title || '博客文章' },
+])
 
 usePageSeo({
   title: () => post.value?.title || '博客文章',
@@ -68,7 +92,7 @@ useSchemaOrg(() => [
     description: post.value?.excerpt,
     datePublished: post.value ? toBlogIsoDate(post.value.date) : undefined,
     author: { name: '51码字' },
-    image: DEFAULT_OG_IMAGE,
+    image: articleImage.value,
   }),
   defineBreadcrumb({
     itemListElement: [

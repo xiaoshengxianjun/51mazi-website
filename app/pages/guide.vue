@@ -1,6 +1,7 @@
 <template>
   <div class="py-20">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <CommonBreadcrumb :items="breadcrumbItems" />
       <div class="text-center mb-16">
         <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
           使用指南
@@ -203,6 +204,11 @@ const faqs = [
   },
 ]
 
+const breadcrumbItems = [
+  { name: '首页', to: '/' },
+  { name: '使用指南' },
+]
+
 usePageSeo({
   title: '使用指南',
   description:
@@ -212,6 +218,12 @@ usePageSeo({
 })
 
 useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: [
+      { name: '首页', item: '/' },
+      { name: '使用指南' },
+    ],
+  }),
   {
     '@type': 'FAQPage',
     name: '51码字使用指南',

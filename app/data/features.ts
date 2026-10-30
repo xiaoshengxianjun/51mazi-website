@@ -70,6 +70,7 @@ export const FEATURES: FeatureDetail[] = [
     slug: 'outline',
     title: '大纲管理',
     icon: '🧭',
+    image: '/images/outline.png',
     description: '树形规划卷、章与节拍；AI 完善 / 拆分、Agent 整书规划、章纲生章',
     features: [
       '树形结构规划卷、章与节拍，支持完善或拆分选中节点',
@@ -86,6 +87,7 @@ export const FEATURES: FeatureDetail[] = [
     slug: 'setting',
     title: '设定管理',
     icon: '🗂️',
+    image: '/images/settings.png',
     description: '按分类维护世界观、体系与势力，表格编辑，可用 AI 完善介绍',
     features: [
       '树形分类 + 表格维护设定条目',

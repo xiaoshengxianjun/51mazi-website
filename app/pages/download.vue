@@ -1,6 +1,7 @@
 <template>
   <div class="py-20">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <CommonBreadcrumb :items="breadcrumbItems" />
       <div class="text-center mb-16">
         <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">下载 51码字</h1>
         <p class="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -238,6 +239,11 @@ const mobileCards = computed(() => {
   ]
 })
 
+const breadcrumbItems = [
+  { name: '首页', to: '/' },
+  { name: '下载' },
+]
+
 usePageSeo({
   title: '下载 51码字（Windows / macOS / Android）',
   description:
@@ -247,4 +253,13 @@ usePageSeo({
 })
 
 useSoftwareAppSchema()
+
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: [
+      { name: '首页', item: '/' },
+      { name: '下载' },
+    ],
+  }),
+])
 </script>

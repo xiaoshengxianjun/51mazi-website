@@ -51,7 +51,7 @@ export default defineNuxtConfig({
     url: process.env.NUXT_PUBLIC_SITE_URL || "https://www.51mazi.com",
     name: "51码字",
     description:
-      "51码字是本地优先的小说写作桌面客户端。书籍与设定保存在你指定的目录，断网可写；编辑器、十五项写作助手、可选 AI 辅助，按需联网。",
+      "51码字是本地优先的小说写作软件。书籍与设定保存在你指定的目录，断网可写；编辑器、十五项写作助手、可选 AI 辅助，按需联网。支持 Windows、macOS 与 Android。",
     defaultLocale: "zh-CN",
     indexable: true
   },
@@ -67,7 +67,7 @@ export default defineNuxtConfig({
       type: "Organization",
       name: "51码字",
       url: "https://www.51mazi.com",
-      logo: "/logo.png"
+      logo: "https://www.51mazi.com/logo.png"
     }
   },
 

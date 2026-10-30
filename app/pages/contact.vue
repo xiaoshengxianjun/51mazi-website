@@ -2,6 +2,7 @@
   <div class="py-20">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto">
+        <CommonBreadcrumb :items="breadcrumbItems" />
         <div class="text-center mb-16">
           <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
             联系我们
@@ -158,10 +159,24 @@ onUnmounted(() => {
   window.removeEventListener('keydown', handleEscape)
 })
 
+const breadcrumbItems = [
+  { name: '首页', to: '/' },
+  { name: '联系我们' },
+]
+
 usePageSeo({
   title: '联系我们',
   description: '联系 51码字：QQ 群、邮箱与赞助作者。申请 iOS 内测也可加群或来信。',
   ogTitle: '联系我们 - 51码字',
   ogDescription: 'QQ 群、邮箱与赞助。',
 })
+
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: [
+      { name: '首页', item: '/' },
+      { name: '联系我们' },
+    ],
+  }),
+])
 </script>

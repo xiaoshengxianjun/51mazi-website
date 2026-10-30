@@ -1,0 +1,19 @@
+# 51码字
+
+> 本地优先的小说写作软件。书籍与设定保存在你指定的目录，断网可写。
+
+官网：https://www.51mazi.com
+下载：https://www.51mazi.com/download
+
+51码字面向网文和小说作者。章节、笔记、大纲、人物、地图和伏笔等按书保存在本地文件夹。可选 AI 用于润色、续写、校对、开书灵感和出图，按需联网。书架可发布或报名原创文学约稿；平台只撮合，不参与结算。
+
+桌面端提供 Windows 与 macOS 安装包；Android 可在官网下载 APK；iOS 目前内测，见联系页。
+
+## 页面
+
+- [下载](https://www.51mazi.com/download)
+- [功能特性](https://www.51mazi.com/features)
+- [使用指南](https://www.51mazi.com/guide)
+- [博客](https://www.51mazi.com/blog)
+- [关于](https://www.51mazi.com/about)
+- [联系我们](https://www.51mazi.com/contact)

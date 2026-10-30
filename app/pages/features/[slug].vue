@@ -1,15 +1,7 @@
 <template>
   <div class="py-20">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <NuxtLink
-        to="/features"
-        class="inline-flex items-center text-primary-600 hover:text-primary-700 mb-8"
-      >
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-        返回功能列表
-      </NuxtLink>
+      <CommonBreadcrumb :items="breadcrumbItems" />
 
       <div v-if="feature" class="max-w-4xl mx-auto">
         <div class="text-center mb-12">
@@ -120,6 +112,20 @@
             </NuxtLink>
           </div>
         </div>
+
+        <div
+          v-if="relatedPost"
+          class="mt-12 p-6 bg-primary-50 rounded-lg border border-primary-200"
+        >
+          <h2 class="text-xl font-bold text-gray-900 mb-2">相关介绍</h2>
+          <NuxtLink
+            :to="`/blog/${relatedPost.slug}`"
+            class="text-primary-600 hover:text-primary-700 font-medium"
+          >
+            {{ relatedPost.title }}
+          </NuxtLink>
+          <p class="text-gray-600 mt-2">{{ relatedPost.excerpt }}</p>
+        </div>
       </div>
 
       <div v-else class="text-center py-20">
@@ -137,6 +143,7 @@
 </template>
 
 <script setup lang="ts">
+import { getRelatedPostForFeature } from '~/data/blog'
 import { getFeatureBySlug, getRelatedFeatures } from '~/data/features'
 
 const route = useRoute()
@@ -144,9 +151,16 @@ const slug = computed(() => String(route.params.slug || ''))
 
 const feature = computed(() => getFeatureBySlug(slug.value))
 const relatedFeatures = computed(() => getRelatedFeatures(slug.value))
+const relatedPost = computed(() => getRelatedPostForFeature(slug.value))
+const breadcrumbItems = computed(() => [
+  { name: '首页', to: '/' },
+  { name: '功能特性', to: '/features' },
+  { name: feature.value?.title || '功能详情' },
+])
 
 usePageSeo({
-  title: () => feature.value?.title || '功能详情',
+  title: () =>
+    feature.value ? `${feature.value.title} - 本地小说写作` : '功能详情',
   description: () =>
     feature.value
       ? `${feature.value.description}。51码字本地小说写作软件功能。`

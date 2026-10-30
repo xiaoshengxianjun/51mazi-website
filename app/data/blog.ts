@@ -165,6 +165,176 @@ export function getPostBySlug(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find((item) => item.slug === slug)
 }
 
+export interface RelatedLink {
+  label: string
+  to: string
+}
+
+/** 文章页链到对应功能/下载，避免介绍页成为孤岛 */
+const POST_RELATED_LINKS: Record<string, RelatedLink[]> = {
+  'writer-orders': [
+    { label: '写手接单', to: '/features/writer-orders' },
+    { label: '下载 51码字', to: '/download' },
+  ],
+  'book-inspiration': [
+    { label: '开书灵感', to: '/features/book-inspiration' },
+    { label: '本地书架', to: '/features/bookshelf' },
+  ],
+  'scene-share-poster': [
+    { label: 'AI 辅助', to: '/features/ai-scene' },
+    { label: '智能编辑器', to: '/features/editor' },
+  ],
+  'character-share-poster': [{ label: '人物图谱', to: '/features/character' }],
+  'phone-sync': [
+    { label: '下载 Android', to: '/download' },
+    { label: '联系客服（iOS 内测）', to: '/contact' },
+  ],
+  'nested-notebooks': [{ label: '智能编辑器', to: '/features/editor' }],
+  'signing-review': [{ label: '签约评审', to: '/features/signing-review' }],
+  'book-search-and-import': [{ label: '智能编辑器', to: '/features/editor' }],
+  'inspiration-notes': [
+    { label: '灵感随笔', to: '/features/inspiration' },
+    { label: '伏笔记录', to: '/features/foreshadow' },
+  ],
+  'book-management': [
+    { label: '书架与码字统计', to: '/features/bookshelf' },
+    { label: '写手接单', to: '/features/writer-orders' },
+    { label: '开书灵感', to: '/features/book-inspiration' },
+  ],
+  'deepseek-integration': [{ label: 'AI 辅助', to: '/features/ai-scene' }],
+  'ai-naming-assistant': [{ label: '随机起名', to: '/features/random-name' }],
+  'map-design-overview': [{ label: '设计地图', to: '/features/map' }],
+  'text-highlight': [
+    { label: '智能编辑器', to: '/features/editor' },
+    { label: '人物图谱', to: '/features/character' },
+    { label: '伏笔记录', to: '/features/foreshadow' },
+  ],
+  'paragraph-drag': [
+    { label: '功能特性', to: '/features' },
+    { label: '使用指南', to: '/guide' },
+  ],
+}
+
+export function getPostRelatedLinks(slug: string): RelatedLink[] {
+  return POST_RELATED_LINKS[slug] ?? []
+}
+
+/** 功能页链回对应介绍文章 */
+const FEATURE_TO_POST: Record<string, string> = {
+  'writer-orders': 'writer-orders',
+  'book-inspiration': 'book-inspiration',
+  'ai-scene': 'deepseek-integration',
+  character: 'character-share-poster',
+  editor: 'book-search-and-import',
+  'signing-review': 'signing-review',
+  inspiration: 'inspiration-notes',
+  bookshelf: 'book-management',
+  'random-name': 'ai-naming-assistant',
+  map: 'map-design-overview',
+  foreshadow: 'text-highlight',
+  outline: 'paragraph-drag',
+  setting: 'paragraph-drag',
+}
+
+export function getRelatedPostForFeature(featureSlug: string): BlogPost | undefined {
+  const slug = FEATURE_TO_POST[featureSlug]
+  return slug ? getPostBySlug(slug) : undefined
+}
+
+export type BlogBlock =
+  | { type: 'p'; text: string }
+  | { type: 'h2'; text: string }
+  | { type: 'ul'; items: string[] }
+  | { type: 'ol'; items: string[] }
+
+/** 把现有「空行 + 列表」文案拆成标题、段落和列表，供搜索引擎按结构读取 */
+export function parseBlogContent(content: string): BlogBlock[] {
+  const lines = content.replace(/\r\n/g, '\n').split('\n')
+  const blocks: BlogBlock[] = []
+  let paragraph: string[] = []
+  let unordered: string[] | null = null
+  let ordered: string[] | null = null
+
+  const flushParagraph = () => {
+    const text = paragraph.join('').trim()
+    paragraph = []
+    if (text) {
+      blocks.push({ type: 'p', text })
+    }
+  }
+
+  const flushLists = () => {
+    if (unordered?.length) {
+      blocks.push({ type: 'ul', items: unordered })
+    }
+    if (ordered?.length) {
+      blocks.push({ type: 'ol', items: ordered })
+    }
+    unordered = null
+    ordered = null
+  }
+
+  for (const raw of lines) {
+    const line = raw.trimEnd()
+    const unorderedMatch = line.match(/^- (.+)$/)
+    const orderedMatch = line.match(/^\d+\. (.+)$/)
+
+    if (unorderedMatch?.[1]) {
+      flushParagraph()
+      if (ordered) {
+        blocks.push({ type: 'ol', items: ordered })
+        ordered = null
+      }
+      if (!unordered) {
+        unordered = []
+      }
+      unordered.push(unorderedMatch[1])
+      continue
+    }
+
+    if (orderedMatch?.[1]) {
+      flushParagraph()
+      if (unordered) {
+        blocks.push({ type: 'ul', items: unordered })
+        unordered = null
+      }
+      if (!ordered) {
+        ordered = []
+      }
+      ordered.push(orderedMatch[1])
+      continue
+    }
+
+    flushLists()
+
+    if (!line.trim()) {
+      flushParagraph()
+      continue
+    }
+
+    const trimmed = line.trim()
+    // 短句且以中文冒号结尾，当作小节标题（如「可以做什么：」）
+    // 含逗号的长句（如「……覆盖：」后接列表）仍按段落处理
+    if (
+      trimmed.length <= 40
+      && /：$/.test(trimmed)
+      && !trimmed.includes('。')
+      && !trimmed.includes('，')
+      && !trimmed.includes(',')
+    ) {
+      flushParagraph()
+      blocks.push({ type: 'h2', text: trimmed.replace(/：$/, '') })
+      continue
+    }
+
+    paragraph.push(trimmed)
+  }
+
+  flushLists()
+  flushParagraph()
+  return blocks
+}
+
 /** 将「2026-09」这类月份日期补成 ISO，供 Article 结构化数据使用 */
 export function toBlogIsoDate(date: string): string {
   if (/^\d{4}-\d{2}-\d{2}$/.test(date)) {

@@ -1,12 +1,20 @@
 <template>
   <div class="py-20">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <CommonBreadcrumb :items="breadcrumbItems" />
       <div class="text-center mb-16">
         <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
           功能特性
         </h1>
         <p class="text-xl text-gray-600 max-w-2xl mx-auto">
           与桌面端一致：本地写作、十五项写作助手、可选 AI。
+        </p>
+        <p class="text-gray-600 max-w-2xl mx-auto mt-4">
+          可先对照
+          <NuxtLink to="/guide" class="text-primary-600 hover:text-primary-700 font-medium">使用指南</NuxtLink>
+          上手，或阅读
+          <NuxtLink to="/blog" class="text-primary-600 hover:text-primary-700 font-medium">博客</NuxtLink>
+          了解写手接单、开书灵感等近期能力。
         </p>
       </div>
 
@@ -43,6 +51,11 @@ import { getFeaturesInDisplayOrder } from '~/data/features'
 
 const features = getFeaturesInDisplayOrder()
 
+const breadcrumbItems = [
+  { name: '首页', to: '/' },
+  { name: '功能特性' },
+]
+
 usePageSeo({
   title: '功能特性',
   description:
@@ -50,4 +63,13 @@ usePageSeo({
   ogTitle: '51码字功能特性',
   ogDescription: '本地小说写作软件完整功能：编辑器、写作助手与可选 AI。',
 })
+
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: [
+      { name: '首页', item: '/' },
+      { name: '功能特性' },
+    ],
+  }),
+])
 </script>

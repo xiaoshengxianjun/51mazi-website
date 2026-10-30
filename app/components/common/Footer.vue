@@ -5,7 +5,7 @@
         <div>
           <h3 class="text-white text-lg font-semibold mb-4">关于 51码字</h3>
           <p class="text-sm leading-relaxed">
-            本地优先的小说写作桌面客户端。书籍与设定保存在你指定的目录，断网可写；文本 AI、图像 AI 与自动更新按需联网。
+            本地优先的小说写作软件。书籍与设定保存在你指定的目录，断网可写；文本 AI、图像 AI 与自动更新按需联网。
           </p>
         </div>
 

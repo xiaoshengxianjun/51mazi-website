@@ -1,6 +1,7 @@
 <template>
   <div class="py-20">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <CommonBreadcrumb :items="breadcrumbItems" />
       <div class="text-center mb-16">
         <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
           博客
@@ -54,10 +55,24 @@
 <script setup lang="ts">
 import { BLOG_POSTS } from '~/data/blog'
 
+const breadcrumbItems = [
+  { name: '首页', to: '/' },
+  { name: '博客' },
+]
+
 usePageSeo({
   title: '博客',
   description: '51码字博客：写手接单、开书灵感、本地书架、写作助手、灵感随笔、签约评审、AI 设置与地图等功能说明。',
   ogTitle: '51码字博客',
   ogDescription: '对照当前桌面端的功能介绍。',
 })
+
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: [
+      { name: '首页', item: '/' },
+      { name: '博客' },
+    ],
+  }),
+])
 </script>
