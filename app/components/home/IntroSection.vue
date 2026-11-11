@@ -14,8 +14,9 @@
             51码字面向网文和小说作者。书籍、章节、笔记和世界观设定都保存在你指定的文件夹里，不强制登录，断网也能写。
           </p>
           <p>
-            正文和笔记在编辑器里完成；大纲、人物、地图、伏笔等写作助手按书隔离。需要时再用可选 AI 做润色、续写、校对或出图。书架上还可以
-            <NuxtLink to="/features/writer-orders" class="text-primary-600 hover:text-primary-700 font-medium">发布或报名原创文学约稿</NuxtLink>。
+            正文和笔记在编辑器里完成；大纲、人物、地图、伏笔等写作助手按书隔离。需要时再用可选 AI 做润色、续写、校对或出图。书架上还可以进入
+            <NuxtLink to="/features/writer-treasure" class="text-primary-600 hover:text-primary-700 font-medium">写手宝藏</NuxtLink>
+            ，发布或报名原创文学约稿，或查阅按分类整理的写作资料。
           </p>
           <p>
             桌面端提供 Windows 与 macOS 安装包，Android 可在官网下载，iOS 目前内测。

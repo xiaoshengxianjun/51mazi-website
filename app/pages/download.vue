@@ -14,7 +14,7 @@
           <p class="text-sm text-primary-700 mb-2">当前稳定版</p>
           <p class="text-3xl font-bold text-primary-900 mb-2">{{ version }}</p>
           <p class="text-sm text-gray-700 mb-2">
-            本版新增码字反馈：可在编辑器打开打字音效和光标特效。
+            本版更新写手宝藏：新增宝藏资料，并优化设定管理与小说下载。
           </p>
           <p class="text-sm text-gray-600">
             桌面端启动后会自动检查更新；Android 可在本页直接下载 APK。
@@ -22,8 +22,8 @@
           <p v-if="appVersion" class="text-sm text-gray-500 mt-2">
             Android 当前稳定版 {{ appVersion }}
           </p>
-          <NuxtLink to="/features/editor" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">
-            了解智能编辑器 →
+          <NuxtLink to="/features/writer-treasure" class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium">
+            了解写手宝藏 →
           </NuxtLink>
         </div>
       </div>

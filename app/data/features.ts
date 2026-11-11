@@ -20,11 +20,11 @@ export const FEATURES: FeatureDetail[] = [
     title: '书架与码字统计',
     icon: '📚',
     image: '/images/ai_cover.png',
-    description: '本地书架管理多本作品，可选开书灵感、写手接单与 AI 封面；首页汇总近 30 日码字图',
+    description: '本地书架管理多本作品，可选开书灵感、写手宝藏与 AI 封面；首页汇总近 30 日码字图',
     features: [
       '新建 / 编辑 / 删除书籍，卡片展示书名、类型、简介、目标字数与封面',
       '选题卡住时，可从书架进入「开书灵感」，按平台和品类生成方案并预填新书',
-      '书架上方「写手接单」进入原创约稿，可发布需求、报名或保存分享海报',
+      '书架上方「写手宝藏」进入枢纽：可去写手接单，或查看宝藏资料',
       '单击或双击打开独立编辑器窗口；同一本书再次点击会聚焦已有窗口',
       '数据保存在你指定的书籍主目录，每本书独立文件夹，互不干扰',
       '书架密码：打开应用后先验证，8～16 位字母或数字',
@@ -35,7 +35,7 @@ export const FEATURES: FeatureDetail[] = [
     ],
     useCase:
       '适合同时推进多部作品。先选好稳定可备份的本地目录，再建书开写；封面与码字图帮你保持节奏，密码保护可选叠加。',
-    related: ['writer-orders', 'book-inspiration', 'editor'],
+    related: ['writer-treasure', 'writer-orders', 'book-inspiration'],
   },
   {
     slug: 'editor',
@@ -89,15 +89,17 @@ export const FEATURES: FeatureDetail[] = [
     title: '设定管理',
     icon: '🗂️',
     image: '/images/settings.png',
-    description: '按分类维护世界观、体系与势力，表格编辑，可用 AI 完善介绍',
+    description: '自建分类维护世界观与体系；条目可互相关联，表格编辑，可用 AI 完善介绍',
     features: [
-      '树形分类 + 表格维护设定条目',
-      '拖拽排序，适合世界观、力量体系、势力与规则',
+      '可自建根分类与子分类，分类可填写介绍；仅末级分类添加设定条目',
+      '树形分类 + 表格维护设定，支持拖拽排序',
+      '条目可关联其他一级分类下的设定，列表可按关联分类分组查看',
       '可用文本 AI 完善条目介绍',
+      '可将整棵设定树导出为 Markdown，或写入「设定」笔记本',
       '数据随本书保存在本地，与正文隔离',
     ],
     useCase:
-      '长篇开写前先把世界规则写清楚。设定表和人物、大纲、时间线一起用，能减少前后矛盾。',
+      '按自己的世界观拆分类，再把人物、势力、宝物等条目互相关联。设定表和人物、大纲、时间线一起用，能减少前后矛盾。',
     related: ['character', 'outline', 'dictionary'],
   },
   {
@@ -315,12 +317,29 @@ export const FEATURES: FeatureDetail[] = [
     related: ['bookshelf', 'signing-review', 'ai-scene'],
   },
   {
+    slug: 'writer-treasure',
+    title: '写手宝藏',
+    icon: '💎',
+    description: '书架上方进入枢纽：写手接单发布或报名原创约稿，宝藏资料按分类汇总写作参考',
+    features: [
+      '从书架主体上方「写手宝藏」进入，页上有「写手接单」和「宝藏资料」两张卡片',
+      '写手接单：发布或报名正文、章纲、大纲、设定和润色，平台只撮合，不参与结算',
+      '宝藏资料：全网搜集整理的小说写作资料，按类型分类汇总',
+      '资料涵盖写作方法、等级体系、宝物、功法，以及常见题材的写法要点',
+      '点分类进入条目列表阅读；内容会持续收录和更新',
+      '查看资料需要联网',
+    ],
+    useCase:
+      '约稿找人帮忙，或先翻一翻按题材整理好的写法资料，再回到本书继续写。',
+    related: ['writer-orders', 'bookshelf', 'setting'],
+  },
+  {
     slug: 'writer-orders',
     title: '写手接单',
     icon: '📝',
-    description: '书架上方进入原创约稿：发布需求或报名，平台只撮合，不参与结算',
+    description: '写手宝藏中的原创约稿：发布需求或报名，平台只撮合，不参与结算',
     features: [
-      '从书架主体上方「写手接单」进入，分为大厅、我发布的、我报名的',
+      '从书架主体上方「写手宝藏」进入，再点「写手接单」。分为大厅、我发布的、我报名的',
       '类型可选正文、章纲、大纲、设定和润色；截稿日用日历选择',
       '只接受原创文学约稿，不能发布论文、作业或考试代写',
       '平台只负责撮合，不参与稿费结算，也不保证交付',
@@ -330,7 +349,7 @@ export const FEATURES: FeatureDetail[] = [
     ],
     useCase:
       '已有大纲、来不及写正文时，把需求发到大厅；其他作者可报名接单。联系方式和稿费由双方自行约定。',
-    related: ['bookshelf', 'outline', 'book-inspiration'],
+    related: ['writer-treasure', 'bookshelf', 'book-inspiration'],
   },
   {
     slug: 'ai-scene',
@@ -357,9 +376,11 @@ export const FEATURES: FeatureDetail[] = [
     title: '下载小说',
     icon: '📥',
     image: '/images/novelDownload.png',
-    description: '多书源搜索、抓取章节，导入本地书架或导出 TXT；仅供个人学习对照',
+    description: '多书源按书名或作者搜索、抓取章节，导入本地书架或导出 TXT；仅供个人学习对照',
     features: [
-      '多书源搜索书名，抓取章节后导入书架或导出 TXT',
+      '选择书源后，可按书名或作者搜索',
+      '查看章节列表并抓取，下载过程显示进度',
+      '抓取后可导入本地书架继续改写，或导出 TXT',
       '书源为第三方站点，可用性可能变化',
       '使用前请阅读页面免责声明，遵守版权与站点规则',
       '不能把下载内容当作自己的作品发布',
@@ -372,6 +393,7 @@ export const FEATURES: FeatureDetail[] = [
 
 /** 官网功能列表顺序：先排更有辨识度、用户更关心的能力 */
 export const FEATURE_DISPLAY_SLUGS = [
+  'writer-treasure',
   'writer-orders',
   'book-inspiration',
   'signing-review',
